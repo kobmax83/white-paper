@@ -164,3 +164,16 @@
 - [O'Reilly — Disciplined Entrepreneurship Workbook](https://oreilly.com/library/view/disciplined-entrepreneurship-workbook/9781119365792)
 - [MIT News — New AI JetPack accelerates the entrepreneurial process (2024)](https://news.mit.edu/2024/new-ai-jetpack-accelerates-entrepreneurial-process-0919)
 - [www.d-eship.com](https://www.d-eship.com)
+
+## Русская векторная версия плаката
+
+В папке [`poster/`](poster/) лежит собственная русская версия плаката: тот же маршрут
+из 24 шагов, шесть цветов тем, пунктирные возвраты и таблица «Шесть тем».
+Дизайн, перевод и иллюстрации нарисованы заново.
+
+- `poster-ru.pdf` — для печати, формат A1 (594×841 мм), полностью векторный;
+  масштабируется на A2/A3 без потери качества;
+- `poster-ru.svg` — исходник для редактирования (текст переведён в кривые);
+- `poster-ru-preview.png` — превью;
+- `make_poster.py` + `render.js` — генератор: правьте тексты в `STEPS`/`THEMES`,
+  затем `python3 make_poster.py && node render.js`.
