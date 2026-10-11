@@ -177,3 +177,13 @@
 - `poster-ru-preview.png` — превью;
 - `make_poster.py` + `render.js` — генератор: правьте тексты в `STEPS`/`THEMES`,
   затем `python3 make_poster.py && node render.js`.
+
+## Игра «Стартап-квест»
+
+В папке [`game/`](game/) — веб-игра из 8 миссий по методике для подростков
+(пример бизнеса — ароматы, с «поворотом» на законный вариант в миссии 7).
+
+- `startup-quest.html` — исходник (версия для Claude Artifact);
+- `index.html` — полный HTML-документ для хостинга, собирается командой `./build_index.sh`;
+- публикация на Vercel: New Project → импорт этого репозитория → **Root Directory**:
+  `research/disciplined-entrepreneurship/game`, Framework Preset: **Other**, без команды сборки.
