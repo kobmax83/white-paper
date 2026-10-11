@@ -258,18 +258,53 @@ input[type=range] { width: 100%; accent-color: var(--mc); }
 .outcome.best { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
 .outcome.ok { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, var(--surface)); }
 .outcome.bad { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
-.legend { border: 2px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--surface); text-align: left; width: 100%; }
-.legend .lh { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; padding: 12px; background: color-mix(in srgb, var(--lc) 14%, var(--surface)); }
-.mono { width: 52px; height: 52px; border-radius: 14px; background: var(--lc); color: #fff; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 17px; border: 2px solid var(--road-edge); flex: none; }
-.legend .lb { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-.legend .lesson { border-left: 5px solid var(--lc); padding-left: 10px; font-weight: 700; }
-.legend .try { font-size: 14px; background: var(--surface-2); border-radius: 10px; padding: 8px 10px; }
-.hall { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 10px; }
-.hallcard { border: 2px solid var(--line); border-radius: 14px; padding: 10px 6px; background: var(--surface-2); display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 12px; font-weight: 800; min-width: 0; overflow-wrap: anywhere; }
-.hallcard .mono { width: 44px; height: 44px; font-size: 14px; }
+.legend { border: 2px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--surface); text-align: left; width: 100%; }
+.legend .lh { display: grid; grid-template-columns: 72px 1fr; gap: 12px; align-items: center; padding: 12px; background: color-mix(in srgb, var(--lc) 16%, var(--surface)); }
+.legend .lh > svg { width: 72px; height: 72px; }
+.legend .lname { display: block; font-family: var(--font-display); font-size: 16px; font-weight: 600; margin-top: 4px; }
+.legend .lb { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.legend .hook { font-weight: 800; font-size: 17px; line-height: 1.35; }
+.chip { display: inline-flex; gap: 5px; align-items: center; font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 99px; background: var(--lc); color: #fff; letter-spacing: .02em; }
+.chip.light { background: rgba(255,255,255,.25); color: inherit; border: 1.5px solid currentColor; }
+.hall { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+.hallcard { border: 2px solid var(--line); border-radius: 16px; padding: 10px 6px; background: var(--surface-2); display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; font-size: 12px; font-weight: 800; min-width: 0; overflow-wrap: anywhere; transition: transform .12s; }
+.hallcard:hover { transform: translateY(-2px); }
+.hallcard small { font-size: 10px; font-weight: 700; color: var(--ink-soft); }
 .hallcard.locked { color: var(--ink-soft); }
-.hallcard.locked .mono { background: var(--locked); }
-.hallcard.unread { border: 2px dashed var(--lc); }
+.hallcard.unread { border: 2px dashed var(--lc); background: color-mix(in srgb, var(--lc) 8%, var(--surface)); }
+.storyview { position: fixed; inset: 0; z-index: 46; background: rgba(8, 12, 22, .78); display: grid; place-items: center; padding: 12px; }
+.sv-card { position: relative; width: 100%; max-width: 420px; height: min(720px, calc(100dvh - 24px)); border-radius: 26px; border: 3px solid var(--road-edge); box-shadow: 6px 6px 0 var(--road-edge);
+  background: radial-gradient(circle at 85% 10%, rgba(255,255,255,.25) 0 60px, transparent 61px), radial-gradient(circle at 10% 90%, rgba(255,255,255,.12) 0 90px, transparent 91px), linear-gradient(160deg, var(--lc), color-mix(in srgb, var(--lc) 55%, #10131c));
+  color: #fff; overflow: hidden; display: flex; flex-direction: column; animation: popin .4s cubic-bezier(.2,1.3,.4,1); }
+.storyview.dk .sv-card { color: #1b2333; background: radial-gradient(circle at 85% 10%, rgba(255,255,255,.35) 0 60px, transparent 61px), linear-gradient(160deg, var(--lc), color-mix(in srgb, var(--lc) 60%, #fff)); }
+.sv-bars { display: flex; gap: 4px; padding: 12px 12px 0; position: relative; z-index: 3; }
+.sv-bars i { flex: 1; height: 4px; border-radius: 99px; background: rgba(255,255,255,.35); overflow: hidden; }
+.storyview.dk .sv-bars i { background: rgba(27,35,51,.25); }
+.sv-bars i b { display: block; height: 100%; width: 0; background: currentColor; transition: width .35s; }
+.sv-bars i.done b, .sv-bars i.cur b { width: 100%; }
+.sv-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; position: relative; z-index: 3; }
+.sv-mini { display: flex; gap: 8px; align-items: center; font-weight: 800; font-size: 14px; }
+.sv-x { width: 40px; height: 40px; border-radius: 12px; border: 2px solid currentColor; background: transparent; color: inherit; font-size: 24px; line-height: 1; }
+.sv-prev, .sv-next { position: absolute; top: 72px; bottom: 0; border: 0; background: transparent; z-index: 1; padding: 0; }
+.sv-prev { left: 0; width: 33%; } .sv-next { right: 0; width: 67%; }
+.sv-body { flex: 1; padding: 6px 22px 26px; display: flex; position: relative; z-index: 2; pointer-events: none; overflow: hidden; }
+.sv-body button { pointer-events: auto; }
+.sv-slide { margin: auto 0; display: flex; flex-direction: column; gap: 14px; width: 100%; animation: slidein .35s ease-out; }
+@keyframes slidein { from { transform: translateX(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.sv-slide p { font-size: clamp(16px, 4.4vw, 19px); line-height: 1.45; font-weight: 600; }
+.sv-slide mark { background: #ffd23f; color: #1b2333; padding: 0 .2em; border-radius: .25em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.sv-ico { width: 62px; height: 62px; border-radius: 18px; background: rgba(255,255,255,.2); border: 2px solid currentColor; display: grid; place-items: center; font-size: 34px; }
+.sv-k { font-weight: 800; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; opacity: .9; }
+.sv-big { font-family: var(--font-display); font-weight: 800; font-size: clamp(42px, 13vw, 62px); line-height: 1; }
+.sv-cover { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+.sv-cover h2 { font-size: 26px; }
+.sv-brand { font-weight: 800; opacity: .85; }
+.sv-hook { font-family: var(--font-display); font-weight: 600; font-size: clamp(17px, 4.6vw, 20px) !important; line-height: 1.3 !important; }
+.sv-note { font-size: 12px; opacity: .75; font-weight: 700; }
+.sv-lesson { font-family: var(--font-display); font-weight: 600 !important; }
+.sv-try { background: rgba(255,255,255,.18); border-radius: 14px; padding: 10px 12px; font-size: 16px !important; }
+.sv-xp { font-size: 14px !important; font-weight: 800 !important; }
+.sv-slide .btn { align-self: flex-start; background: #fff; color: #1b2333; border-color: #1b2333; }
 .overlay .modal { max-height: 88vh; overflow: auto; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
@@ -689,54 +724,215 @@ const EVENTS = [
     lesson: "Сначала захвати плацдарм, потом иди на следующий рынок — как Facebook после Гарварда." }
 ];
 
-/* ---------- Зал славы: реальные истории, привязанные к миссиям */
+/* ---------- Зал славы: реальные истории, привязанные к миссиям.
+   Формат «сторис»: кем был → что все пропускали → гениальный ход → результат → твой ход.
+   **текст** — выделение. av — параметры рисованного образа (не портрет, а узнаваемый стиль). */
 const LEGENDS = [
-  { id: "facebook", m: "m1", mono: "FB", name: "Facebook", who: "Марк Цукерберг, 2004",
-    story: "Facebook сначала был только для студентов Гарварда. Через месяц его открыли ещё нескольким университетам, потом всем студентам США, и только через два с половиной года — всем желающим.",
-    lesson: "Классический плацдарм: захватить одну маленькую группу, где все друг друга знают, а потом расширяться.", try: "Назови свой «Гарвард» — группу, с которой начнёшь." },
-  { id: "amazon", m: "m1", mono: "AM", name: "Amazon", who: "Джефф Безос, 1995",
-    story: "Безос мог продавать что угодно, но начал только с книг: их очень много, они одинаковые в любом магазине и их удобно пересылать. Музыку, игрушки и всё остальное Amazon добавил позже.",
-    lesson: "Один понятный продукт для одного рынка. «Магазин всего» вырос из маленького плацдарма.", try: "Выбери 3 аромата для старта, а не 30." },
-  { id: "airbnb", m: "m2", mono: "AB", name: "Airbnb", who: "Брайан Чески, Джо Геббиа, Нейтан Блечарчик, 2008",
-    story: "Когда денег совсем не было, основатели продавали коробки хлопьев «Obama O's» и заработали около 30 000 $. А чтобы понять клиентов, они сами ездили к хозяевам квартир в Нью-Йорке, знакомились с ними и фотографировали их жильё.",
-    lesson: "Лучшие идеи приходят из живых разговоров с клиентами, а не из интернета.", try: "Встреться лично с 1 человеком из списка «10 клиентов»." },
-  { id: "glossier", m: "m2", mono: "GL", name: "Glossier", who: "Эмили Вайс, 2014",
-    story: "Сначала Эмили 4 года вела бьюти-блог Into The Gloss и общалась с читательницами. Она так хорошо знала их желания, что первые продукты Glossier делала по их просьбам и комментариям.",
-    lesson: "Персона — не выдумка. Эмили знала своих клиенток по именам и комментариям.", try: "Запиши 3 фразы, которые твоя персона говорит о духах." },
-  { id: "spanx", m: "m3", mono: "SP", name: "Spanx", who: "Сара Блейкли, 2000",
-    story: "Сара сама мучилась: под белые брюки не было подходящего белья. Она отрезала у колготок «ноги» — так появилась идея. Начала с 5 000 $ сбережений, а в 2012 году Forbes назвал её самой молодой женщиной-миллиардером, заработавшей всё сама.",
-    lesson: "Ценность — это решение настоящей проблемы, которую человек чувствует сам.", try: "Спроси 1 человека: что бесит его при покупке духов?" },
-  { id: "mosbows", m: "m4", mono: "MB", name: "Mo's Bows", who: "Мозайя Бриджес, начал в 9 лет",
-    story: "Мозайя хотел стильную бабочку, но в магазинах были только скучные. Бабушка научила его шить, и в 9 лет он начал делать свои яркие бабочки. Потом были выступление в шоу Shark Tank и контракт с НБА на бабочки для всех команд лиги.",
-    lesson: "Ядро — то, что умеешь только ты: свой стиль и ручная работа, которую не купишь на маркетплейсе.", try: "Придумай одну «фишку», которой нет у конкурентов." },
-  { id: "mikaila", m: "m5", mono: "ML", name: "Me & the Bees", who: "Микайла Улмер, начала в 4 года",
-    story: "Микайла начала продавать лимонад с мёдом по бабушкиному рецепту, когда ей было 4 года. Позже, чтобы лимонад появился на полках сети Whole Foods, ей пришлось убеждать закупщиков — и у неё получилось.",
-    lesson: "Продажа в магазин — это тоже «команда решения»: убеди того, кто решает, а не только того, кто пьёт.", try: "Подумай, кого ещё нужно убедить, кроме Маши." },
-  { id: "estee", m: "m6", mono: "EL", name: "Estée Lauder", who: "Эсте Лаудер, 1946",
-    story: "Эсте Лаудер одной из первых начала раздавать бесплатные пробники и дарить подарки к покупке. Она была уверена: стоит женщине попробовать крем или аромат — и она купит. Сегодня это одна из крупнейших бьюти-компаний мира.",
-    lesson: "Пробники — это COCA: они стоят денег, но приводят клиентов. Главное — считать, окупаются ли они.", try: "Посчитай, во сколько тебе обходится 1 пробник." },
-  { id: "buffett", m: "m6", mono: "WB", name: "Уоррен Баффет", who: "первый бизнес в 6 лет",
-    story: "В 6 лет Баффет покупал упаковку из шести бутылок Coca-Cola за 25 центов и продавал каждую бутылку по 5 центов. Прибыль — 5 центов с упаковки. Маленькие деньги, но он сразу понял, как работает маржа.",
-    lesson: "Маржа = цена − себестоимость. Даже один из богатейших людей мира начинал с подсчёта центов.", try: "Посчитай маржу с одного своего флакона." },
-  { id: "zappos", m: "m7", mono: "ZP", name: "Zappos", who: "Ник Свинмерн, 1999",
-    story: "Ник не знал, будут ли люди покупать обувь в интернете. Вместо склада он сфотографировал обувь в местных магазинах и выложил на сайт. Приходил заказ — он шёл в магазин, покупал пару и отправлял. Спрос подтвердился, и в 2009 году Amazon купил Zappos примерно за 1,2 млрд $.",
-    lesson: "Проверь допущение до закупки: сначала заказ, потом товар.", try: "Собери предзаказы, прежде чем закупать флаконы." },
-  { id: "dropbox", m: "m7", mono: "DB", name: "Dropbox", who: "Дрю Хьюстон, 2007",
-    story: "Сделать продукт было долго и дорого, поэтому Дрю сначала записал короткое видео о том, как будет работать Dropbox. За одну ночь список желающих вырос с 5 000 до 75 000 человек.",
-    lesson: "Иногда достаточно показать идею, чтобы проверить спрос.", try: "Покажи друзьям фото 3 ароматов и посчитай, сколько скажут «хочу»." },
-  { id: "instagram", m: "m7", mono: "IG", name: "Instagram", who: "Кевин Систром и Майк Кригер, 2010",
-    story: "Сначала было приложение Burbn для отметок в разных местах — сложное и мало кому нужное. Основатели заметили, что людям нравится только одна функция — фото. Они убрали всё лишнее и сделали Instagram. Через 2 года его купил Facebook за 1 млрд $.",
-    lesson: "Поворот (pivot) — не провал. Оставь то, что людям действительно нравится.", try: "Спроси клиентов, что им нравится больше всего." },
-  { id: "apple", m: "m8", mono: "AP", name: "Apple", who: "Стив Джобс и Стив Возняк, 1976",
-    story: "Первый крупный заказ дал магазин Byte Shop: 50 компьютеров по 500 $. Под этот заказ основатели взяли детали в долг, собрали компьютеры и расплатились, когда получили деньги от магазина.",
-    lesson: "Сначала заказ — потом закупка. Так растут без лишнего риска.", try: "Предложи 5 клиентам предзаказ на новый аромат." },
-  { id: "jomalone", m: "m8", mono: "JM", name: "Jo Malone", who: "Джо Малон, Лондон",
-    story: "Джо Малон делала косметические процедуры и дарила клиенткам масло для ванны, которое сама смешивала на кухне. Клиентки возвращались уже за ароматом. В 1994 году она открыла свой первый магазин в Лондоне.",
-    lesson: "Когда люди возвращаются сами — «собаки едят корм». Это и есть сигнал расти.", try: "Посмотри в журнале: кто купил у тебя второй раз?" },
-  { id: "huda", m: "m8", mono: "HB", name: "Huda Beauty", who: "Худа Каттан, 2013",
-    story: "Худа вела бьюти-блог и знала, чего не хватает её подписчицам. Первым продуктом стали накладные ресницы — на старт она заняла у сестры 6 000 $. Ресницы раскупили, и из них вырос большой бьюти-бренд.",
-    lesson: "Начни с одного продукта, который точно нужен, а потом расширяйся на следующие рынки.", try: "Запиши, какой второй продукт ты добавишь, когда первый пойдёт." }
+  { id: "facebook", m: "m1", cls: "Стратег плацдарма", clsIcon: "flag", name: "Марк Цукерберг", brand: "Facebook · 2004",
+    av: { skin: "#f3c9a8", hair: "curly", hc: "#6b4a2b", outfit: "hoodie", oc: "#8d98a8", extra: ["laptop"] },
+    hook: "Студент, который не пустил в свою сеть никого, кроме однокурсников",
+    start: "2004 год. Марку 19, он второкурсник Гарварда и пишет программы прямо в общежитии. Ни денег, ни офиса, ни команды — только ноутбук и идея.",
+    pain: "В Гарварде были бумажные справочники с фото студентов — их называли «facebook». А нормального способа найти однокурсников в интернете **не было ни у кого**.",
+    move: "Марк открыл TheFacebook **только для Гарварда**: зайти можно было лишь с университетской почты. Все настоящие, все друг друга знают — и сеть стала модной за считаные дни.",
+    big: "3 млрд+", result: "Больше половины студентов Гарварда зарегистрировались в первый же месяц. Потом — другие университеты, потом весь мир. Сегодня Facebook пользуются больше 3 миллиардов человек в месяц.",
+    lesson: "Не пытайся понравиться всем сразу. Захвати маленькую группу, где все общаются, — дальше слух сделает работу за тебя.",
+    try: "Назови свой «Гарвард»: группу, где тебя знают и где все общаются между собой." },
+  { id: "amazon", m: "m1", cls: "Стратег плацдарма", clsIcon: "flag", name: "Джефф Безос", brand: "Amazon · 1995",
+    av: { skin: "#f1c6a2", hair: "short", hc: "#5a4430", outfit: "shirt", oc: "#4f86c6", extra: ["book"] },
+    hook: "Ушёл с отличной работы, чтобы продавать книги из гаража",
+    start: "1994 год. Джеффу 30, у него отличная зарплата в финансовой компании в Нью-Йорке. Друзья считали, что уходить с такой работы — безумие.",
+    pain: "Он прочитал, что интернет растёт **на 2 300% в год**. Почти никто ещё не покупал онлайн — место было свободно, но этого никто не замечал.",
+    move: "Джефф составил список из 20 товаров и выбрал **один — книги**. Их миллионы видов: ни один магазин не вместит все, а онлайн-каталог может. И книги удобно пересылать.",
+    big: "из гаража", result: "Amazon начинался в гараже, а Джефф сам упаковывал заказы. Музыку, игрушки и всё остальное добавили только потом. Сегодня Amazon — одна из крупнейших компаний мира.",
+    lesson: "Найди продукт, в котором у тебя есть явное преимущество, и начни только с него.",
+    try: "Выбери 3 аромата для старта, а не 30." },
+  { id: "airbnb", m: "m2", cls: "Охотник за возможностями", clsIcon: "search", name: "Брайан Чески", brand: "Airbnb · 2007",
+    av: { skin: "#f0c3a0", hair: "short", hc: "#2f2a26", outfit: "tee", oc: "#ff5a5f", extra: ["home"] },
+    hook: "Нечем платить за квартиру? Сдай надувной матрас в гостиной",
+    start: "2007 год. Два молодых дизайнера, Брайан и Джо, живут в Сан-Франциско, и им нечем платить за аренду.",
+    pain: "В город приехала большая конференция дизайнеров, и **все гостиницы были заняты**. Сотни людей не знали, где ночевать. Видели это все — но никто ничего не сделал.",
+    move: "Ребята надули **три надувных матраса** у себя в квартире и сдали их гостям с завтраком. Так появился Air Bed & Breakfast. Позже, когда денег совсем не было, они продавали коробки хлопьев «Obama O's» и заработали около 30 000 $.",
+    big: "миллионы", result: "Основатели сами ездили к первым хозяевам и фотографировали их квартиры — так они поняли клиентов. Сегодня на Airbnb миллионы вариантов жилья по всему миру.",
+    lesson: "Возможность часто прячется в проблеме, которую видят все, но никто не решает.",
+    try: "Послушай, на что жалуются ребята в школе. Нет ли там идеи?" },
+  { id: "glossier", m: "m2", cls: "Знаток клиента", clsIcon: "user", name: "Эмили Вайс", brand: "Glossier · 2014",
+    av: { skin: "#f6d2b5", hair: "long", hc: "#c9a46a", outfit: "blouse", oc: "#f6c1cc", extra: ["chat"] },
+    hook: "Писала блог до работы — и узнала о клиентках больше, чем крупные бренды",
+    start: "Эмили работала ассистенткой в мире моды, в том числе в журнале Vogue. По утрам, ещё до работы, она вела бьюти-блог Into The Gloss.",
+    pain: "Большие бренды сами решали, что нужно девушкам. А Эмили каждый день **читала комментарии** и знала, чего на самом деле хотят обычные читательницы.",
+    move: "Она прямо спросила аудиторию: «Какой у вас продукт мечты?» — и сделала Glossier **по их ответам**. Первый запуск в 2014 году — всего 4 продукта.",
+    big: "1 млрд $+", result: "Читательницы стали первыми покупательницами и сами рекламировали бренд в соцсетях. В 2019 году Glossier оценили больше чем в 1 миллиард долларов.",
+    lesson: "Кто лучше всех знает клиента, тот и побеждает. Сначала слушай, потом делай.",
+    try: "Спроси 3 человек: какой аромат мечты они бы хотели?" },
+  { id: "spanx", m: "m3", cls: "Охотник за болью", clsIcon: "target", name: "Сара Блейкли", brand: "Spanx · 2000",
+    av: { skin: "#f5cfb0", hair: "long", hc: "#e2c071", outfit: "blouse", oc: "#e23d4f", extra: ["scissors"] },
+    hook: "Продавала факсы по офисам и придумала продукт с помощью ножниц",
+    start: "Сара 7 лет продавала факсы, обходя офисы. Ей отказывали каждый день — так она перестала бояться слова «нет». Бизнес-образования у неё не было.",
+    pain: "Сара хотела надеть белые брюки, но под ними **было видно бельё**. Подходящего в магазинах не было — эту мелкую, но вечную проблему просто никто не решал.",
+    move: "Она **отрезала у колготок «ноги»** — и проблема исчезла. Сама разобралась в патентах по книгам, а закупщице сети Neiman Marcus показала разницу прямо на себе, в примерочной.",
+    big: "1 млрд $", result: "Сара начала с 5 000 $ сбережений. В 2012 году журнал Forbes назвал её самой молодой женщиной-миллиардером, которая заработала всё сама.",
+    lesson: "Самые сильные идеи — решения боли, которую ты чувствуешь сам.",
+    try: "Спроси 1 человека: что бесит его при покупке духов?" },
+  { id: "mosbows", m: "m4", cls: "Создатель стиля", clsIcon: "star", name: "Мозайя Бриджес", brand: "Mo's Bows · начал в 9 лет",
+    av: { skin: "#7a4a2e", hair: "crop", hc: "#1f1612", outfit: "shirt", oc: "#ffffff", extra: ["bowtie"], kid: true },
+    hook: "В 9 лет начал шить бабочки — и дошёл до НБА",
+    start: "Мемфис, США. Мозайе 9 лет, и он обожает наряжаться — даже в школу ходит в рубашке.",
+    pain: "Бабочки в магазинах были **скучными и одинаковыми**. Хотелось ярких, с характером, — а таких никто не продавал.",
+    move: "Бабушка научила его шить, и Мозайя стал делать **свои бабочки** из ярких тканей. Каждая — ручная работа. Такого на рынке не было.",
+    big: "НБА", result: "В 11 лет он выступил в шоу Shark Tank, и его наставником стал инвестор Деймонд Джон. Позже Mo's Bows подписал контракт с НБА на бабочки для всех команд лиги.",
+    lesson: "Твоя суперсила — то, что умеешь только ты. Её не скопирует маркетплейс.",
+    try: "Придумай одну «фишку», которой нет у конкурентов." },
+  { id: "mikaila", m: "m5", cls: "Сила истории", clsIcon: "heart", name: "Микайла Улмер", brand: "Me & the Bees · начала в 4 года",
+    av: { skin: "#6e4128", hair: "puffs", hc: "#1f1612", outfit: "tee", oc: "#f2b93a", extra: ["bee"], kid: true },
+    hook: "После двух укусов пчёл создала бизнес, который спасает пчёл",
+    start: "Микайле 4 года. За одну неделю её дважды ужалили пчёлы, и она стала их бояться.",
+    pain: "Родители предложили узнать о пчёлах больше. Микайла выяснила, что **пчёлы исчезают**, а без них не вырастут многие растения.",
+    move: "Она взяла бабушкин рецепт лимонада, подсластила его **мёдом** и часть прибыли стала отдавать на спасение пчёл. У лимонада появилась история, которую хочется пересказывать.",
+    big: "Whole Foods", result: "В 11 лет Микайла получила инвестиции в шоу Shark Tank, а её лимонад появился на полках сети Whole Foods — для этого она убедила закупщиков.",
+    lesson: "Когда у продукта есть смысл и история, люди не просто покупают — они рассказывают о нём другим.",
+    try: "Придумай историю своего аромата в одно предложение." },
+  { id: "estee", m: "m6", cls: "Король продаж", clsIcon: "mega", name: "Эсте Лаудер", brand: "Estée Lauder · 1946",
+    av: { skin: "#f6d6bd", hair: "bob", hc: "#e0b964", outfit: "blouse", oc: "#2b4a7a", extra: ["pearls"] },
+    hook: "Дочь иммигрантов, которая продавала крем своими руками — в прямом смысле",
+    start: "Нью-Йорк, район Квинс. Эсте — дочь иммигрантов. Её дядя-химик варил кремы для кожи, и она помогала ему.",
+    pain: "Косметику продавали с полки, и никто не давал её **попробовать**. Женщины боялись тратить деньги на то, что может не подойти.",
+    move: "Эсте сама наносила крем женщинам в салонах красоты и **раздавала бесплатные пробники**. Она одной из первых стала дарить подарки к покупке. Её девиз: «Телефон, телеграф, расскажи женщине».",
+    big: "Saks", result: "В 1948 году её кремы взял легендарный нью-йоркский магазин Saks Fifth Avenue. Сегодня Estée Lauder — одна из крупнейших бьюти-компаний мира.",
+    lesson: "Дай попробовать — и продукт продаст себя сам. Но всегда считай, сколько стоят пробники.",
+    try: "Посчитай, во сколько тебе обходится 1 пробник." },
+  { id: "buffett", m: "m6", cls: "Финансист", clsIcon: "coins", name: "Уоррен Баффет", brand: "первый бизнес в 6 лет",
+    av: { skin: "#f2c9aa", hair: "side", hc: "#d9d9d9", outfit: "suit", oc: "#3b4250", glasses: "rect", extra: ["coke"] },
+    hook: "Начал с газировки в 6 лет — стал одним из богатейших людей мира",
+    start: "Омаха, США. Уоррену 6 лет. Он не из семьи миллиардеров — обычный мальчик, который очень любит цифры.",
+    pain: "Он заметил: упаковка из 6 бутылок Coca-Cola **дешевле**, чем 6 бутылок по отдельности. Разница — это и есть прибыль. Взрослые проходили мимо этих центов.",
+    move: "Уоррен покупал упаковку за 25 центов и продавал бутылки по 5 центов. Потом разносил газеты, а в старших классах с другом поставил **игровые автоматы в парикмахерских** — клиенты играли, пока ждали очереди.",
+    big: "в 11 лет", result: "В 11 лет он купил свои первые акции. Всю жизнь он считал, копил и вкладывал — и стал одним из самых богатых и уважаемых инвесторов мира.",
+    lesson: "Маржа = цена − себестоимость. Большие состояния начинаются с умения считать маленькие деньги.",
+    try: "Посчитай маржу с одного своего флакона." },
+  { id: "zappos", m: "m7", cls: "Мастер проверки", clsIcon: "flask", name: "Ник Свинмерн", brand: "Zappos · 1999",
+    av: { skin: "#f0c4a1", hair: "short", hc: "#7a5734", outfit: "polo", oc: "#2b95d6", extra: ["shoe"] },
+    hook: "Не нашёл нужные ботинки — и проверил идею без единой пары на складе",
+    start: "1999 год, Сан-Франциско. Ник обошёл торговый центр в поисках коричневых ботинок нужного размера — и ушёл ни с чем.",
+    pain: "В магазинах не было нужных моделей и размеров, а **обувь в интернете почти никто не продавал**. Все были уверены: обувь онлайн не купят — её же надо мерить.",
+    move: "Вместо склада Ник **сфотографировал обувь в местных магазинах** и выложил на сайт. Пришёл заказ — пошёл в магазин, купил пару и отправил. Позже Zappos ввёл бесплатную доставку и возврат — и страх покупать онлайн исчез.",
+    big: "1,2 млрд $", result: "Спрос подтвердился почти без затрат. В 2009 году Amazon купил Zappos примерно за 1,2 миллиарда долларов.",
+    lesson: "Проверь идею до закупки: сначала заказ, потом товар.",
+    try: "Собери предзаказы, прежде чем закупать флаконы." },
+  { id: "dropbox", m: "m7", cls: "Мастер проверки", clsIcon: "flask", name: "Дрю Хьюстон", brand: "Dropbox · 2007",
+    av: { skin: "#f3caa8", hair: "short", hc: "#8a6a45", outfit: "tee", oc: "#0061fe", extra: ["drive"] },
+    hook: "Студент MIT забыл флешку — и придумал Dropbox прямо в автобусе",
+    start: "Дрю — студент MIT, того самого университета, где придумали методику этой игры.",
+    pain: "Однажды он сел в автобус из Бостона в Нью-Йорк и понял, что **забыл флешку** с файлами. Четыре часа пути без работы. Флешки терялись у всех — но с этим просто мирились.",
+    move: "Прямо в автобусе он начал писать программу, которая хранит файлы в интернете. А чтобы проверить спрос, не тратя годы, записал **короткое видео** о том, как это будет работать.",
+    big: "75 000", result: "За одну ночь список желающих вырос с 5 000 до 75 000 человек. Сегодня Dropbox пользуются сотни миллионов людей.",
+    lesson: "Показать идею можно раньше, чем её сделать. Так ты узнаешь, нужна ли она людям.",
+    try: "Покажи друзьям фото 3 ароматов и посчитай, сколько скажут «хочу»." },
+  { id: "instagram", m: "m7", cls: "Гений поворота", clsIcon: "turn", name: "Кевин Систром", brand: "Instagram · 2010",
+    av: { skin: "#f1c7a4", hair: "short", hc: "#2b2420", outfit: "polo", oc: "#c13584", extra: ["camera"] },
+    hook: "Выкинул почти всё из своего приложения — и продал его за 1 млрд $",
+    start: "Кевин учился в Стэнфорде и увлекался фотографией. Вместе с Майком Кригером он делал приложение Burbn для отметок в разных местах.",
+    pain: "Burbn был сложным, и пользовались им мало. Но ребята заметили: люди **постоянно выкладывают фото**, а остальные функции почти не трогают.",
+    move: "Они **убрали всё лишнее** и оставили только фото. Добавили фильтры, чтобы снимки со слабых камер телефонов выглядели красиво.",
+    big: "1 млрд $", result: "В первый день Instagram скачали 25 000 человек. Через 2 года, когда в компании было всего 13 сотрудников, Facebook купил её за 1 миллиард долларов.",
+    lesson: "Поворот — не провал. Смотри, что людям реально нравится, и делай больше этого.",
+    try: "Спроси клиентов, что им нравится больше всего." },
+  { id: "apple", m: "m8", cls: "Мастер предзаказа", clsIcon: "box", name: "Стив Джобс", brand: "Apple · 1976",
+    av: { skin: "#f0c6a3", hair: "jobs", hc: "#4a4a4a", outfit: "turtle", oc: "#1b1b1b", glasses: "round", extra: ["beard", "computer"] },
+    hook: "Продал свой микроавтобус, чтобы начать компанию в гараже",
+    start: "1976 год. Стиву Джобсу 21, его другу Стиву Возняку 25. Чтобы найти первые деньги, Джобс продал свой микроавтобус, а Возняк — калькулятор.",
+    pain: "Компьютеры были огромными и дорогими, их покупали компании. **Личного компьютера** для обычных людей почти не было.",
+    move: "Владелец магазина Byte Shop заказал **50 компьютеров по 500 $**. Денег на детали не было — ребята взяли детали в долг, собрали компьютеры в гараже у родителей Джобса и расплатились из денег за заказ.",
+    big: "из гаража", result: "Из гаража выросла Apple — компания, которая сделала iPhone и стала одной из самых дорогих в мире.",
+    lesson: "Сначала заказ — потом закупка. Так растут без лишнего риска.",
+    try: "Предложи 5 клиентам предзаказ на новый аромат." },
+  { id: "jomalone", m: "m8", cls: "Создатель стиля", clsIcon: "star", name: "Джо Малон", brand: "Jo Malone London · 1994",
+    av: { skin: "#f6d5bd", hair: "pixie", hc: "#d8b46a", outfit: "turtle", oc: "#1f1f1f", extra: ["bottle"] },
+    hook: "Рано ушла из школы без аттестата — и создала знаменитый бренд ароматов",
+    start: "Лондон. Джо с детства помогала маме-косметологу. У неё дислексия, и школу она закончила рано, без аттестата.",
+    pain: "Джо работала косметологом и видела, что клиенткам хочется **чего-то особенного** — запаха, который запомнится.",
+    move: "Она смешивала масла для ванны **у себя на кухне** и дарила клиенткам. Те возвращались — уже не только за процедурой, а за ароматом.",
+    big: "1994", result: "В 1994 году Джо открыла первый магазин в Лондоне. Через 5 лет её бренд купила компания Estée Lauder — та самая из другой истории.",
+    lesson: "Когда люди возвращаются сами — «собаки едят корм». Это главный сигнал, что пора расти.",
+    try: "Посмотри в журнале продаж: кто купил у тебя второй раз?" },
+  { id: "huda", m: "m8", cls: "Знаток клиента", clsIcon: "user", name: "Худа Каттан", brand: "Huda Beauty · 2013",
+    av: { skin: "#e6b48f", hair: "long", hc: "#2a1d17", outfit: "blouse", oc: "#f05768", extra: ["lashes"] },
+    hook: "Не нашла идеальные ресницы — и сделала свои",
+    start: "Худа выросла в США в семье иммигрантов из Ирака. Работала в финансах, а потом решила стать визажистом и переехала в Дубай.",
+    pain: "Она вела бьюти-блог и **не могла найти накладные ресницы**, которые выглядели бы так, как ей хотелось. Подписчицы жаловались на то же самое.",
+    move: "Худа заняла у сестры **6 000 $** и выпустила свои ресницы. Блог стал её витриной: подписчицы уже доверяли ей.",
+    big: "1 млрд $+", result: "Ресницы раскупили в магазине Sephora в Дубае. Из одного продукта вырос огромный бренд, который в 2017 году Forbes оценил больше чем в 1 миллиард долларов.",
+    lesson: "Начни с одного продукта, который точно нужен, — а потом расширяйся.",
+    try: "Запиши, какой второй продукт ты добавишь, когда первый пойдёт." }
 ];
+
+/* ---------- рисованные образы: узнаваемый стиль, а не портрет */
+function avatarSVG(a, size, bg, locked) {
+  const K = "#172233", st = `stroke="${K}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"`;
+  const skin = locked ? "#c3ccd8" : a.skin, hc = locked ? "#9aa5b5" : a.hc, oc = locked ? "#aeb8c6" : a.oc;
+  const hy = a.kid ? 2 : 0;
+  let back = "", front = "", acc = "";
+  switch (a.hair) {
+    case "long": back = `<path d="M34,54 C30,24 46,16 60,16 C76,16 92,24 86,56 L92,100 C78,108 42,108 28,100 Z" fill="${hc}" ${st}/>`;
+      front = `<path d="M38,52 C38,30 50,25 61,25 C73,25 84,32 82,52 C74,40 62,35 50,40 C44,43 40,47 38,52 Z" fill="${hc}" ${st}/>`; break;
+    case "bob": back = `<path d="M34,56 C32,28 46,19 60,19 C74,19 88,28 86,56 C86,68 84,76 80,80 L40,80 C36,76 34,68 34,56 Z" fill="${hc}" ${st}/>`;
+      front = `<path d="M38,50 C40,30 56,24 70,28 C78,32 82,40 82,48 C70,40 54,40 38,50 Z" fill="${hc}" ${st}/>`; break;
+    case "pixie": front = `<path d="M38,56 C33,32 48,22 62,24 C77,24 87,34 82,54 C77,44 66,37 52,44 C46,47 41,51 38,56 Z" fill="${hc}" ${st}/>`; break;
+    case "curly": front = `<path d="M38,52 C33,42 39,29 47,29 C49,22 57,20 61,24 C66,19 75,21 76,28 C84,29 87,42 82,52 C78,43 70,38 60,38 C50,38 42,43 38,52 Z" fill="${hc}" ${st}/>`; break;
+    case "crop": front = `<path d="M39,50 C39,33 49,28 60,28 C71,28 81,33 81,50 C76,41 70,38 60,38 C50,38 44,41 39,50 Z" fill="${hc}" ${st}/>`; break;
+    case "puffs": back = `<circle cx="36" cy="32" r="13" fill="${hc}" ${st}/><circle cx="84" cy="32" r="13" fill="${hc}" ${st}/>`;
+      front = `<path d="M39,50 C39,33 49,28 60,28 C71,28 81,33 81,50 C76,41 70,38 60,38 C50,38 44,41 39,50 Z" fill="${hc}" ${st}/>`; break;
+    case "side": front = `<path d="M39,56 C37,42 41,34 48,31 L50,41 C45,44 41,49 39,56 Z M81,56 C83,42 79,34 72,31 L70,41 C75,44 79,49 81,56 Z" fill="${hc}" ${st}/><path d="M50,32 C55,29 65,29 70,32" fill="none" stroke="${hc}" stroke-width="3"/>`; break;
+    case "jobs": front = `<path d="M40,47 C40,32 50,28 60,28 C70,28 80,32 80,47 C76,41 70,39 60,39 C50,39 44,41 40,47 Z" fill="${hc}" ${st}/>`; break;
+    default: front = `<path d="M38,52 C35,30 48,24 60,24 C74,24 86,30 82,52 C80,42 74,36 64,36 C54,36 44,40 38,52 Z" fill="${hc}" ${st}/>`;
+  }
+  // одежда
+  const body = `<path d="M18,122 C18,96 36,86 60,86 C84,86 102,96 102,122 Z" fill="${oc}" ${st}/>`;
+  let wear = "";
+  switch (a.outfit) {
+    case "hoodie": wear = `<path d="M40,90 C44,82 76,82 80,90 C72,97 48,97 40,90 Z" fill="${oc}" ${st} style="filter:brightness(.9)"/><path d="M54,96 v12 M66,96 v12" ${st} fill="none"/>`; break;
+    case "turtle": wear = `<rect x="49" y="78" width="22" height="13" rx="5" fill="${oc}" ${st}/>`; break;
+    case "suit": wear = `<path d="M50,87 L60,104 L70,87 Z" fill="#fff" ${st}/><path d="M57,92 L60,112 L63,92 L60,89 Z" fill="#c0392b" ${st}/>`; break;
+    case "shirt": wear = `<path d="M48,87 L56,98 L60,90 L64,98 L72,87" fill="#fff" ${st}/>`; break;
+    case "polo": wear = `<path d="M50,87 L56,96 L60,88 L64,96 L70,87" fill="${oc}" ${st}/><circle cx="60" cy="100" r="1.5" fill="${K}"/>`; break;
+    case "blouse": wear = `<path d="M50,87 L60,100 L70,87 Z" fill="${skin}" ${st}/>`; break;
+    default: wear = `<path d="M50,88 C54,93 66,93 70,88" fill="none" ${st}/>`;
+  }
+  const head = `<rect x="52" y="${74 + hy}" width="16" height="14" fill="${skin}" ${st}/>
+    <ellipse cx="38" cy="${58 + hy}" rx="4" ry="6" fill="${skin}" ${st}/><ellipse cx="82" cy="${58 + hy}" rx="4" ry="6" fill="${skin}" ${st}/>
+    <ellipse cx="60" cy="${55 + hy}" rx="${a.kid ? 22 : 21}" ry="${a.kid ? 24 : 25}" fill="${skin}" ${st}/>`;
+  const ex = a.extra || [];
+  let face = locked ? `<text x="60" y="${64 + hy}" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="22" fill="#fff">?</text>` :
+    `<path d="M47,${49 + hy} q4,-3 8,0 M65,${49 + hy} q4,-3 8,0" fill="none" stroke="${K}" stroke-width="2.2" stroke-linecap="round"/>
+     <ellipse cx="51" cy="${57 + hy}" rx="2.6" ry="3.2" fill="${K}"/><ellipse cx="69" cy="${57 + hy}" rx="2.6" ry="3.2" fill="${K}"/>
+     ${ex.includes("lashes") ? `<path d="M47,${54 + hy} l-2,-2 M49,${53 + hy} l-1,-3 M71,${53 + hy} l1,-3 M73,${54 + hy} l2,-2" stroke="${K}" stroke-width="1.8" stroke-linecap="round"/>` : ""}
+     <path d="M53,${67 + hy} Q60,${73 + hy} 67,${67 + hy}" fill="none" stroke="${K}" stroke-width="2.4" stroke-linecap="round"/>
+     <circle cx="45" cy="${64 + hy}" r="3.5" fill="#ff7a8a" opacity=".35"/><circle cx="75" cy="${64 + hy}" r="3.5" fill="#ff7a8a" opacity=".35"/>`;
+  if (!locked && ex.includes("beard")) face += `<path d="M41,${62 + hy} C42,${76 + hy} 50,${81 + hy} 60,${81 + hy} C70,${81 + hy} 78,${76 + hy} 79,${62 + hy} C76,${71 + hy} 70,${74 + hy} 60,${74 + hy} C50,${74 + hy} 44,${71 + hy} 41,${62 + hy} Z" fill="${hc}" opacity=".55"/>`;
+  if (!locked && a.glasses === "round") face += `<g fill="#fff" fill-opacity=".2" stroke="${K}" stroke-width="2.2"><circle cx="51" cy="${57 + hy}" r="7.5"/><circle cx="69" cy="${57 + hy}" r="7.5"/></g><path d="M58.5,${57 + hy} h3" stroke="${K}" stroke-width="2.2"/>`;
+  if (!locked && a.glasses === "rect") face += `<g fill="#fff" fill-opacity=".2" stroke="${K}" stroke-width="2.4"><rect x="43" y="${52 + hy}" width="15" height="11" rx="3"/><rect x="62" y="${52 + hy}" width="15" height="11" rx="3"/></g><path d="M58,${57 + hy} h4" stroke="${K}" stroke-width="2.2"/>`;
+  if (!locked) {
+    if (ex.includes("bowtie")) wear += `<path d="M48,86 L58,91 L48,96 Z M72,86 L62,91 L72,96 Z" fill="#e23d4f" ${st}/><circle cx="60" cy="91" r="3.5" fill="#f2b93a" ${st}/>`;
+    if (ex.includes("pearls")) wear += [44, 49, 54, 60, 66, 71, 76].map((x, i) => `<circle cx="${x}" cy="${89 + Math.sin(i / 6 * Math.PI) * 6}" r="2.6" fill="#fff" stroke="${K}" stroke-width="1.2"/>`).join("");
+    const B = (inner, c) => `<g transform="translate(84 92)"><circle cx="12" cy="12" r="15" fill="${c || "#fff"}" ${st}/>${inner}</g>`;
+    if (ex.includes("laptop")) acc = B(`<rect x="3" y="6" width="18" height="11" rx="2" fill="#cfd6e0" ${st}/><path d="M1,19 h22" ${st}/>`);
+    if (ex.includes("book")) acc = B(`<path d="M4,6 h7 a2,2 0 0 1 2,2 v11 a2,2 0 0 0 -2,-2 h-7 Z M20,6 h-7 a2,2 0 0 0 -2,2 v11 a2,2 0 0 1 2,-2 h7 Z" fill="#f2b93a" ${st}/>`);
+    if (ex.includes("home")) acc = B(`<path d="M4,12 L12,5 L20,12 V20 H4 Z" fill="#ff8c94" ${st}/><rect x="10" y="14" width="4" height="6" fill="#fff" ${st}/>`);
+    if (ex.includes("chat")) acc = B(`<path d="M4,6 h16 v10 h-9 l-5,4 v-4 h-2 Z" fill="#ffd6e0" ${st}/>`);
+    if (ex.includes("scissors")) acc = B(`<circle cx="7" cy="17" r="3" fill="#fff" ${st}/><circle cx="17" cy="17" r="3" fill="#fff" ${st}/><path d="M9,15 L17,5 M15,15 L7,5" ${st}/>`);
+    if (ex.includes("bee")) acc = B(`<ellipse cx="12" cy="13" rx="7" ry="5" fill="#f2b93a" ${st}/><path d="M10,8.5 v9 M14,8.5 v9" stroke="${K}" stroke-width="2"/><ellipse cx="9" cy="6" rx="4" ry="3" fill="#dff1ff" ${st}/><ellipse cx="15" cy="6" rx="4" ry="3" fill="#dff1ff" ${st}/>`);
+    if (ex.includes("coke")) acc = B(`<path d="M10,3 h4 v3 c3,3 3,6 2,9 c1,3 0,5 -1,6 h-6 c-1,-1 -2,-3 -1,-6 c-1,-3 -1,-6 2,-9 Z" fill="#b5332e" ${st}/><path d="M8.5,13 h7" stroke="#fff" stroke-width="2"/>`);
+    if (ex.includes("shoe")) acc = B(`<path d="M3,16 V9 h6 l3,4 h6 a3,3 0 0 1 3,3 v2 H3 Z" fill="#a0612d" ${st}/>`);
+    if (ex.includes("drive")) acc = B(`<rect x="8" y="4" width="8" height="12" rx="2" fill="#0061fe" ${st}/><rect x="9.5" y="16" width="5" height="5" fill="#cfd6e0" ${st}/>`);
+    if (ex.includes("camera")) acc = B(`<rect x="3" y="7" width="18" height="12" rx="3" fill="#f5e6c8" ${st}/><circle cx="12" cy="13" r="4" fill="#5b3a29" ${st}/><rect x="6" y="5" width="4" height="3" fill="${K}"/>`);
+    if (ex.includes("bottle")) acc = B(`<rect x="6" y="9" width="12" height="12" rx="3" fill="#ffd6e0" ${st}/><rect x="9" y="4" width="6" height="5" fill="${K}"/>`);
+    if (ex.includes("lashes")) acc = B(`<path d="M4,14 Q12,6 20,14" fill="none" ${st}/><path d="M6,12 l-2,-4 M9,10 l-1,-4 M12,9.5 v-4 M15,10 l1,-4 M18,12 l2,-4" stroke="${K}" stroke-width="2" stroke-linecap="round"/>`);
+    if (ex.includes("computer")) acc = B(`<rect x="3" y="6" width="18" height="12" rx="2" fill="#e8e8e8" ${st}/><path d="M8,21 h8 M12,18 v3" ${st}/><path d="M10,10 c1,-2 3,-2 4,0 c1,2 -1,4 -2,4 c-1,0 -3,-2 -2,-4 Z" fill="#9aa5b5"/>`);
+  }
+  return `<svg viewBox="0 0 120 120" width="${size}" height="${size}" role="img" aria-label="${locked ? "Закрытая история" : "Рисованный образ"}">
+    <defs><clipPath id="avc-${size}-${a.hair}-${locked ? 1 : 0}"><circle cx="60" cy="60" r="58"/></clipPath></defs>
+    <circle cx="60" cy="60" r="58" fill="${bg}" stroke="${K}" stroke-width="3"/>
+    <g clip-path="url(#avc-${size}-${a.hair}-${locked ? 1 : 0})">${back}${body}${wear}${head}${front}${face}</g>${acc}</svg>`;
+}
 
 /* ================================================================== иллюстрации миссий */
 const INK = "#172233";
@@ -1041,7 +1237,7 @@ function addXP(n, key) {
   return true;
 }
 function flushLevel() {
-  if (!pendingLevel || document.querySelector(".overlay")) return;
+  if (!pendingLevel || document.querySelector(".overlay, .storyview")) return;
   const L = pendingLevel; pendingLevel = null;
   sfx.level(); confetti(innerWidth / 2, innerHeight / 3, 120);
   showModal(`<div class="hex bigx" style="background:var(--c6)"><span style="font-family:var(--font-display);font-weight:800;position:relative;z-index:1">${L.i + 1}</span></div>
@@ -1205,15 +1401,69 @@ function eventHTML(drawn) {
     </div></div>`;
 }
 
-/* ---------- легенды бизнеса */
-function legendHTML(l, open) {
-  const mi = M.findIndex(m => m.id === l.m);
-  return `<div class="legend" data-legendcard="${l.id}" style="--lc:var(${M[mi].color})"><div class="lh"><span class="mono">${esc(l.mono)}</span><div style="min-width:0"><b>${esc(l.name)}</b><div class="muted" style="font-size:13px">${esc(l.who)}</div></div></div>
-    ${open ? `<div class="lb"><p>${esc(l.story)}</p><p class="lesson">${esc(l.lesson)}</p><p class="try"><b>Попробуй:</b> ${esc(l.try)}</p></div>`
-      : `<div class="lb"><button class="btn ghost small" data-legend="${l.id}" style="align-self:flex-start">Читать историю · +5 XP</button></div>`}</div>`;
+/* ---------- легенды бизнеса: карточка в миссии и просмотр в формате «сторис» */
+function rich(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<mark>$1</mark>"); }
+const legendMission = l => M.find(m => m.id === l.m);
+function legendHTML(l) {
+  const read = !!S.legends.read[l.id];
+  return `<div class="legend" data-lid="${l.id}" style="--lc:var(${legendMission(l).color})">
+    <div class="lh">${avatarSVG(l.av, 72, "var(--lc)")}<div style="min-width:0"><span class="chip">${ico(l.clsIcon)} ${esc(l.cls)}</span><b class="lname">${esc(l.name)}</b><div class="muted" style="font-size:13px">${esc(l.brand)}</div></div></div>
+    <div class="lb"><p class="hook">«${esc(l.hook)}»</p><button class="btn small" data-story="${l.id}" style="align-self:flex-start">${read ? "Смотреть ещё раз ▶" : "Смотреть историю ▶ · +10 XP"}</button></div></div>`;
 }
-function readLegend(id) {
-  if (!S.legends.read[id]) { S.legends.read[id] = 1; save(); addXP(5, "legend." + id); }
+function openStory(id) {
+  const l = LEGENDS.find(x => x.id === id), lm = legendMission(l);
+  const part = (icon, title, text) => `<div class="sv-ico">${ico(icon, 2)}</div><div class="sv-k">${esc(title)}</div><p>${rich(text)}</p>`;
+  const slides = [
+    `<div class="sv-cover">${avatarSVG(l.av, 168, "rgba(255,255,255,.28)")}<span class="chip light">${ico(l.clsIcon)} ${esc(l.cls)}</span><h2>${esc(l.name)}</h2><div class="sv-brand">${esc(l.brand)}</div><p class="sv-hook">«${esc(l.hook)}»</p><small class="sv-note">Рисованный образ · нажимай справа, чтобы листать</small></div>`,
+    part("user", "Кем был в начале", l.start),
+    part("search", "Что все пропускали", l.pain),
+    part("bolt", "Гениальный ход", l.move),
+    `<div class="sv-ico">${ico("star", 2)}</div><div class="sv-k">Результат</div><div class="sv-big">${esc(l.big)}</div><p>${rich(l.result)}</p>`,
+    `<div class="sv-ico">${ico("flag", 2)}</div><div class="sv-k">Твой ход</div><p class="sv-lesson">${rich(l.lesson)}</p><p class="sv-try"><b>Попробуй сегодня:</b> ${esc(l.try)}</p><p class="sv-xp" id="svxp"></p><button class="btn" data-svclose="1">Готово</button>`
+  ];
+  const o = document.createElement("div");
+  o.className = "storyview" + (lm.dark ? " dk" : ""); o.style.setProperty("--lc", `var(${lm.color})`);
+  o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "История: " + l.name);
+  o.innerHTML = `<div class="sv-card"><div class="sv-bars">${slides.map(() => "<i><b></b></i>").join("")}</div>
+    <div class="sv-top"><span class="sv-mini">${avatarSVG(l.av, 34, "rgba(255,255,255,.3)")}<b>${esc(l.name)}</b></span><button class="sv-x" aria-label="Закрыть">×</button></div>
+    <button class="sv-prev" aria-label="Назад"></button><button class="sv-next" aria-label="Дальше"></button>
+    <div class="sv-body" aria-live="polite"></div></div>`;
+  document.body.appendChild(o);
+  const body = o.querySelector(".sv-body"), bars = o.querySelectorAll(".sv-bars i");
+  let i = 0, sx = null, skipClick = false;
+  const close = () => {
+    o.remove(); document.removeEventListener("keydown", onKey);
+    document.querySelectorAll(`.legend[data-lid="${l.id}"]`).forEach(el => { el.outerHTML = legendHTML(l); });
+    if (!location.hash || location.hash === "#") renderHome();
+    setTimeout(flushLevel, 300);
+  };
+  const show = n => {
+    if (n >= slides.length) return close();
+    i = Math.max(0, n);
+    body.innerHTML = `<div class="sv-slide">${slides[i]}</div>`;
+    bars.forEach((b, k) => { b.className = k < i ? "done" : k === i ? "cur" : ""; });
+    sfx.coin();
+    if (i === slides.length - 1) {
+      const fresh = !S.legends.read[l.id];
+      if (fresh) { S.legends.read[l.id] = 1; save(); addXP(10, "legend." + l.id); confetti(innerWidth / 2, innerHeight / 2, 90); }
+      const x = body.querySelector("#svxp"); if (x) x.textContent = fresh ? "+10 XP · история добавлена в Зал славы" : "Эта история уже в твоём Зале славы";
+      const b = body.querySelector("[data-svclose]"); if (b) { b.addEventListener("click", close); b.focus(); }
+    }
+  };
+  const onKey = e => { if (e.key === "Escape") close(); else if (e.key === "ArrowRight") show(i + 1); else if (e.key === "ArrowLeft") show(i - 1); };
+  document.addEventListener("keydown", onKey);
+  o.querySelector(".sv-x").addEventListener("click", close);
+  o.querySelector(".sv-next").addEventListener("click", () => { if (!skipClick) show(i + 1); });
+  o.querySelector(".sv-prev").addEventListener("click", () => { if (!skipClick) show(i - 1); });
+  o.addEventListener("click", e => { if (e.target === o) close(); });
+  const card = o.querySelector(".sv-card");
+  card.addEventListener("pointerdown", e => { sx = e.clientX; skipClick = false; });
+  card.addEventListener("pointerup", e => {
+    if (sx == null) return; const dx = e.clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) { skipClick = true; show(dx < 0 ? i + 1 : i - 1); setTimeout(() => { skipClick = false; }, 300); }
+  });
+  show(0);
+  o.querySelector(".sv-x").focus();
 }
 
 function soundBtn() {
@@ -1241,8 +1491,8 @@ function renderHome() {
     </div>
     <div id="eventbox">${eventHTML(false)}</div>
     <div class="panel"><div class="row" style="justify-content:space-between"><div class="label muted">${ico("crown")} Зал славы: ${LEGENDS.filter(l => S.legends.read[l.id]).length} из ${LEGENDS.length}</div><span class="muted" style="font-size:13px">реальные истории успеха</span></div>
-      <div class="hall">${LEGENDS.map(l => { const mi = M.findIndex(m => m.id === l.m), open = unlocked(mi), read = !!S.legends.read[l.id];
-        return `<button class="hallcard ${open ? (read ? "" : "unread") : "locked"}" data-hall="${l.id}" style="--lc:var(${M[mi].color})"><span class="mono">${open ? esc(l.mono) : "?"}</span>${open ? esc(l.name) : "Миссия " + (mi + 1)}</button>`; }).join("")}</div>
+      <div class="hall">${LEGENDS.map(l => { const lm = legendMission(l), mi = M.indexOf(lm), open = unlocked(mi), read = !!S.legends.read[l.id];
+        return `<button class="hallcard ${open ? (read ? "" : "unread") : "locked"}" ${open ? `data-story="${l.id}"` : `data-hall="${l.id}"`} style="--lc:var(${lm.color})">${avatarSVG(l.av, 60, open ? "var(--lc)" : "var(--surface)", !open)}<span>${open ? esc(l.name) : "Миссия " + (mi + 1)}</span>${open ? `<small>${esc(l.cls)}</small>` : ""}</button>`; }).join("")}</div>
     </div>
     <div class="panel"><div class="label muted">Коллекция значков: ${doneCount} из 8</div>
       <div class="stickers">${M.map(m => `<div class="sticker ${S.done[m.id] ? "" : "off"}"><div class="hex" style="background:var(${m.color})">${ico(m.icon, 2.4)}</div>${esc(m.badge)}</div>`).join("")}</div>
@@ -1255,7 +1505,7 @@ function renderHome() {
         <li>Возвращаться в прошлые миссии можно и нужно: путь последовательный, но не линейный.</li>
         <li>Каждый день — 3 задания в реальной жизни. Делай хотя бы одно в день, чтобы не потерять серию. За 3, 7, 14 и 30 дней подряд — бонусы.</li>
         <li>Карточки событий — ситуации, как в настольной игре. Выбери, как поступишь, и узнай, что из этого вышло.</li>
-        <li>В «Зале славы» — реальные истории известных предпринимателей. Новые истории открываются вместе с миссиями.</li>
+        <li>В «Зале славы» — реальные истории предпринимателей в формате сторис: кем был, что заметил, какой гениальный ход сделал и что получилось. Новые истории открываются вместе с миссиями.</li>
         <li>Ответы сохраняются на этом устройстве, а обновления игры их не стирают. Отчёт для родителей можно скопировать и отправить в мессенджер.</li>
       </ul>
     </details>
@@ -1298,8 +1548,8 @@ function renderMission(id) {
     <section class="section why"><div class="label">${ico("target")} Зачем это нужно</div><ul>${m.why.map((w, i) => `<li><b>${i + 1}</b><span>${esc(w)}</span></li>`).join("")}</ul></section>
     <section class="section"><div class="label">${ico("bolt")} Словарик: сложные слова по-простому</div>
       <div class="dict">${m.dict.map(d => `<div class="term"><div class="ti">${ico(d[2] || "star", 2.2)}</div><div><b>${esc(d[0])}</b>${esc(d[1])}</div></div>`).join("")}</div></section>
-    <section class="section"><div class="label">${ico("crown")} Легенды бизнеса · +5 XP за историю</div>
-      ${LEGENDS.filter(l => l.m === m.id).map(l => legendHTML(l, !!S.legends.read[l.id])).join("")}</section>
+    <section class="section"><div class="label">${ico("crown")} Легенды бизнеса · +10 XP за историю</div>
+      ${LEGENDS.filter(l => l.m === m.id).map(l => legendHTML(l)).join("")}</section>
     <section class="section"><div class="label">${ico("star")} Проверь себя · +10 XP за верный ответ</div>
       ${m.quiz.map((q, qi) => quizHTML(m.id + ".q" + qi, q)).join("")}</section>
     <section class="section"><div class="label">${ico("flag")} Миссия в реальной жизни · +5 XP за поле</div>
@@ -1658,7 +1908,7 @@ function go(target) {
 function shakeHead() { const b = document.querySelector(".mhead"); if (b) { b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); } }
 
 app.addEventListener("click", e => {
-  const el = e.target.closest("[data-go],[data-qopt],[data-pick],[data-risk],[data-act],[data-delsale],[data-beach],[data-swipe],[data-daily],[data-event],[data-legend],[data-hall]");
+  const el = e.target.closest("[data-go],[data-qopt],[data-pick],[data-risk],[data-act],[data-delsale],[data-beach],[data-swipe],[data-daily],[data-event],[data-story],[data-hall]");
   if (!el) return;
   if (el.dataset.daily != null) {
     const i = +el.dataset.daily; if (S.daily.done[i]) return;
@@ -1680,17 +1930,10 @@ app.addEventListener("click", e => {
     document.getElementById("eventbox").innerHTML = eventHTML(false);
     return;
   }
-  if (el.dataset.legend) {
-    const l = LEGENDS.find(x => x.id === el.dataset.legend); readLegend(l.id); sfx.good();
-    el.closest(".legend").outerHTML = legendHTML(l, true);
-    return;
-  }
+  if (el.dataset.story) { openStory(el.dataset.story); return; }
   if (el.dataset.hall) {
-    const l = LEGENDS.find(x => x.id === el.dataset.hall), mi = M.findIndex(m => m.id === l.m);
-    if (!unlocked(mi)) { sfx.bad(); toast("Откроется в миссии " + (mi + 1)); return; }
-    showModal(legendHTML(l, true), "Вдохновляет!", () => renderHome());
-    readLegend(l.id);
-    return;
+    const l = LEGENDS.find(x => x.id === el.dataset.hall), mi = M.indexOf(legendMission(l));
+    sfx.bad(); toast("Откроется в миссии " + (mi + 1)); return;
   }
   if (el.dataset.go) {
     const i = M.findIndex(m => m.id === el.dataset.go);
