@@ -1,0 +1,902 @@
+<title>Стартап-квест</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;800&display=swap">
+<style>
+/* Layout: phone-first single column; home = winding board-game map of 8 missions, mission = stacked "quest card" sections. */
+:root {
+  --bg: #eef2f8;
+  --surface: #ffffff;
+  --surface-2: #f6f8fc;
+  --ink: #172233;
+  --ink-soft: #4a586c;
+  --line: #d7dfeb;
+  --c1: #2b95d6; --c2: #e23d4f; --c3: #e9a91c; --c4: #5fa62d; --c5: #ef7420; --c6: #8a5bbd;
+  --good: #1f9d55; --warn: #d48806; --bad: #d4364a;
+  --on-color: #ffffff;
+  --locked: #b8c2d1;
+  --font-display: "Unbounded", "Manrope", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1420; --surface: #172131; --surface-2: #1d2a3d; --ink: #e9eef6; --ink-soft: #a9b6c8; --line: #2b3a50;
+    --c1: #45a8e6; --c2: #f05768; --c3: #f2b93a; --c4: #79c046; --c5: #f58a3c; --c6: #a27ad6;
+    --good: #3cc47a; --warn: #f0a92a; --bad: #f2647a; --locked: #3c4a60; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1420; --surface: #172131; --surface-2: #1d2a3d; --ink: #e9eef6; --ink-soft: #a9b6c8; --line: #2b3a50;
+  --c1: #45a8e6; --c2: #f05768; --c3: #f2b93a; --c4: #79c046; --c5: #f58a3c; --c6: #a27ad6;
+  --good: #3cc47a; --warn: #f0a92a; --bad: #f2647a; --locked: #3c4a60; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 760px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 64px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 7vw, 42px); font-weight: 800; }
+h2 { font-size: 20px; font-weight: 800; }
+h3 { font-size: 15px; font-weight: 600; }
+p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--c1); outline-offset: 2px; }
+.muted { color: var(--ink-soft); }
+.label { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+/* home */
+.hero { display: flex; flex-direction: column; gap: 10px; padding-block: 8px 18px; }
+.hero h1 span { color: var(--c2); }
+.xpcard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 14px; align-items: center; }
+.lvl-badge { width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 20px; grid-row: span 2; }
+.xpbar { height: 10px; border-radius: 99px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.xpbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--c1), var(--c6)); border-radius: 99px; transition: width .5s; }
+.xpnum { font-family: var(--font-display); font-weight: 800; font-variant-numeric: tabular-nums; grid-row: span 2; text-align: right; }
+.map { margin-block: 18px 8px; }
+.map svg { width: 100%; height: auto; display: block; }
+.map .node { cursor: pointer; }
+.map .node.locked { cursor: not-allowed; }
+.map .node:focus-visible circle.ring { stroke: var(--ink); stroke-width: 4; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.bdg { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px 5px 6px; border-radius: 99px; font-size: 13px; font-weight: 700; background: var(--surface); border: 1px solid var(--line); }
+.bdg b { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; color: var(--on-color); font-size: 11px; }
+.bdg.off { opacity: .45; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+details.panel summary { cursor: pointer; font-weight: 800; }
+details.panel ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.btn { border: 0; border-radius: 12px; padding: 12px 18px; font-weight: 800; background: var(--ink); color: var(--bg); }
+.btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* mission */
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
+.topbar .xpcard { flex: 1; min-width: 0; max-width: 360px; padding: 8px 12px; }
+.topbar .lvl-badge { width: 40px; height: 40px; font-size: 16px; }
+.mhead { border-radius: 20px; padding: 20px; color: var(--on-color); background: var(--mc); display: flex; gap: 16px; align-items: center; }
+.mhead.dark-text { color: #1b2333; }
+.mnum { font-family: var(--font-display); font-weight: 800; font-size: 54px; line-height: 1; }
+.mhead .label { opacity: .85; }
+.mhead h1 { font-size: clamp(22px, 5.6vw, 30px); }
+.section { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; }
+.section > .label { color: var(--mc); }
+.coach { display: grid; grid-template-columns: 48px 1fr; gap: 12px; align-items: start; }
+.coach .ava { width: 48px; height: 48px; border-radius: 50%; background: var(--mc); display: grid; place-items: center; }
+.bubble { background: var(--surface-2); border-radius: 4px 16px 16px 16px; padding: 12px 14px; }
+.why li { margin-bottom: 6px; }
+.why ul { margin: 0; padding-left: 20px; }
+.dict { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.term { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: var(--surface-2); min-width: 0; }
+.term b { display: block; font-family: var(--font-display); font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--mc); }
+.q { border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.q p.qt { font-weight: 700; }
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opt { text-align: left; border: 2px solid var(--line); background: var(--surface); border-radius: 10px; padding: 10px 12px; }
+.opt:hover:not(:disabled) { border-color: var(--mc); }
+.opt.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
+.opt.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+.explain { font-size: 14px; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); }
+.task { border-top: 1px dashed var(--line); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.section > .label + .task { border-top: 0; padding-top: 0; }
+.task h3 { font-family: var(--font-body); font-size: 16px; font-weight: 800; }
+.hint { font-size: 14px; color: var(--ink-soft); }
+label.f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: var(--ink-soft); min-width: 0; }
+input[type=text], input[type=number], textarea, select {
+  width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface-2);
+  border: 1.5px solid var(--line); border-radius: 10px; padding: 9px 11px;
+}
+textarea { min-height: 70px; resize: vertical; }
+input:focus, textarea:focus, select:focus { border-color: var(--mc); outline: none; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.checks label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; font-weight: 600; }
+.checks input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--mc); flex: none; }
+.out { border-radius: 12px; padding: 14px; background: color-mix(in srgb, var(--mc) 10%, var(--surface)); border: 1.5px solid color-mix(in srgb, var(--mc) 45%, var(--line)); display: flex; flex-direction: column; gap: 6px; }
+.big { font-family: var(--font-display); font-weight: 800; font-size: 26px; font-variant-numeric: tabular-nums; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px; min-width: 0; }
+.kpi small { display: block; font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+.kpi span { font-family: var(--font-display); font-weight: 800; font-size: 19px; font-variant-numeric: tabular-nums; }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 13px; font-weight: 800; color: #fff; }
+.pill.good { background: var(--good); } .pill.warn { background: var(--warn); } .pill.bad { background: var(--bad); }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 6px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+th { font-size: 12px; color: var(--ink-soft); font-weight: 800; }
+td select { padding: 6px 4px; font-size: 14px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.card { text-align: left; border: 2px solid var(--line); border-radius: 12px; padding: 12px; background: var(--surface); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.card b { font-weight: 800; }
+.card.on { border-color: var(--mc); background: color-mix(in srgb, var(--mc) 10%, var(--surface)); }
+.card.on.badpick { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+.verdict { font-size: 14px; font-weight: 700; }
+.verdict.good { color: var(--good); } .verdict.bad { color: var(--bad); }
+.flip { text-align: left; border: 2px dashed var(--line); border-radius: 12px; padding: 12px; background: var(--surface-2); display: flex; flex-direction: column; gap: 6px; }
+.flip.open { border-style: solid; }
+.flip .tag { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.next { border-left: 5px solid var(--mc); padding: 4px 0 4px 14px; font-weight: 600; }
+.done-bar { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+.slider-row { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.slider-row .sl { display: grid; grid-template-columns: 92px 1fr 28px; gap: 8px; align-items: center; font-size: 13px; }
+input[type=range] { width: 100%; accent-color: var(--mc); }
+.plot svg { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(140%); background: var(--ink); color: var(--bg); padding: 12px 18px; border-radius: 14px; font-weight: 800; transition: transform .35s, opacity .35s, visibility .35s; z-index: 10; opacity: 0; visibility: hidden; max-width: calc(100% - 32px); text-align: center; }
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
+.report { white-space: pre-wrap; font-size: 14px; background: var(--surface-2); border-radius: 10px; padding: 14px; border: 1px solid var(--line); max-height: 420px; overflow: auto; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+"use strict";
+
+/* ------------------------------------------------------------------ данные */
+const LEVELS = [
+  [0, "Новичок"], [100, "Разведчик рынка"], [250, "Продавец"],
+  [450, "Предприниматель"], [700, "Стартапер"], [950, "Профи"]
+];
+
+const M = [
+{
+  id: "m1", color: "--c1", short: "Кто купит?", title: "Кто вообще купит?", steps: "1 · 2 · 3",
+  badge: "Разведчик",
+  coach: "Ты хочешь продавать духи в школе. Большинство новичков сразу закупают товар и застревают с коробкой флаконов, которые никто не берёт. Профи из MIT начинают с другого вопроса: кто будет покупать?",
+  why: [
+    "Не знаешь клиента — не знаешь, что закупать, сколько просить и где продавать.",
+    "Ошибка на этом шаге самая дорогая: всё остальное строится поверх неё.",
+    "Разговор с людьми бесплатный. Закупка без разговоров — лотерея."
+  ],
+  dict: [
+    ["Сегмент", "Группа людей с похожими желаниями и деньгами. Например, «девочки 8-х классов» или «парни 10–11 классов перед выпускным»."],
+    ["Плацдарм", "Первая маленькая территория, которую ты захватываешь целиком. Как в стратегии: сначала одна база, потом расширение."],
+    ["Профиль клиента", "Описание типичного покупателя: возраст, деньги, интересы, где он проводит время."]
+  ],
+  quiz: [
+    { q: "С чего лучше начать бизнес с духами?", o: ["Закупить 50 флаконов самых популярных ароматов", "Поговорить с 10 возможными покупателями", "Сделать красивую страницу в соцсетях"], c: 1,
+      e: "Разговор даёт правду бесплатно. После него ты закупишь то, что точно возьмут." },
+    { q: "Какой плацдарм лучше для старта?", o: ["Вся школа: чем больше людей, тем лучше", "Девочки 8–9 классов, где у тебя есть знакомые", "Учителя: у них больше денег"], c: 1,
+      e: "Узкая группа, которую ты знаешь и где все общаются между собой. Сарафанное радио сделает рекламу за тебя." },
+    { q: "Зачем плацдарм должен быть маленьким?", o: ["Чтобы стать в нём №1, и слух о тебе разошёлся сам", "Чтобы платить меньше налогов", "В маленьких группах не бывает конкурентов"], c: 0,
+      e: "В маленькой группе проще стать «тем самым, у кого классные духи». Потом с этой репутацией легче идти дальше." }
+  ],
+  tasks: [
+    { type: "list", key: "segs", n: 6, title: "Запиши 6 групп людей, которые могли бы купить духи",
+      hint: "Думай широко: не только одноклассники.",
+      ph: ["Девочки 7–8 классов", "Девочки 9–11 классов", "Парни 10–11 классов", "Учителя", "Мамы одноклассников", "Ребята из секции"] },
+    { type: "checks", key: "talk", title: "Поговори с людьми из этих групп",
+      hint: "Спроси: «Пользуешься духами? Какими? Сколько готов(а) потратить? Где покупаешь? Что бесит при покупке?»",
+      items: ["Поговорил(а) хотя бы с 2 людьми из каждой группы", "Записал(а), какие ароматы им нравятся", "Узнал(а), сколько они готовы потратить"] },
+    { type: "text", key: "surprise", title: "Что тебя удивило в разговорах?", ph: "Например: парни тоже покупают, но стесняются спросить…" },
+    { type: "segscore", key: "seg", title: "Оцени группы и выбери плацдарм",
+      hint: "Поставь от 1 до 5 по каждому пункту. Побеждает группа с наибольшей суммой — но последнее слово за тобой." },
+    { type: "fields", key: "prof", title: "Профиль клиента на плацдарме", fields: [
+      ["Возраст / класс", "13–15 лет, 8–9 класс"], ["Сколько денег в неделю", "300–500 ₽ карманных"],
+      ["Какие ароматы любят", "сладкие, ванильные, «как у блогерши»"], ["Где проводят время", "TikTok, перемены у окна, кружок танцев"],
+      ["Чего боятся при покупке", "что запах дешёвый, что засмеют"]] }
+  ],
+  next: "Плацдарм определяет всё дальше: для кого ты считаешь деньги, какие ароматы закупаешь и где рекламируешь. Ошибёшься здесь — продукт не продастся, как бы хорош он ни был."
+},
+{
+  id: "m2", color: "--c1", short: "Сколько денег?", title: "Сколько тут денег и кто такая Маша", steps: "4 · 5 · 9",
+  badge: "Знаток клиента",
+  coach: "Плацдарм выбран. Теперь два вопроса: стоит ли он усилий, то есть сколько там денег? И кто конкретно твой покупатель?",
+  why: [
+    "Подсчёт показывает потолок: больше этой суммы с плацдарма не заработать.",
+    "Персона превращает «какие-то девочки» в живого человека, под которого легко принимать решения.",
+    "10 реальных людей, сказавших «куплю», — первое доказательство, что идея работает."
+  ],
+  dict: [
+    ["TAM (объём рынка)", "«Весь пирог»: сколько денег в год потратил бы плацдарм на твой товар, если бы все покупали только у тебя."],
+    ["Персона", "Один реальный человек — «лицо» плацдарма. Не «девочки», а Маша из 8Б со своими деньгами, вкусами и страхами."],
+    ["Первые 10 клиентов", "10 живых людей, похожих на персону, которые подтвердили: «да, я бы купил(а)»."]
+  ],
+  quiz: [
+    { q: "60 девочек, каждая покупает 2 флакона в год по 400 ₽. Какой TAM?", o: ["4 800 ₽", "48 000 ₽", "24 000 ₽"], c: 1,
+      e: "60 × 2 × 400 = 48 000 ₽ в год. Это потолок: на деле ты получишь только часть пирога." },
+    { q: "Зачем персона, если уже есть профиль группы?", o: ["Чтобы было что показать учителю", "Чтобы при любом решении спросить: «А Маша бы это купила?»", "Персона нужна только большим компаниям"], c: 1,
+      e: "Когда сомневаешься в цене, аромате или рекламе — представь Машу. Решения становятся быстрыми и точными." },
+    { q: "Ты нашёл только 3 человек, которые сказали «куплю». Что делать?", o: ["Всё равно закупать: остальные подтянутся", "Вернуться на шаг назад: может, не тот плацдарм или не тот товар", "Снизить цену вдвое"], c: 1,
+      e: "Это и есть «путь не линейный»: профи возвращаются назад, а не прут вперёд вслепую." }
+  ],
+  tasks: [
+    { type: "tam", title: "Посчитай свой пирог (TAM)" },
+    { type: "fields", key: "persona", title: "Опиши свою персону", hint: "Возьми реального человека из плацдарма. Имя можно изменить.", fields: [
+      ["Имя и класс", "Маша, 8Б"], ["Карманные деньги", "400 ₽ в неделю"], ["Любимые ароматы и бренды", "сладкие, мечтает о дорогом бренде"],
+      ["Кумир / блогер", "бьюти-блогер из TikTok"], ["Что для неё важно в духах", "чтобы спрашивали «чем ты пахнешь?»"], ["Чего боится", "потратить деньги на ерунду"]] },
+    { type: "ten", title: "Найди 10 реальных людей, похожих на персону", hint: "Дай понюхать, расскажи идею, запиши честную реакцию." }
+  ],
+  next: "Персона и 10 клиентов — твой компас. Цены, ароматы, реклама: дальше всё проверяй вопросом «а Маша бы это взяла?»."
+},
+{
+  id: "m3", color: "--c2", short: "Твоя ценность", title: "Что ты на самом деле продаёшь", steps: "6 · 7 · 8",
+  badge: "Создатель ценности",
+  coach: "Люди покупают не флакон. Они покупают ощущение: пахнуть как звезда, получать комплименты и не тратить всю копилку. Давай поймём, что именно ты даёшь.",
+  why: [
+    "Если продумать весь путь клиента, видно, где он может «потеряться» и не купить.",
+    "Понятное описание продукта продаёт лучше, чем длинные объяснения.",
+    "Выгода в цифрах — самый сильный аргумент для покупателя и для его родителей."
+  ],
+  dict: [
+    ["Полный цикл использования", "Весь путь клиента: узнал о тебе → понюхал → купил → пользуется → закончилось → рассказал подруге."],
+    ["Спецификация", "Описание продукта простыми словами: что это, сколько мл, как выглядит, сколько стоит."],
+    ["Ценность в цифрах", "Выгода, посчитанная честно: «тот же аромат за 450 ₽ вместо 12 000 ₽»."]
+  ],
+  quiz: [
+    { q: "Что лучше написать в описании?", o: ["«Объём 5 мл, стекло, спрей»", "«Пахнет как дорогой аромат, хватает на месяц, помещается в пенал»", "«Произведено на заводе»"], c: 1,
+      e: "Покупатель думает о выгоде, а не о характеристиках. Характеристики можно написать мелко внизу." },
+    { q: "Почему важен момент «духи закончились»?", o: ["Это момент повторной покупки: если о нём не подумать, клиент уйдёт к другому", "Он не важен: продажа уже случилась", "Чтобы вовремя выбросить флакон"], c: 0,
+      e: "Повторные покупки — главный источник денег. Напомни о себе, предложи новый аромат или скидку за возврат флакона." }
+  ],
+  tasks: [
+    { type: "fields", key: "journey", title: "Путь клиента: как это происходит у тебя?", fields: [
+      ["1. Узнаёт о тебе", "подруга рассказала, увидела пробник"], ["2. Нюхает и выбирает", "даю понюхать на перемене"], ["3. Платит", "перевод с телефона, согласовано с мамой"],
+      ["4. Получает", "в тот же день после уроков"], ["5. Пользуется", "носит в рюкзаке, хватает на месяц"], ["6. Духи заканчиваются", "пишу через 3 недели, предлагаю новинку"],
+      ["7. Рассказывает другим", "за приведённую подругу — пробник в подарок"]] },
+    { type: "text", key: "spec", title: "Опиши продукт в 3 предложениях, как на этикетке", ph: "Мини-флакон 5 мл с популярным ароматом. Помещается в пенал, хватает на месяц. Можно понюхать до покупки." },
+    { type: "value", title: "Посчитай выгоду в цифрах" }
+  ],
+  next: "Фраза с выгодой станет главной в твоей рекламе (миссия 5) и подскажет цену (миссия 6)."
+},
+{
+  id: "m4", color: "--c2", short: "Почему ты?", title: "Почему купят именно у тебя", steps: "10 · 11",
+  badge: "Стратег",
+  coach: "Духи продают маркетплейсы, магазины и, возможно, ещё кто-то в школе. Почему Маша купит у тебя? Найдём твою суперсилу.",
+  why: [
+    "Без суперсилы ты соревнуешься только ценой — а маркетплейс всегда может дешевле.",
+    "Карта конкурентов показывает свободное место, где ты лучше всех.",
+    "Главный конкурент часто вообще не магазин, а привычка «ничего не покупать»."
+  ],
+  dict: [
+    ["Ядро", "Твоя суперсила, которую сложно скопировать: личный подбор, возможность понюхать, знание вкусов класса."],
+    ["Статус-кво", "«Оставить как есть» — не покупать ничего. Это главный конкурент любого нового продукта."],
+    ["Конкурентная позиция", "Карта, где ты и конкуренты расставлены по двум самым важным для персоны вещам."]
+  ],
+  quiz: [
+    { q: "Что из этого — настоящее ядро?", o: ["Самая низкая цена", "Можно понюхать до покупки и получить личный подбор от того, кто знает вкусы класса", "Красивые наклейки"], c: 1,
+      e: "Цену может перебить кто угодно, наклейки — скопировать за вечер. А личный подбор и доверие однокласснику скопировать сложно." },
+    { q: "Кто твой главный конкурент?", o: ["Маркетплейс", "Привычка ничего не покупать", "Магазин в торговом центре"], c: 1,
+      e: "Большинство людей просто ничего не делают. Твоя задача — дать причину купить сейчас." }
+  ],
+  tasks: [
+    { type: "pick", key: "core", title: "Выбери до двух суперсил", max: 2, options: [
+      ["Понюхать до покупки", "На маркетплейсе так нельзя."], ["Личный подбор", "Подскажу аромат под характер и стиль."],
+      ["Мини-объём", "Можно попробовать много ароматов за небольшие деньги."], ["Сразу в руках", "Без доставки и ожидания."],
+      ["«Топ ароматов школы»", "Знаю, что сейчас носят все."], ["Свой стиль", "Своя этикетка и название — это узнают."]] },
+    { type: "text", key: "coreline", title: "Твоё ядро одной фразой", ph: "Подберу аромат под тебя, и ты понюхаешь его до покупки." },
+    { type: "compete", title: "Карта конкурентов", hint: "Передвинь ползунки: где каждый находится по двум самым важным для Маши вещам? Ищи место, где ты лучше всех." }
+  ],
+  next: "Суперсила подскажет, что говорить в рекламе и почему у тебя можно брать чуть дороже, чем на маркетплейсе."
+},
+{
+  id: "m5", color: "--c3", dark: true, short: "Кто решает?", title: "Кто решает и как дойти до оплаты", steps: "12 · 13 · 18",
+  badge: "Переговорщик",
+  coach: "Маша хочет аромат. Но платит мама, подруга может сказать «фу», а завуч — запретить торговлю в школе. Покупка — командная игра, и тебе надо убедить всю команду.",
+  why: [
+    "Забудешь про того, кто может запретить, — бизнес закроют в первый же день.",
+    "Не продумаешь оплату — клиенты «отвалятся» на последнем шаге.",
+    "Понятные каналы продаж — это рост без лишней беготни."
+  ],
+  dict: [
+    ["DMU — «команда решения»", "Все, кто влияет на покупку: пользователь, плательщик, советчик и тот, у кого есть право вето."],
+    ["Право вето", "Право запретить. У завуча и родителей оно есть, у подруги — нет, хотя она может отговорить."],
+    ["Путь к оплате", "По шагам: что должно случиться, чтобы деньги честно оказались у тебя, а товар — у клиента."],
+    ["Каналы продаж", "Как ты продаёшь: лично, через друзей-помощников, через соцсети."]
+  ],
+  quiz: [
+    { q: "У кого право вето?", o: ["У подруги Маши", "У завуча и у родителей", "У блогера, которого любит Маша"], c: 1,
+      e: "Подруга влияет, но запретить не может. Завуч и родители — могут. Узнай их позицию заранее." },
+    { q: "Как лучше организовать оплату и передачу?", o: ["Деньги на уроке, товар под партой", "Взять деньги вперёд и привезти через месяц", "Оплата переводом с согласия родителей, передача после уроков"], c: 2,
+      e: "Честно, прозрачно и без нарушения правил школы. Так тебе будут доверять и клиенты, и их родители." }
+  ],
+  tasks: [
+    { type: "fields", key: "dmu", title: "Команда решения у твоей персоны", fields: [
+      ["Пользователь — кто нюхает и носит", "Маша"], ["Плательщик — чьи деньги", "мама Маши / карманные"], ["Советчик — кто влияет", "лучшая подруга"],
+      ["Право вето — кто может запретить", "завуч, родители"], ["Как убедишь каждого", "маме — честная цена и состав; завучу — продаю вне школы"]] },
+    { type: "list", key: "path", n: 5, title: "Путь к оплате по шагам", ph: ["Маша нюхает пробник", "Выбирает аромат", "Спрашивает маму", "Переводит деньги", "Получает флакон после уроков"] },
+    { type: "checks", key: "rules", title: "Проверь правила игры", items: ["Узнал(а) правила школы про продажу", "Обсудил(а) бизнес с родителями", "Выбрал(а) честный способ оплаты", "Решил(а), где передаю товар (вне уроков)"] },
+    { type: "pick", key: "chan", title: "Каналы продаж: с чего начнёшь?", max: 2, options: [
+      ["Лично знакомым", "Быстро и бесплатно — идеально для старта."], ["Друзья-помощники", "Подруга продаёт за процент — позже, когда пойдёт."],
+      ["Соцсети / чат класса", "Охват больше, но сначала узнай правила."], ["Подарочные наборы к праздникам", "8 Марта, Новый год — для мам и сестёр."]] }
+  ],
+  next: "Теперь ты знаешь всех, кого надо убедить, и путь к оплате без дыр. Дальше посчитаем, приносит ли это деньги."
+},
+{
+  id: "m6", color: "--c4", short: "Деньги", title: "Зарабатываешь или работаешь в минус?", steps: "15 · 16 · 17 · 19",
+  badge: "Финансист",
+  coach: "Самый частый провал новичков — продавать много и всё равно оставаться в минусе. Сейчас посчитаем, сколько ты реально зарабатываешь с одного клиента.",
+  why: [
+    "Цена «от себестоимости» часто оставляет тебя без прибыли.",
+    "Если привлечь клиента дороже, чем он принесёт, каждая продажа — минус.",
+    "Посчитать сейчас дешевле, чем узнать это после закупки."
+  ],
+  dict: [
+    ["Бизнес-модель", "Как ты берёшь деньги: разовая продажа, набор пробников, «аромат месяца» по подписке."],
+    ["Себестоимость", "Сколько тебе стоит один мини-флакон: доля большого флакона + пустой флакон и наклейка."],
+    ["Маржа", "Сколько остаётся с одной продажи: цена минус себестоимость."],
+    ["LTV — ценность клиента", "Сколько прибыли принесёт один клиент за всё время: маржа × сколько раз купит."],
+    ["COCA — цена клиента", "Сколько стоит привлечь одного нового клиента: пробники, скидки, подарки за друзей."],
+    ["Золотое правило", "LTV должен быть хотя бы в 3 раза больше COCA. Иначе бизнес съедает сам себя."]
+  ],
+  quiz: [
+    { q: "Флакон обходится в 150 ₽, продаёшь за 400 ₽, клиент покупает 3 раза. Какой LTV?", o: ["1 200 ₽", "750 ₽", "450 ₽"], c: 1,
+      e: "Маржа 400 − 150 = 250 ₽. За 3 покупки: 250 × 3 = 750 ₽. Выручка 1 200 ₽ — это не прибыль." },
+    { q: "За месяц раздал пробников на 600 ₽ и получил 3 новых клиента. Какой COCA?", o: ["600 ₽", "200 ₽", "1 800 ₽"], c: 1,
+      e: "600 ₽ ÷ 3 клиента = 200 ₽ за одного клиента." },
+    { q: "LTV = 750 ₽, COCA = 200 ₽. Это хорошо?", o: ["Да: 750 больше, чем 3 × 200 = 600", "Нет: нужно, чтобы COCA был больше", "Непонятно без рекламы в соцсетях"], c: 0,
+      e: "Правило выполнено: клиент приносит больше чем втрое против затрат на его привлечение." }
+  ],
+  tasks: [
+    { type: "pick", key: "model", title: "Выбери бизнес-модель", max: 1, options: [
+      ["Разовая продажа", "Мини-флакон 5 мл — просто и понятно."], ["Набор пробников", "3 аромата по 2 мл — попробовать и выбрать любимый."],
+      ["«Аромат месяца»", "Каждый месяц новый мини-флакон по подписке."], ["Возврат флакона", "Принёс пустой — скидка на новый."]] },
+    { type: "unit", title: "Калькулятор: твои настоящие деньги" },
+    { type: "text", key: "price", title: "Твоя цена и почему именно такая", ph: "450 ₽: это в 25 раз дешевле оригинала, а маржа позволяет дарить пробники." }
+  ],
+  next: "Если LTV меньше 3 × COCA — меняй цену, модель или способ привлечения ДО того, как закупишь много товара."
+},
+{
+  id: "m7", color: "--c5", short: "Босс: проверка", title: "Босс-уровень: опасные допущения", steps: "20 · 21 · 22",
+  badge: "Охотник за рисками",
+  coach: "Это босс-уровень. У каждого стартапа есть опасные допущения — то, во что ты веришь, но не проверил. Профи из MIT ищут их первыми: одно такое допущение может обнулить весь бизнес.",
+  why: [
+    "Непроверенное допущение — мина. Лучше найти её сейчас, чем наступить.",
+    "Быстрый эксперимент стоит копейки, а закупка «наугад» — все твои деньги.",
+    "Иногда проверка показывает, что идею надо повернуть. Это не провал, а то, что делают все успешные стартапы."
+  ],
+  dict: [
+    ["Допущение", "То, что ты считаешь правдой без доказательств: «всем понравится», «школа разрешит»."],
+    ["Эксперимент", "Быстрая и дешёвая проверка: дать понюхать 15 людям, собрать предзаказы."],
+    ["Поворот (pivot)", "Изменение идеи после проверки. Instagram, YouTube и многие другие начинались совсем с другого."],
+    ["MVBP", "Минимальный продукт, за который уже платят: не 50 флаконов, а 3 аромата по 5 штук."]
+  ],
+  quiz: [
+    { q: "Какой эксперимент лучше проверит спрос?", o: ["Спросить «тебе бы понравилось?»", "Попросить оставить предзаказ с предоплатой или бронью", "Посчитать лайки под постом"], c: 1,
+      e: "Слова ничего не стоят. Предзаказ — это когда человек готов отдать деньги. Это настоящая проверка." },
+    { q: "Что такое MVBP для твоего бизнеса?", o: ["Сайт, логотип и 50 флаконов", "3 аромата по 5 мини-флаконов, которые уже купили", "Идея в голове"], c: 1,
+      e: "Самая маленькая версия, за которую платят. Всё остальное добавишь, когда докажешь спрос." }
+  ],
+  tasks: [
+    { type: "risks", title: "Переверни карточки с допущениями", hint: "Нажми на каждую: верно ли это допущение?" },
+    { type: "pick", key: "pivot", title: "Выбери, как сделать бизнес правильно", max: 1, pivot: true, options: [
+      ["Распив оригиналов", "Покупаешь настоящий флакон и разливаешь по 3–5 мл. Оригинальный аромат по доступной цене.", 0, "Отлично: это настоящий парфюм, честно и законно. Многие подростки так зарабатывают."],
+      ["Аналоги без чужих логотипов", "Честно говоришь «пахнет похоже на…». Своя этикетка, проверенный поставщик.", 0, "Хороший выбор: никаких чужих логотипов, и ты не обманываешь покупателя."],
+      ["Свой бренд-микс", "Своё название, наклейка и подборка ароматов. Сложнее, зато это твоё ядро.", 0, "Сильный ход: свой бренд сложно скопировать. Проверь поставщика и состав."],
+      ["Реплики с логотипами брендов", "Копия флакона с названием дорогого бренда.", 1, "Опасно. Это подделка чужого товарного знака: товар могут изъять, отвечать будут родители, а в школе такое быстро запретят. Профи не строят бизнес на мине — выбери другой вариант."]] },
+    { type: "grid", key: "exp", title: "Спланируй 3 эксперимента", rows: 3,
+      cols: [["Допущение", "Девочкам понравятся мои 3 аромата"], ["Как проверю за 1–3 дня", "Дам понюхать 15 людям из плацдарма"], ["Успех, если…", "минимум 6 оставят предзаказ"]] },
+    { type: "text", key: "mvbp", title: "Твой минимальный продукт (MVBP)", ph: "3 аромата × 5 мини-флаконов по 5 мл, простая наклейка, цена 450 ₽. Закупаю только под предзаказы." },
+    { type: "checks", key: "test", title: "Проверки проведены", items: ["Провёл(а) хотя бы один эксперимент", "Получил(а) минимум 5 предзаказов", "Проверил(а) поставщика и состав"] }
+  ],
+  next: "Проверенные допущения экономят деньги: ты закупаешь только то, что уже купили, и не рискуешь репутацией."
+},
+{
+  id: "m8", color: "--c6", short: "Запуск", title: "Запуск: едят ли собаки корм?", steps: "23 · 14 · 24",
+  badge: "Стартапер",
+  coach: "В MIT говорят: «Докажи, что собаки едят корм». Не верь словам «классно, куплю когда-нибудь». Верь только покупкам — особенно повторным.",
+  why: [
+    "Повторные покупки — самый честный знак, что продукт нравится.",
+    "Цифры продаж убедят инвестора (родителей) лучше любых слов.",
+    "План роста показывает, куда идти, когда плацдарм захвачен."
+  ],
+  dict: [
+    ["«Собаки едят корм»", "Люди реально платят и возвращаются сами, без уговоров."],
+    ["Доля повторных", "Сколько клиентов купили хотя бы второй раз. 30% и выше — отличный знак."],
+    ["Следующие рынки", "Куда расти после плацдарма: другие классы, подарки к праздникам, парни."],
+    ["План продукта", "Что ты добавишь и куда пойдёшь в ближайшие месяцы."]
+  ],
+  quiz: [
+    { q: "Что лучший признак успеха?", o: ["100 лайков на пост", "Все сказали «прикольно»", "4 из 10 клиентов сами купили второй раз"], c: 2,
+      e: "Лайки и слова бесплатны. Повторная покупка — это когда человек голосует деньгами." }
+  ],
+  tasks: [
+    { type: "sales", title: "Журнал продаж", hint: "Записывай каждую продажу. Игра сама посчитает выручку, прибыль и долю повторных покупок." },
+    { type: "list", key: "nextm", n: 3, title: "Куда расти после плацдарма?", ph: ["Девочки 10–11 классов", "Подарки мамам к 8 Марта", "Парни перед выпускным"] },
+    { type: "fields", key: "plan", title: "План на 3 месяца", fields: [["Месяц 1", "захватить плацдарм: 20 клиентов"], ["Месяц 2", "добавить 2 новых аромата и набор пробников"], ["Месяц 3", "выйти на следующий рынок"]] }
+  ],
+  next: "Ты прошёл весь путь, как стартаперы из MIT. Теперь собери отчёт и покажи результаты на «демо-дне» своему инвестору — родителям."
+}
+];
+
+const RISKS = [
+  ["«Реплики с логотипом бренда — это нормально, все так делают»", "bad", "Опасно", "Флакон с чужим логотипом или названием — подделка товарного знака. Это нарушение закона: товар могут изъять, отвечать будут родители."],
+  ["«Школа не против торговли»", "warn", "Проверь", "Во многих школах торговля запрещена. Узнай правила заранее — иначе бизнес закроют за один день."],
+  ["«Дешёвые духи безопасны»", "warn", "Риск", "У подделок бывает неизвестный состав. Одна аллергия у одноклассницы — и репутация потеряна. Бери товар у проверенных поставщиков."],
+  ["«Все захотят купить»", "warn", "Проверь", "Слова — не покупки. Проверяется предзаказами: попроси 10 человек забронировать аромат."]
+];
+
+/* ------------------------------------------------------------------ состояние */
+const KEY = "startup-quest-v1";
+function fresh() { return { v: 1, xp: 0, a: {}, got: {}, quiz: {}, done: {}, sales: [] }; }
+let S = fresh();
+try { const raw = JSON.parse(localStorage.getItem(KEY)); if (raw && raw.v === 1) S = Object.assign(fresh(), raw); } catch (e) {}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+const app = document.getElementById("app");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = n => isFinite(n) ? Math.round(n).toLocaleString("ru-RU") : "—";
+const num = (k, d) => { const v = parseFloat(String(S.a[k] ?? "").replace(",", ".")); return isFinite(v) ? v : d; };
+const val = k => S.a[k] ?? "";
+
+function level() {
+  let i = 0; LEVELS.forEach((l, j) => { if (S.xp >= l[0]) i = j; });
+  const cur = LEVELS[i], nxt = LEVELS[i + 1];
+  return { i, name: cur[1], from: cur[0], to: nxt ? nxt[0] : null };
+}
+let toastT;
+function toast(msg) {
+  const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2600);
+}
+function addXP(n, key) {
+  if (key) { if (S.got[key]) return; S.got[key] = 1; }
+  const before = level().i;
+  S.xp += n; save();
+  const after = level();
+  toast(after.i > before ? "Новый уровень: " + after.name + "!" : "+" + n + " XP");
+  const x = document.getElementById("xpline"); if (x) x.outerHTML = xpCard(true);
+}
+const unlocked = i => i === 0 || !!S.done[M[i - 1].id];
+
+/* ------------------------------------------------------------------ главная */
+function xpCard(inner) {
+  const L = level();
+  const pct = L.to ? Math.min(100, (S.xp - L.from) / (L.to - L.from) * 100) : 100;
+  return `<div class="xpcard" id="xpline">
+    <div class="lvl-badge" aria-hidden="true">${L.i + 1}</div>
+    <div><div class="label muted">Уровень ${L.i + 1}</div><b>${esc(L.name)}</b></div>
+    <div class="xpnum">${fmt(S.xp)} XP</div>
+    <div class="xpbar" aria-label="Прогресс до следующего уровня"><i style="width:${pct}%"></i></div>
+  </div>`;
+}
+
+function mapSVG() {
+  const W = 340, step = 104, top = 56, H = top * 2 + step * 7;
+  const pts = M.map((m, i) => [i % 2 ? 258 : 82, top + i * step]);
+  let d = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 1; i < pts.length; i++) {
+    const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
+    d += ` C${x0},${y0 + step * .6} ${x1},${y1 - step * .6} ${x1},${y1}`;
+  }
+  const nodes = M.map((m, i) => {
+    const [x, y] = pts[i], open = unlocked(i), done = !!S.done[m.id];
+    const fill = open ? `var(${m.color})` : "var(--locked)";
+    const lx = i % 2 ? x - 50 : x + 50, anchor = i % 2 ? "end" : "start";
+    return `<g class="node ${open ? "" : "locked"}" data-go="${m.id}" tabindex="${open ? 0 : -1}" role="button" aria-label="Миссия ${i + 1}: ${esc(m.title)}${open ? "" : " (закрыта)"}">
+      <circle class="ring" cx="${x}" cy="${y}" r="36" fill="var(--surface)" stroke="${fill}" stroke-width="5"/>
+      <circle cx="${x}" cy="${y}" r="28" fill="${fill}"/>
+      ${done ? `<path d="M${x - 11},${y} l7,8 l15,-17" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`
+             : open ? `<text x="${x}" y="${y + 8}" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="22" fill="${m.dark ? "#1b2333" : "#fff"}">${i + 1}</text>`
+             : `<path d="M${x - 8},${y - 2} v-5 a8,8 0 0 1 16,0 v5 M${x - 11},${y - 2} h22 v14 h-22 Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>`}
+      <text x="${lx}" y="${y - 4}" text-anchor="${anchor}" font-family="Manrope, sans-serif" font-weight="800" font-size="15" fill="var(--ink)">${esc(m.short)}</text>
+      <text x="${lx}" y="${y + 15}" text-anchor="${anchor}" font-family="Manrope, sans-serif" font-weight="600" font-size="12" fill="var(--ink-soft)">шаги MIT ${m.steps}</text>
+    </g>`;
+  }).join("");
+  const finish = `<g><rect x="104" y="${H - 34}" width="132" height="30" rx="15" fill="${S.done.m8 ? "var(--ink)" : "var(--locked)"}"/>
+    <text x="170" y="${H - 14}" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="13" fill="var(--bg)">ДЕМО-ДЕНЬ</text></g>`;
+  return `<svg viewBox="0 0 ${W} ${H + 6}" role="group" aria-label="Карта миссий">
+    <path d="${d}" fill="none" stroke="var(--line)" stroke-width="16" stroke-linecap="round"/>
+    <path d="${d}" fill="none" stroke="var(--surface)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+    <path d="M${pts[7][0]},${pts[7][1]} C${pts[7][0]},${pts[7][1] + 40} 170,${H - 70} 170,${H - 34}" fill="none" stroke="var(--line)" stroke-width="16" stroke-linecap="round"/>
+    ${nodes}${finish}</svg>`;
+}
+
+function renderHome() {
+  const doneCount = M.filter(m => S.done[m.id]).length;
+  const nextI = M.findIndex(m => !S.done[m.id]);
+  app.innerHTML = `
+  <header class="hero">
+    <div class="label muted">По методике MIT «Disciplined Entrepreneurship»</div>
+    <h1>Стартап-<span>квест</span></h1>
+    <p class="muted">8 миссий, чтобы запустить свой маленький бизнес с ароматами так, как это делают стартаперы из MIT. Каждая миссия — это шаги с карты из 24 шагов, объяснения простыми словами, тест и задание в реальной жизни.</p>
+  </header>
+  ${xpCard()}
+  <div class="map">${mapSVG()}</div>
+  <div class="stack">
+    <div class="row">
+      ${nextI >= 0 ? `<button class="btn" data-go="${M[nextI].id}">${doneCount ? "Продолжить" : "Начать"}: миссия ${nextI + 1}</button>` : ""}
+      <button class="btn ghost" data-go="report">Отчёт для демо-дня</button>
+    </div>
+    <div class="panel"><div class="label muted">Значки: ${doneCount} из 8</div>
+      <div class="badges">${M.map((m, i) => `<span class="bdg ${S.done[m.id] ? "" : "off"}"><b style="background:var(${m.color})">${i + 1}</b>${esc(m.badge)}</span>`).join("")}</div>
+    </div>
+    <details class="panel"><summary>Как играть</summary>
+      <ul>
+        <li>Миссии открываются по очереди. Внутри: объяснение, словарик, тест и задание в реальной жизни.</li>
+        <li>XP дают за правильные ответы с первой попытки (+10), за каждое заполненное поле (+5) и за пройденную миссию (+50).</li>
+        <li>Возвращаться в прошлые миссии можно и нужно: путь последовательный, но не линейный.</li>
+        <li>Ответы сохраняются на этом устройстве. Отчёт для родителей можно скопировать и отправить в мессенджер.</li>
+      </ul>
+    </details>
+    <details class="panel"><summary>Для родителей: роль инвестора</summary>
+      <ul>
+        <li>Дайте небольшой стартовый капитал (например, 2–3 тыс. ₽) как «инвестицию» и договоритесь, что из прибыли он вернётся.</li>
+        <li>Раз в неделю — «совет директоров» на 15 минут: что сделано, что узнал, какие цифры.</li>
+        <li>После миссии 8 — «демо-день»: ребёнок показывает отчёт и рассказывает, что поменял по ходу.</li>
+        <li>Обратите внимание на миссию 7: там ребёнок сам находит риски реплик с логотипами и выбирает законный вариант бизнеса.</li>
+      </ul>
+    </details>
+    <div class="row"><button class="btn ghost" data-act="reset">Начать игру заново</button><span class="muted" id="resetnote"></span></div>
+  </div>`;
+}
+
+/* ------------------------------------------------------------------ миссия */
+function renderMission(id) {
+  const idx = M.findIndex(m => m.id === id), m = M[idx];
+  if (idx < 0 || !unlocked(idx)) { location.hash = ""; return renderHome(); }
+  app.style.setProperty("--mc", `var(${m.color})`);
+  app.innerHTML = `
+  <div class="topbar"><button class="btn ghost" data-go="home">← Карта</button>${xpCard()}</div>
+  <div class="stack">
+    <header class="mhead ${m.dark ? "dark-text" : ""}">
+      <div class="mnum">${idx + 1}</div>
+      <div><div class="label">Миссия ${idx + 1} из 8 · шаги MIT ${m.steps}</div><h1>${esc(m.title)}</h1></div>
+    </header>
+    <section class="section"><div class="label">Коуч говорит</div>
+      <div class="coach"><div class="ava" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="9" r="6" fill="#fff"/><path d="M2,26 q11,-14 22,0" fill="#fff"/></svg></div>
+      <p class="bubble">${esc(m.coach)}</p></div></section>
+    <section class="section why"><div class="label">Зачем это нужно</div><ul>${m.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul></section>
+    <section class="section"><div class="label">Словарик: сложные слова по-простому</div>
+      <div class="dict">${m.dict.map(d => `<div class="term"><b>${esc(d[0])}</b>${esc(d[1])}</div>`).join("")}</div></section>
+    <section class="section"><div class="label">Проверь себя · +10 XP за верный ответ с первой попытки</div>
+      ${m.quiz.map((q, qi) => quizHTML(m.id + ".q" + qi, q)).join("")}</section>
+    <section class="section"><div class="label">Миссия в реальной жизни · +5 XP за каждое поле</div>
+      ${m.tasks.map(t => `<div class="task">${taskHTML(m, t)}</div>`).join("")}</section>
+    <section class="section"><div class="label">Как это повлияет дальше</div><p class="next">${esc(m.next)}</p></section>
+    <div class="done-bar" id="donebar">${doneBar(m, idx)}</div>
+  </div>`;
+  updateOutputs();
+  window.scrollTo(0, 0);
+}
+
+function quizHTML(qid, q) {
+  const st = S.quiz[qid] || { picked: [], solved: false };
+  return `<div class="q" data-q="${qid}"><p class="qt">${esc(q.q)}</p><div class="opts">
+    ${q.o.map((o, i) => {
+      const cls = st.picked.includes(i) ? (i === q.c ? "right" : "wrong") : "";
+      return `<button class="opt ${cls}" data-qopt="${qid}|${i}" ${st.solved ? "disabled" : ""}>${esc(o)}</button>`;
+    }).join("")}</div>
+    ${st.picked.length ? `<p class="explain">${st.solved ? "Верно! " : "Не совсем. Попробуй ещё. "}${esc(q.e)}</p>` : ""}</div>`;
+}
+
+function inp(key, ph, multi) {
+  return multi
+    ? `<textarea id="f-${key}" data-k="${key}" placeholder="${esc(ph)}">${esc(val(key))}</textarea>`
+    : `<input type="text" id="f-${key}" data-k="${key}" placeholder="${esc(ph)}" value="${esc(val(key))}">`;
+}
+function numInp(key, label, def) {
+  return `<label class="f">${esc(label)}<input type="number" inputmode="decimal" id="f-${key}" data-k="${key}" data-num="1" value="${esc(S.a[key] ?? def)}"></label>`;
+}
+
+function taskHTML(m, t) {
+  const p = m.id + ".";
+  const head = `<h3>${esc(t.title)}</h3>${t.hint ? `<p class="hint">${esc(t.hint)}</p>` : ""}`;
+  switch (t.type) {
+    case "text": return head + inp(p + t.key, t.ph, true);
+    case "list": return head + `<div class="grid2">${Array.from({ length: t.n }, (_, i) => `<label class="f">${i + 1}${inp(p + t.key + "." + i, t.ph[i])}</label>`).join("")}</div>`;
+    case "fields": return head + `<div class="grid2">${t.fields.map((f, i) => `<label class="f">${esc(f[0])}${inp(p + t.key + "." + i, f[1])}</label>`).join("")}</div>`;
+    case "grid": return head + Array.from({ length: t.rows }, (_, r) => `<div class="grid2">${t.cols.map((c, ci) => `<label class="f">${r + 1}. ${esc(c[0])}${inp(p + t.key + "." + r + "." + ci, r === 0 ? c[1] : "")}</label>`).join("")}</div>`).join("");
+    case "checks": return head + `<div class="checks">${t.items.map((it, i) => { const k = p + t.key + "." + i;
+      return `<label><input type="checkbox" id="f-${k}" data-k="${k}" ${S.a[k] ? "checked" : ""}>${esc(it)}</label>`; }).join("")}</div>`;
+    case "pick": return head + pickHTML(p + t.key, t);
+    case "segscore": return head + segHTML();
+    case "tam": return head + `<p class="hint">Цифры для примера — замени своими.</p><div class="grid2">
+      ${numInp("tam.people", "Сколько людей на плацдарме", 60)}${numInp("tam.freq", "Сколько флаконов в год покупает один", 2)}${numInp("tam.check", "Средняя цена одного флакона, ₽", 400)}</div>
+      <div class="out" data-out="tam"></div>`;
+    case "ten": return head + `<div class="tablewrap"><table><thead><tr><th>#</th><th>Имя / класс</th><th>Реакция</th></tr></thead><tbody>
+      ${Array.from({ length: 10 }, (_, i) => `<tr><td>${i + 1}</td><td>${inp("ten." + i + ".n", i === 0 ? "Аня, 8А" : "")}</td><td><select id="f-ten.${i}.r" data-k="ten.${i}.r">
+        ${["", "Куплю!", "Может быть", "Не интересно"].map(o => `<option ${val("ten." + i + ".r") === o ? "selected" : ""}>${o}</option>`).join("")}</select></td></tr>`).join("")}
+      </tbody></table></div><div class="out" data-out="ten"></div>`;
+    case "value": return head + `<p class="hint">Цифры для примера — замени своими.</p><div class="grid2">
+      <label class="f">Аромат, на который похож твой${inp("val.brand", "известный дорогой аромат")}</label>
+      ${numInp("val.op", "Цена оригинала, ₽", 12000)}${numInp("val.oml", "Объём оригинала, мл", 100)}${numInp("val.mp", "Твоя цена, ₽", 450)}${numInp("val.mml", "Твой объём, мл", 5)}</div>
+      <div class="out" data-out="value"></div>`;
+    case "compete": return head + competeHTML();
+    case "unit": return head + `<p class="hint">Цифры для примера — замени своими.</p><div class="grid2">
+      ${numInp("u.bp", "Цена большого флакона у поставщика, ₽", 6000)}${numInp("u.bml", "Объём большого флакона, мл", 100)}
+      ${numInp("u.pack", "Пустой мини-флакон + наклейка, ₽", 35)}${numInp("u.mml", "Объём твоего мини-флакона, мл", 5)}
+      ${numInp("u.price", "Твоя цена, ₽", 450)}${numInp("u.rep", "Сколько раз клиент купит за год", 3)}
+      ${numInp("u.acq", "Траты на привлечение в месяц (пробники, скидки), ₽", 400)}${numInp("u.newc", "Новых клиентов в месяц", 4)}</div>
+      <div class="out" data-out="unit"></div>`;
+    case "risks": return head + `<div class="cards">${RISKS.map((r, i) => { const open = !!S.a["risk." + i];
+      return `<button class="flip ${open ? "open" : ""}" data-risk="${i}" aria-expanded="${open}"><b>${esc(r[0])}</b>
+        ${open ? `<span class="tag" style="color:var(--${r[1]})">${esc(r[2])}</span><span>${esc(r[3])}</span>` : `<span class="muted">Нажми, чтобы проверить</span>`}</button>`; }).join("")}</div>`;
+    case "sales": return head + salesHTML();
+  }
+  return "";
+}
+
+function pickHTML(k, t) {
+  const sel = S.a[k] || [];
+  return `<div class="cards">${t.options.map((o, i) => {
+    const on = sel.includes(i), bad = t.pivot && o[2];
+    return `<button class="card ${on ? "on" : ""} ${on && bad ? "badpick" : ""}" data-pick="${k}|${i}|${t.max}" aria-pressed="${on}"><b>${esc(o[0])}</b><span class="muted">${esc(o[1])}</span>
+      ${on && t.pivot ? `<span class="verdict ${bad ? "bad" : "good"}">${esc(o[3])}</span>` : ""}</button>`;
+  }).join("")}</div>`;
+}
+
+const SEGC = ["Есть деньги", "Легко до них дотянуться", "Общаются между собой", "Мало конкурентов"];
+function segNames() { return Array.from({ length: 6 }, (_, i) => (val("m1.segs." + i) || "").trim()).map((s, i) => s || M[0].tasks[0].ph[i]); }
+function segHTML() {
+  const names = segNames();
+  return `<div class="tablewrap"><table><thead><tr><th>Группа</th>${SEGC.map(c => `<th>${esc(c)}</th>`).join("")}<th>Сумма</th><th>Плацдарм</th></tr></thead><tbody>
+    ${names.map((n, i) => `<tr><td>${esc(n)}</td>${SEGC.map((c, ci) => { const k = "seg." + i + "." + ci;
+      return `<td><select id="f-${k}" data-k="${k}" aria-label="${esc(n)}: ${esc(c)}">${["", 1, 2, 3, 4, 5].map(v => `<option ${String(val(k)) === String(v) ? "selected" : ""}>${v}</option>`).join("")}</select></td>`; }).join("")}
+      <td data-out="segsum${i}">0</td><td><input type="radio" name="beach" id="f-beach${i}" data-beach="${i}" ${String(S.a.beach) === String(i) ? "checked" : ""} aria-label="Выбрать плацдарм: ${esc(n)}"></td></tr>`).join("")}
+  </tbody></table></div><div class="out" data-out="seg"></div>`;
+}
+
+const COMP = ["Ты", "Маркетплейс", "Магазин парфюмерии", "Ничего не покупать"];
+const COMPDEF = [[7, 9], [9, 1], [2, 6], [10, 0]];
+function competeHTML() {
+  return `<div class="grid2"><label class="f">Ось 1 (важно для Маши)${inp("cmp.ax", "Доступная цена")}</label><label class="f">Ось 2 (важно для Маши)${inp("cmp.ay", "Можно понюхать до покупки")}</label></div>
+  <div>${COMP.map((n, i) => `<div class="slider-row"><b>${esc(n)}</b>
+    <div class="sl"><span>Ось 1</span><input type="range" min="0" max="10" id="f-cmp.${i}.x" data-k="cmp.${i}.x" data-num="1" value="${num("cmp." + i + ".x", COMPDEF[i][0])}"><span data-out="cx${i}"></span></div>
+    <div class="sl"><span>Ось 2</span><input type="range" min="0" max="10" id="f-cmp.${i}.y" data-k="cmp.${i}.y" data-num="1" value="${num("cmp." + i + ".y", COMPDEF[i][1])}"><span data-out="cy${i}"></span></div></div>`).join("")}</div>
+  <div class="plot" data-out="plot"></div>`;
+}
+
+function unitCost() { return num("u.bp", 6000) / Math.max(1, num("u.bml", 100)) * num("u.mml", 5) + num("u.pack", 35); }
+
+function salesHTML() {
+  const rows = S.sales.map((s, i) => `<tr><td>${esc(s.d)}</td><td>${esc(s.c)}</td><td>${esc(s.p)}</td><td style="font-variant-numeric:tabular-nums">${fmt(s.r)} ₽</td>
+    <td><button class="btn ghost" style="padding:4px 10px" data-delsale="${i}" aria-label="Удалить продажу">×</button></td></tr>`).join("");
+  return `<div class="grid2">
+    <label class="f">Клиент (имя)<input type="text" id="sale-c" placeholder="Маша 8Б"></label>
+    <label class="f">Аромат<input type="text" id="sale-p" placeholder="Ванильный"></label>
+    <label class="f">Цена, ₽<input type="number" inputmode="decimal" id="sale-r" placeholder="450"></label></div>
+    <div class="row"><button class="btn" data-act="addsale">Записать продажу</button><span class="muted" id="salemsg"></span></div>
+    ${S.sales.length ? `<div class="tablewrap"><table><thead><tr><th>Дата</th><th>Клиент</th><th>Аромат</th><th>Цена</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : `<p class="hint">Пока продаж нет. Запиши первую — и увидишь статистику.</p>`}
+    <div class="out" data-out="sales"></div>`;
+}
+function salesStats() {
+  const by = {};
+  S.sales.forEach(s => { const k = s.c.trim().toLowerCase(); by[k] = (by[k] || 0) + 1; });
+  const clients = Object.keys(by).length, repeat = Object.values(by).filter(n => n > 1).length;
+  const rev = S.sales.reduce((a, s) => a + s.r, 0), cost = unitCost() * S.sales.length;
+  return { n: S.sales.length, clients, repeat, rate: clients ? repeat / clients : 0, rev, profit: rev - cost };
+}
+
+function doneBar(m, idx) {
+  const solved = m.quiz.every((q, qi) => (S.quiz[m.id + ".q" + qi] || {}).solved);
+  let ok = solved, why = solved ? "" : "Ответь верно на все вопросы теста, чтобы пройти миссию.";
+  if (m.id === "m7") {
+    const pv = S.a["m7.pivot"] || [];
+    if (!pv.length || pv.includes(3)) { ok = false; why = (why ? why + " " : "") + "Выбери безопасный вариант бизнеса."; }
+  }
+  if (S.done[m.id]) return `<p class="muted">Миссия пройдена. Значок «${esc(m.badge)}» получен. Можно вернуться и улучшить ответы.</p>
+    <button class="btn" data-go="${idx < 7 ? M[idx + 1].id : "report"}">${idx < 7 ? "Дальше: миссия " + (idx + 2) : "К отчёту для демо-дня"}</button>`;
+  return `<button class="btn" data-act="finish" data-m="${m.id}" ${ok ? "" : "disabled"}>Завершить миссию · +50 XP</button>${why ? `<p class="muted">${why}</p>` : ""}`;
+}
+
+/* ------------------------------------------------------------------ расчёты */
+function setOut(name, html) { document.querySelectorAll(`[data-out="${name}"]`).forEach(el => { el.innerHTML = html; }); }
+function pill(ratio) {
+  if (ratio >= 3) return `<span class="pill good">Отлично</span>`;
+  if (ratio >= 1) return `<span class="pill warn">Тонко</span>`;
+  return `<span class="pill bad">В минус</span>`;
+}
+function updateOutputs() {
+  if (document.querySelector('[data-out="tam"]')) {
+    const t = num("tam.people", 60) * num("tam.freq", 2) * num("tam.check", 400);
+    setOut("tam", `<span class="label muted">Твой пирог в год</span><span class="big">${fmt(t)} ₽</span>
+      <span>${t < 15000 ? "Пирог небольшой — для первого опыта это нормально. Главное — научиться, а расти будешь на следующих рынках." : "Неплохой пирог! Даже 20–30% от него — хорошие деньги для старта."}</span>`);
+  }
+  if (document.querySelector('[data-out="ten"]')) {
+    let yes = 0, maybe = 0;
+    for (let i = 0; i < 10; i++) { const r = val("ten." + i + ".r"); if (r === "Куплю!") yes++; if (r === "Может быть") maybe++; }
+    setOut("ten", `<span class="big">${yes} из 10</span><span>${yes >= 5 ? "Отлично: половина готова купить. Можно идти дальше." : yes >= 3 ? "Неплохо, но мало. Поговори ещё или подумай, что изменить." : "Пока мало «куплю». Это сигнал вернуться к выбору плацдарма или товара."}${maybe ? " Ещё «может быть»: " + maybe + "." : ""}</span>`);
+  }
+  if (document.querySelector('[data-out="value"]')) {
+    const op = num("val.op", 12000), oml = num("val.oml", 100), mp = num("val.mp", 450), mml = num("val.mml", 5);
+    const opm = op / Math.max(1, oml), mpm = mp / Math.max(1, mml), save = 100 - mp / Math.max(1, op) * 100;
+    const brand = (val("val.brand") || "дорогой аромат").trim();
+    setOut("value", `<div class="kpis"><div class="kpi"><small>Оригинал за 1 мл</small><span>${fmt(opm)} ₽</span></div><div class="kpi"><small>У тебя за 1 мл</small><span>${fmt(mpm)} ₽</span></div><div class="kpi"><small>Цена ниже на</small><span>${fmt(save)}%</span></div></div>
+      <span><b>Твоя фраза для рекламы:</b> «Аромат как ${esc(brand)} — попробуй за ${fmt(mp)} ₽ вместо ${fmt(op)} ₽»</span>`);
+  }
+  if (document.querySelector('[data-out="seg"]')) {
+    const names = segNames(); let best = -1, bestSum = -1;
+    names.forEach((n, i) => { let s = 0; for (let c = 0; c < 4; c++) s += num("seg." + i + "." + c, 0); setOut("segsum" + i, String(s)); if (s > bestSum) { bestSum = s; best = i; } });
+    const chosen = S.a.beach != null ? names[S.a.beach] : null;
+    setOut("seg", bestSum > 0 ? `<span>Больше всего баллов у группы <b>${esc(names[best])}</b> (${bestSum}).</span>${chosen ? `<span>Твой плацдарм: <b>${esc(chosen)}</b></span>` : `<span class="muted">Отметь свой плацдарм в последней колонке.</span>`}` : `<span class="muted">Поставь оценки — и увидишь лучшую группу.</span>`);
+  }
+  if (document.querySelector('[data-out="plot"]')) {
+    const ax = val("cmp.ax") || "Доступная цена", ay = val("cmp.ay") || "Можно понюхать до покупки";
+    const cols = ["var(--c2)", "var(--c1)", "var(--c6)", "var(--ink-soft)"];
+    let dots = "";
+    COMP.forEach((n, i) => {
+      const x = num("cmp." + i + ".x", COMPDEF[i][0]), y = num("cmp." + i + ".y", COMPDEF[i][1]);
+      setOut("cx" + i, String(x)); setOut("cy" + i, String(y));
+      const px = 40 + x * 30, py = 320 - y * 28;
+      dots += `<circle cx="${px}" cy="${py}" r="${i ? 8 : 11}" fill="${cols[i]}" stroke="var(--surface)" stroke-width="2"/><text x="${px + (x > 7 ? -14 : 14)}" y="${py + 4}" text-anchor="${x > 7 ? "end" : "start"}" font-size="12" font-weight="${i ? 600 : 800}" fill="var(--ink)">${esc(n)}</text>`;
+    });
+    setOut("plot", `<svg viewBox="0 0 360 360" role="img" aria-label="Карта конкурентов">
+      <rect x="40" y="40" width="300" height="280" fill="var(--surface-2)" stroke="var(--line)"/>
+      <rect x="190" y="40" width="150" height="140" fill="var(--mc)" opacity=".12"/>
+      <text x="334" y="58" text-anchor="end" font-size="11" font-weight="800" fill="var(--ink-soft)">ЛУЧШЕЕ МЕСТО</text>
+      <text x="190" y="345" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-soft)">${esc(ax)} →</text>
+      <text x="16" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-soft)" transform="rotate(-90 16 180)">${esc(ay)} →</text>
+      ${dots}</svg>`);
+  }
+  if (document.querySelector('[data-out="unit"]')) {
+    const cost = unitCost(), price = num("u.price", 450), margin = price - cost;
+    const ltv = margin * num("u.rep", 3), coca = num("u.acq", 400) / Math.max(1, num("u.newc", 4)), ratio = coca > 0 ? ltv / coca : (ltv > 0 ? 99 : 0);
+    const tip = margin <= 0 ? "Ты продаёшь дешевле, чем тебе это стоит! Подними цену или найди поставщика дешевле."
+      : ratio >= 3 ? "Каждый клиент приносит больше чем втрое против затрат на его привлечение. Так и держать."
+      : ratio >= 1 ? "Ты в плюсе, но запас маленький. Попробуй поднять цену, раздавать пробники меньше или продавать наборы."
+      : "Привлечь клиента стоит дороже, чем он приносит. Меняй цену, модель или трать меньше на пробники.";
+    setOut("unit", `<div class="kpis"><div class="kpi"><small>Себестоимость флакона</small><span>${fmt(cost)} ₽</span></div>
+      <div class="kpi"><small>Маржа с продажи</small><span>${fmt(margin)} ₽</span></div>
+      <div class="kpi"><small>LTV — ценность клиента</small><span>${fmt(ltv)} ₽</span></div>
+      <div class="kpi"><small>COCA — цена клиента</small><span>${fmt(coca)} ₽</span></div></div>
+      <div class="row"><span>LTV ÷ COCA = <b style="font-variant-numeric:tabular-nums">${ratio >= 99 ? "∞" : ratio.toFixed(1).replace(".", ",")}</b></span>${pill(ratio)}</div><span>${tip}</span>`);
+  }
+  if (document.querySelector('[data-out="sales"]')) {
+    const s = salesStats();
+    setOut("sales", s.n ? `<div class="kpis"><div class="kpi"><small>Продаж</small><span>${s.n}</span></div><div class="kpi"><small>Выручка</small><span>${fmt(s.rev)} ₽</span></div>
+      <div class="kpi"><small>Прибыль (по калькулятору)</small><span>${fmt(s.profit)} ₽</span></div><div class="kpi"><small>Купили повторно</small><span>${fmt(s.rate * 100)}%</span></div></div>
+      <span>${s.rate >= .3 ? "<b>Собаки едят корм!</b> Клиенты возвращаются сами — продукт работает." : s.n >= 5 ? "Повторных пока мало. Спроси клиентов, что улучшить, и напомни о себе, когда духи закончатся." : "Собери хотя бы 5–10 продаж, чтобы увидеть картину."}</span>` : "");
+  }
+}
+
+/* ------------------------------------------------------------------ отчёт */
+function reportText() {
+  const L = level(), names = segNames(), s = salesStats();
+  const line = (t, v) => v ? `${t}: ${v}\n` : "";
+  const pickNames = (k, mi, ti) => (S.a[k] || []).map(i => M[mi].tasks[ti].options[i][0]).join(", ");
+  const cost = unitCost(), margin = num("u.price", 450) - cost, ltv = margin * num("u.rep", 3), coca = num("u.acq", 400) / Math.max(1, num("u.newc", 4));
+  let t = `СТАРТАП-КВЕСТ · ОТЧЁТ ДЛЯ ДЕМО-ДНЯ\n`;
+  t += `Уровень: ${L.name} · ${fmt(S.xp)} XP · миссий пройдено: ${M.filter(m => S.done[m.id]).length} из 8\n`;
+  t += `Значки: ${M.filter(m => S.done[m.id]).map(m => m.badge).join(", ") || "пока нет"}\n\n`;
+  t += `1. КЛИЕНТ\n` + line("Плацдарм", S.a.beach != null ? names[S.a.beach] : "") + line("Персона", [0, 1, 2].map(i => val("m2.persona." + i)).filter(Boolean).join(", "));
+  t += line("Объём рынка (TAM)", fmt(num("tam.people", 60) * num("tam.freq", 2) * num("tam.check", 400)) + " ₽ в год");
+  let yes = 0; for (let i = 0; i < 10; i++) if (val("ten." + i + ".r") === "Куплю!") yes++;
+  t += `Сказали «куплю»: ${yes} из 10\n\n`;
+  t += `2. ЦЕННОСТЬ\n` + line("Продукт", val("m3.spec")) + line("Суперсила", pickNames("m4.core", 3, 0)) + line("Ядро одной фразой", val("m4.coreline")) + "\n";
+  t += `3. ПРОДАЖИ\n` + line("Право вето", val("m5.dmu.3")) + line("Каналы", pickNames("m5.chan", 4, 3)) + "\n";
+  t += `4. ДЕНЬГИ\n` + line("Модель", pickNames("m6.model", 5, 0));
+  t += `Себестоимость ${fmt(cost)} ₽ · цена ${fmt(num("u.price", 450))} ₽ · маржа ${fmt(margin)} ₽\nLTV ${fmt(ltv)} ₽ · COCA ${fmt(coca)} ₽ · LTV/COCA = ${coca > 0 ? (ltv / coca).toFixed(1).replace(".", ",") : "—"}\n\n`;
+  t += `5. ПРОВЕРКА\n` + line("Выбранный вариант бизнеса", pickNames("m7.pivot", 6, 1) + ((S.a["m7.pivot"] || []).includes(3) ? " (опасный вариант — нужно пересмотреть)" : "")) + line("Минимальный продукт", val("m7.mvbp"));
+  for (let r = 0; r < 3; r++) { const a = val("m7.exp." + r + ".0"); if (a) t += `Эксперимент: ${a} → ${val("m7.exp." + r + ".1")} → успех, если ${val("m7.exp." + r + ".2")}\n`; }
+  t += `\n6. РЕЗУЛЬТАТЫ\nПродаж: ${s.n} · выручка ${fmt(s.rev)} ₽ · прибыль ≈ ${fmt(s.profit)} ₽ · повторных ${fmt(s.rate * 100)}%\n`;
+  t += line("Следующие рынки", [0, 1, 2].map(i => val("m8.nextm." + i)).filter(Boolean).join(", "));
+  t += line("План", [0, 1, 2].map(i => val("m8.plan." + i)).filter(Boolean).join(" → "));
+  return t;
+}
+function renderReport() {
+  app.style.removeProperty("--mc");
+  app.innerHTML = `<div class="topbar"><button class="btn ghost" data-go="home">← Карта</button></div>
+  <div class="stack"><header class="hero"><div class="label muted">Финал</div><h1>Демо-день</h1>
+    <p class="muted">Покажи этот отчёт своему инвестору — родителям. Расскажи, что ты узнал и что поменял по ходу. Отчёт собирается из твоих ответов во всех миссиях.</p></header>
+    <div class="row"><button class="btn" data-act="copy">Скопировать отчёт</button><span class="muted" id="copymsg"></span></div>
+    <pre class="report" id="reporttext">${esc(reportText())}</pre></div>`;
+  window.scrollTo(0, 0);
+}
+
+/* ------------------------------------------------------------------ события */
+function route() {
+  const h = location.hash.replace("#", "");
+  if (h === "report") return renderReport();
+  if (M.some(m => m.id === h)) return renderMission(h);
+  app.style.removeProperty("--mc");
+  renderHome();
+}
+window.addEventListener("hashchange", route);
+
+function go(target) { location.hash = target === "home" ? "" : target; if (target === "home") route(); }
+
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-go],[data-qopt],[data-pick],[data-risk],[data-act],[data-delsale],[data-beach]");
+  if (!el) return;
+  if (el.dataset.go) {
+    const i = M.findIndex(m => m.id === el.dataset.go);
+    if (i >= 0 && !unlocked(i)) { toast("Сначала пройди миссию " + i); return; }
+    return go(el.dataset.go);
+  }
+  if (el.dataset.qopt) {
+    const [qid, oi] = el.dataset.qopt.split("|"), i = +oi;
+    const [mid, qk] = qid.split(".q"), m = M.find(x => x.id === mid), q = m.quiz[+qk];
+    const st = S.quiz[qid] || { picked: [], solved: false };
+    if (st.solved || st.picked.includes(i)) return;
+    const first = st.picked.length === 0;
+    st.picked.push(i); if (i === q.c) st.solved = true;
+    S.quiz[qid] = st; save();
+    if (st.solved && first) addXP(10, "quiz." + qid);
+    el.closest(".q").outerHTML = quizHTML(qid, q);
+    refreshDone(m);
+    return;
+  }
+  if (el.dataset.pick) {
+    const [k, oi, max] = el.dataset.pick.split("|"), i = +oi;
+    let sel = (S.a[k] || []).slice();
+    if (sel.includes(i)) sel = sel.filter(x => x !== i);
+    else { sel.push(i); if (sel.length > +max) sel.shift(); }
+    S.a[k] = sel; save();
+    const m = M.find(x => k.startsWith(x.id + ".")), t = m.tasks.find(x => m.id + "." + x.key === k);
+    if (sel.length && !(t.pivot && sel.includes(3))) addXP(5, "f." + k);
+    if (t.pivot && sel.includes(3)) toast("Опасный вариант — выбери другой");
+    el.closest(".cards").outerHTML = pickHTML(k, t);
+    refreshDone(m);
+    return;
+  }
+  if (el.dataset.risk) {
+    const i = +el.dataset.risk; S.a["risk." + i] = true; save(); addXP(5, "f.risk." + i);
+    el.closest(".task").innerHTML = taskHTML(M[6], M[6].tasks[0]);
+    return;
+  }
+  if (el.dataset.beach != null && el.type === "radio") {
+    S.a.beach = +el.dataset.beach; save(); addXP(5, "f.beach"); updateOutputs(); return;
+  }
+  if (el.dataset.delsale != null) {
+    S.sales.splice(+el.dataset.delsale, 1); save();
+    el.closest(".task").innerHTML = taskHTML(M[7], M[7].tasks[0]); updateOutputs(); return;
+  }
+  const act = el.dataset.act;
+  if (act === "finish") {
+    const m = M.find(x => x.id === el.dataset.m);
+    S.done[m.id] = 1; save(); addXP(50, "done." + m.id);
+    toast("Значок «" + m.badge + "» получен! +50 XP");
+    refreshDone(m);
+  } else if (act === "addsale") {
+    const c = document.getElementById("sale-c").value.trim(), p = document.getElementById("sale-p").value.trim();
+    const r = parseFloat(document.getElementById("sale-r").value.replace(",", "."));
+    const msg = document.getElementById("salemsg");
+    if (!c || !isFinite(r) || r <= 0) { msg.textContent = "Укажи имя клиента и цену больше нуля."; return; }
+    S.sales.push({ d: new Date().toLocaleDateString("ru-RU"), c, p, r }); save();
+    addXP(5, "sale." + S.sales.length);
+    el.closest(".task").innerHTML = taskHTML(M[7], M[7].tasks[0]); updateOutputs();
+  } else if (act === "copy") {
+    const txt = reportText(), msg = document.getElementById("copymsg");
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("reporttext")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); msg.textContent = "Текст выделен — скопируй его вручную."; };
+    try { navigator.clipboard.writeText(txt).then(() => { msg.textContent = "Скопировано! Отправь в мессенджер."; }, fallback); } catch (err) { fallback(); }
+  } else if (act === "reset") {
+    const note = document.getElementById("resetnote");
+    if (el.dataset.armed) { S = fresh(); save(); renderHome(); toast("Игра начата заново"); }
+    else { el.dataset.armed = "1"; el.textContent = "Точно стереть всё?"; note.textContent = "Нажми ещё раз для подтверждения."; }
+  }
+});
+
+app.addEventListener("keydown", e => {
+  const n = e.target.closest && e.target.closest(".node[data-go]");
+  if (n && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); n.dispatchEvent(new MouseEvent("click", { bubbles: true })); }
+});
+
+function onField(e) {
+  const el = e.target; const k = el.dataset && el.dataset.k; if (!k) return;
+  const v = el.type === "checkbox" ? el.checked : el.value;
+  S.a[k] = v; save();
+  if (v !== "" && v !== false) addXP(5, "f." + k);
+  updateOutputs();
+}
+app.addEventListener("input", onField);
+app.addEventListener("change", e => { if (e.target.type === "checkbox" || e.target.tagName === "SELECT") onField(e); });
+
+function refreshDone(m) {
+  const bar = document.getElementById("donebar"); if (bar) bar.innerHTML = doneBar(m, M.indexOf(m));
+}
+
+route();
+})();
+</script>
