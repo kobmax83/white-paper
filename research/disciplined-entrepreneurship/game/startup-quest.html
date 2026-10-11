@@ -297,6 +297,12 @@ input[type=range] { width: 100%; accent-color: var(--mc); }
 .sv-xp { font-size: 14px !important; font-weight: 800 !important; }
 .sv-slide .btn { align-self: flex-start; background: #fff; color: #1b2333; border-color: #1b2333; }
 .overlay .modal { max-height: 88vh; overflow: auto; }
+.savebtns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.savebtns .btn { display: inline-flex; justify-content: center; align-items: center; gap: 6px; padding-inline: 10px; }
+.savesteps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+details.sub summary { cursor: pointer; font-weight: 700; font-size: 14px; color: var(--ink-soft); }
+details.sub { display: flex; flex-direction: column; gap: 8px; }
+details.sub[open] > *:not(summary) { margin-top: 8px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
 
@@ -1119,6 +1125,45 @@ function importCode(code) {
   if (/^SQ\d+:/.test(code)) code = code.slice(code.indexOf(":") + 1);
   return migrate(JSON.parse(decodeURIComponent(escape(atob(code)))));
 }
+/* ---------- файл сохранения: «Отправить» и «Загрузить» в одно нажатие */
+const SAVE_APP = "startup-quest";
+function saveFileData() { return JSON.stringify({ app: SAVE_APP, version: STATE_VERSION, exported: new Date().toISOString(), state: S }); }
+function parseSave(txt) {
+  txt = String(txt || "").trim();
+  if (txt.startsWith("{")) { const o = JSON.parse(txt); return migrate(o.app === SAVE_APP && o.state ? o.state : o); }
+  return importCode(txt);
+}
+function applyImport(txt, msgId) {
+  let incoming;
+  try { incoming = parseSave(txt); } catch (err) { sfx.bad(); const m = document.getElementById(msgId); if (m) m.textContent = "Это не похоже на сохранение «Стартап-квеста». Проверь файл или код."; return; }
+  const before = S.xp; S = mergeState(S, incoming); save();
+  renderHome(); sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 140);
+  toast(S.xp > before ? "Прогресс перенесён! Теперь у тебя " + fmt(S.xp) + " XP" : "Прогресс перенесён и объединён!");
+}
+async function exportSave() {
+  const msg = document.getElementById("savemsg"), name = "Стартап-квест — сохранение " + today() + ".json", data = saveFileData();
+  const inViewer = !!(window.claude && typeof window.claude.use === "function");
+  if (inViewer) {
+    try {
+      const dl = await window.claude.use("downloads");
+      if (dl) { await dl.save({ filename: name, data }); msg.textContent = "Файл сохранён. Отправь его себе — например, в Telegram."; sfx.good(); return; }
+    } catch (err) { if (err && err.code === "declined") { msg.textContent = "Сохранение отменено."; return; } }
+    msg.textContent = "Здесь файл сохранить не получилось. Открой «Код вместо файла» ниже."; return;
+  }
+  try {
+    const file = new File([data], name, { type: "application/json" });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title: "Стартап-квест: сохранение" });
+      msg.textContent = "Готово! На другом устройстве нажми «Загрузить сохранение» и выбери этот файл."; sfx.good(); return;
+    }
+  } catch (err) { if (err && err.name === "AbortError") { msg.textContent = "Отправка отменена."; return; } }
+  try {
+    const url = URL.createObjectURL(new Blob([data], { type: "application/json" }));
+    const a = document.createElement("a"); a.href = url; a.download = "startup-quest-save-" + today() + ".json"; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 3000);
+    msg.textContent = "Файл сохранён в «Загрузки». Отправь его себе — например, в Telegram."; sfx.good();
+  } catch (err) { msg.textContent = "Здесь файл сохранить не получилось. Открой «Код вместо файла» ниже."; }
+}
 function mergeState(a, b) {
   const m = migrate(JSON.parse(JSON.stringify(a)));
   m.xp = Math.max(a.xp, b.xp);
@@ -1501,10 +1546,18 @@ function renderHome() {
       </ul>
     </details>
     <details class="panel"><summary>${ico("save")} Сохранение и перенос прогресса</summary>
-      <p class="hint">Прогресс хранится в браузере. Обновления игры по той же ссылке его не стирают. Если открываешь игру по другой ссылке, из другого файла или на другом телефоне — скопируй код сохранения здесь и вставь его там. Прогресс объединится: ничего не потеряется.</p>
-      <div class="row"><button class="btn small" data-act="backupcopy">Скопировать код сохранения</button><span class="muted" id="backupmsg"></span></div>
-      <textarea id="importbox" placeholder="Вставь сюда код сохранения" aria-label="Код сохранения"></textarea>
-      <div class="row"><button class="btn ghost small" data-act="backuprestore">Восстановить и объединить</button><span class="muted" id="restoremsg"></span></div>
+      <p class="hint">Прогресс хранится в этом браузере, и обновления игры его не стирают. Чтобы перенести его на другой телефон, по другой ссылке или в другой файл игры:</p>
+      <ol class="savesteps"><li>Здесь нажми <b>«Отправить сохранение»</b> и отправь файл себе — например, в Telegram.</li><li>Там открой игру и нажми <b>«Загрузить сохранение»</b>, выбери этот файл.</li></ol>
+      <p class="hint">Прогресс объединится: ничего не потеряется.</p>
+      <div class="savebtns"><button class="btn" data-act="saveexport">${ico("save")} Отправить сохранение</button><button class="btn ghost" data-act="saveimport">Загрузить сохранение</button></div>
+      <input type="file" id="savefile" accept=".json,.txt,application/json,text/plain" hidden>
+      <p class="muted" id="savemsg" aria-live="polite"></p>
+      <details class="sub"><summary>Код вместо файла</summary>
+        <div class="row"><button class="btn small ghost" data-act="backupcopy">Скопировать код</button><button class="btn small ghost" data-act="backuppaste">Вставить из буфера</button></div>
+        <textarea id="importbox" placeholder="Или вставь код сюда вручную" aria-label="Код сохранения"></textarea>
+        <div class="row"><button class="btn ghost small" data-act="backuprestore">Восстановить из кода</button></div>
+        <p class="muted" id="backupmsg" aria-live="polite"></p>
+      </details>
     </details>
     <details class="panel"><summary>Для родителей: роль инвестора</summary>
       <ul>
@@ -2006,13 +2059,17 @@ app.addEventListener("click", e => {
     const fallback = () => { box.value = code; box.select(); msg.textContent = "Код в поле ниже — скопируй его вручную."; };
     try { navigator.clipboard.writeText(code).then(() => { msg.textContent = "Код скопирован! Сохрани его в заметках или отправь себе."; sfx.good(); }, fallback); } catch (err) { fallback(); }
   } else if (act === "backuprestore") {
-    const msg = document.getElementById("restoremsg"), code = document.getElementById("importbox").value;
-    if (!code.trim()) { msg.textContent = "Сначала вставь код сохранения."; return; }
-    try {
-      const before = S.xp; S = mergeState(S, importCode(code)); save();
-      renderHome(); sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 120);
-      toast(S.xp > before ? "Прогресс объединён! Теперь у тебя " + fmt(S.xp) + " XP" : "Прогресс объединён!");
-    } catch (err) { sfx.bad(); msg.textContent = "Код не подошёл. Проверь, что он скопирован целиком."; }
+    const code = document.getElementById("importbox").value;
+    if (!code.trim()) { document.getElementById("backupmsg").textContent = "Сначала вставь код сохранения."; return; }
+    applyImport(code, "backupmsg");
+  } else if (act === "backuppaste") {
+    const msg = document.getElementById("backupmsg");
+    try { navigator.clipboard.readText().then(t => applyImport(t, "backupmsg"), () => { msg.textContent = "Браузер не дал прочитать буфер. Вставь код в поле вручную."; }); }
+    catch (err) { msg.textContent = "Браузер не дал прочитать буфер. Вставь код в поле вручную."; }
+  } else if (act === "saveexport") {
+    exportSave();
+  } else if (act === "saveimport") {
+    document.getElementById("savefile").click();
   } else if (act === "swipereset") {
     S.swipe = {}; save(); el.closest(".task").innerHTML = taskHTML(M[5], M[5].tasks[0]); bindDeck(); refreshProgress(M[5]);
   } else if (act === "copy") {
@@ -2043,7 +2100,17 @@ function onField(e) {
   const id = location.hash.replace("#", ""), m = M.find(x => x.id === id); if (m) refreshProgress(m);
 }
 app.addEventListener("input", onField);
-app.addEventListener("change", e => { if (e.target.type === "checkbox" || e.target.tagName === "SELECT") onField(e); });
+app.addEventListener("change", e => {
+  if (e.target.id === "savefile") {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const rd = new FileReader();
+    rd.onload = () => applyImport(rd.result, "savemsg");
+    rd.onerror = () => { document.getElementById("savemsg").textContent = "Не получилось прочитать файл."; };
+    rd.readAsText(f); e.target.value = "";
+    return;
+  }
+  if (e.target.type === "checkbox" || e.target.tagName === "SELECT") onField(e);
+});
 
 function refreshDone(m) { const bar = document.getElementById("donebar"); if (bar) bar.innerHTML = doneBar(m, M.indexOf(m)); }
 
