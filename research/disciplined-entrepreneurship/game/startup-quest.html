@@ -221,6 +221,47 @@ input[type=range] { width: 100%; accent-color: var(--mc); }
 @keyframes shine { from { transform: translateX(-60%); } to { transform: translateX(60%); } }
 .sound { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; padding: 0; flex: none; }
 .report { white-space: pre-wrap; font-size: 14px; background: var(--surface-2); border-radius: 12px; padding: 14px; border: 2px solid var(--line); max-height: 440px; overflow: auto; }
+/* streak, daily, events, legends */
+.toprow { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: stretch; }
+.streak { background: var(--surface); border: 2px solid var(--ink); border-radius: var(--r); box-shadow: 4px 4px 0 var(--c5); padding: 8px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 86px; }
+.streak.cold { box-shadow: 4px 4px 0 var(--line); }
+.streak .fire { display: inline-flex; }
+.streak:not(.cold) .fire svg { animation: flicker 1s ease-in-out infinite alternate; transform-origin: center bottom; }
+@keyframes flicker { from { transform: scale(1) rotate(-4deg); } to { transform: scale(1.1) rotate(4deg); } }
+.streak b { font-family: var(--font-display); font-size: 22px; line-height: 1; font-variant-numeric: tabular-nums; }
+.streak small { font-size: 11px; font-weight: 800; color: var(--ink-soft); white-space: nowrap; }
+.quest { display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; padding: 10px; border: 2px solid var(--line); border-radius: 14px; background: var(--surface-2); }
+.quest .qi { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: #fff; font-size: 22px; border: 2px solid var(--road-edge); }
+.quest .qt { font-weight: 700; }
+.quest.done .qt { text-decoration: line-through; color: var(--ink-soft); }
+.quest .xp { font-size: 12px; font-weight: 800; color: var(--c5); }
+.chestbar { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 14px; }
+.chestbar .bar { flex: 1; height: 12px; border-radius: 99px; background: var(--surface-2); border: 2px solid var(--ink); overflow: hidden; min-width: 60px; }
+.chestbar .bar i { display: block; height: 100%; background: var(--c4); transition: width .5s; }
+.event { border: 3px solid var(--road-edge); border-radius: 20px; overflow: hidden; background: var(--surface); box-shadow: 5px 5px 0 var(--c3); }
+.event.drawn { animation: draw .6s cubic-bezier(.2,1.3,.4,1); }
+@keyframes draw { from { transform: rotateY(90deg) scale(.85); opacity: 0; } to { transform: none; opacity: 1; } }
+.event .eh { background: var(--c3); color: #1b2333; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 800; }
+.event .eh span { display: inline-flex; gap: 6px; align-items: center; }
+.event .eb { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.event .situ { font-family: var(--font-display); font-size: 18px; font-weight: 600; line-height: 1.3; }
+.outcome { border-radius: 12px; padding: 10px 12px; font-size: 14px; border: 2px solid; }
+.outcome.best { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
+.outcome.ok { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, var(--surface)); }
+.outcome.bad { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+.legend { border: 2px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--surface); text-align: left; width: 100%; }
+.legend .lh { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; padding: 12px; background: color-mix(in srgb, var(--lc) 14%, var(--surface)); }
+.mono { width: 52px; height: 52px; border-radius: 14px; background: var(--lc); color: #fff; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 17px; border: 2px solid var(--road-edge); flex: none; }
+.legend .lb { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.legend .lesson { border-left: 5px solid var(--lc); padding-left: 10px; font-weight: 700; }
+.legend .try { font-size: 14px; background: var(--surface-2); border-radius: 10px; padding: 8px 10px; }
+.hall { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 10px; }
+.hallcard { border: 2px solid var(--line); border-radius: 14px; padding: 10px 6px; background: var(--surface-2); display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 12px; font-weight: 800; min-width: 0; overflow-wrap: anywhere; }
+.hallcard .mono { width: 44px; height: 44px; font-size: 14px; }
+.hallcard.locked { color: var(--ink-soft); }
+.hallcard.locked .mono { background: var(--locked); }
+.hallcard.unread { border: 2px dashed var(--lc); }
+.overlay .modal { max-height: 88vh; overflow: auto; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
 
@@ -267,6 +308,10 @@ const IC = {
   gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C10 4 6 4 7 7c.5 1 5 1 5 1s4.5 0 5-1c1-3-3-3-5 1z"/>',
   zap: '<path d="M4 14h6l-2 8 12-12h-6l2-8z"/>',
   heart: '<path d="M12 20s-8-4.6-8-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 8 2.8C20 15.4 12 20 12 20z"/>',
+  fire: '<path d="M12 22c4 0 7-2.7 7-6.8 0-3.6-2.4-5.6-3.8-8.2-.5 1.8-1.4 3-2.8 3.7C12.7 7 11.6 4.2 9 2c.3 3.6-1.9 5.7-3.6 8C4.6 11.2 5 12.9 5 15.2 5 19.3 8 22 12 22z"/>',
+  dice: '<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="16" cy="16" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="16" cy="8" r="1.3" fill="currentColor"/><circle cx="8" cy="16" r="1.3" fill="currentColor"/>',
+  crown: '<path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/><path d="M5 19h14"/>',
+  save: '<path d="M5 3h11l4 4v14H4V3z"/><path d="M8 3v5h8V3M8 21v-7h8v7"/>',
   speaker: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>',
   mute: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="m17 9 5 6M22 9l-5 6"/>'
 };
@@ -275,7 +320,8 @@ const ico = (n, sw) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke=
 /* ================================================================== данные */
 const LEVELS = [
   [0, "Новичок"], [100, "Разведчик рынка"], [250, "Продавец"],
-  [450, "Предприниматель"], [700, "Стартапер"], [950, "Профи"]
+  [450, "Предприниматель"], [700, "Стартапер"], [950, "Профи"],
+  [1300, "Серийный предприниматель"], [1800, "Акула бизнеса"], [2500, "Единорог"]
 ];
 
 const M = [
@@ -556,6 +602,133 @@ const DEALS = [
   { t: "Розыгрыш флакона за 500 ₽ — пришёл 1 клиент на 450 ₽ прибыли.", coca: 500, ltv: 450 }
 ];
 
+/* ---------- задания дня: 2 по текущей миссии + 1 общее */
+const DAILY = {
+  m1: [["users", "Спроси 1 человека, какими духами он пользуется и почему"], ["map", "Запиши 3 места, где чаще всего бывает твой плацдарм"], ["search", "Посмотри, что уже продают в школе другие ребята"], ["chat", "Спроси 2 людей из разных классов, что они дарят друг другу"]],
+  m2: [["coins", "Узнай у 1 человека, сколько он тратит на духи за год"], ["list", "Добавь 1 человека в список «10 клиентов»"], ["user", "Запиши 3 фразы, которые твоя персона говорит о духах"]],
+  m3: [["bottle", "Дай понюхать пробник 1 человеку и запиши реакцию"], ["bolt", "Придумай 1 фразу-выгоду и покажи другу"], ["tag", "Узнай цену 1 оригинального аромата в магазине или онлайн"]],
+  m4: [["search", "Найди 1 конкурента и запиши его цену"], ["castle", "Спроси 1 человека: почему он купил бы у тебя, а не на маркетплейсе?"], ["star", "Придумай 1 «фишку», которой нет у конкурентов"]],
+  m5: [["stop", "Узнай правила школы про продажу вещей"], ["chat", "Спроси 1 взрослого, что для него важно, когда ребёнок покупает духи"], ["route", "Проверь, удобно ли платить переводом: попробуй с другом на 1 ₽"]],
+  m6: [["scale", "Посчитай себестоимость 1 мини-флакона"], ["tag", "Спроси 2 людей: купили бы за 350 ₽? А за 450 ₽?"], ["gift", "Посчитай, сколько стоит тебе 1 пробник"]],
+  m7: [["flask", "Проведи мини-эксперимент: дай 5 пробников и посчитай «куплю»"], ["box", "Получи 1 предзаказ"], ["shield", "Проверь состав 1 аромата у поставщика"]],
+  m8: [["repeat", "Напиши 1 клиенту, у которого скоро закончатся духи"], ["dog", "Запиши в журнал все продажи за сегодня"], ["chat", "Спроси 1 клиента, что улучшить"]],
+  all: [["star", "Прочитай 1 историю в «Зале славы»"], ["chat", "Расскажи родителям одну вещь, которую узнал сегодня"], ["cal", "Запиши план на завтра: 1 конкретное действие"]]
+};
+const STREAK_BONUS = { 3: 30, 7: 70, 14: 150, 30: 300 };
+
+/* ---------- карточки событий: [вариант, оценка 2/1/0, что произошло] */
+const EVENTS = [
+  { id: "veto", s: "Завуч запретил торговлю в школе.", step: "Шаг 12 · право вето", o: [
+    ["Продолжать тайком на переменах", 0, "Тебя заметили. Товар забрали, родителей вызвали в школу, доверие потеряно."],
+    ["Перенести продажи вне школы: предзаказ в чате и передача после уроков с согласия родителей", 2, "Правила соблюдены, клиенты остались. Ты сменил канал продаж, а не бросил идею."],
+    ["Бросить бизнес", 1, "Безопасно, но рано. Одно «нет» — повод поменять способ, а не сдаваться."]],
+    lesson: "У завуча есть право вето. Профи узнают правила заранее и строят продажи так, чтобы их не нарушать." },
+  { id: "price", s: "Конкурент из параллельного класса продаёт на 100 ₽ дешевле.", step: "Шаг 10 · ядро", o: [
+    ["Снизить цену ещё сильнее", 0, "Началась ценовая война. Через неделю вы оба продаёте почти без прибыли."],
+    ["Напомнить о своём ядре: можно понюхать, личный подбор, набор пробников", 2, "Клиенты поняли, за что платят. Многие остались с тобой даже при цене выше."],
+    ["Писать в чате, что у него плохие духи", 0, "Выглядит некрасиво. Часть клиентов ушла от вас обоих."]],
+    lesson: "Ценой соревноваться опасно: всегда найдётся кто-то дешевле. Побеждает тот, у кого есть суперсила." },
+  { id: "allergy", s: "У одноклассницы покраснела кожа после твоего пробника.", step: "Шаг 20 · допущения", o: [
+    ["Сделать вид, что ничего не было", 0, "Слух разошёлся быстрее, чем духи. Репутация пострадала."],
+    ["Извиниться, вернуть деньги, проверить состав и советовать сначала тест на запястье", 2, "Ты поступил честно. Клиенты увидели, что тебе можно доверять."],
+    ["Сказать, что она сама виновата", 0, "Теперь о тебе говорят как о нечестном продавце."]],
+    lesson: "«Мои духи безопасны» — тоже допущение. Проверяй поставщика и состав, предупреждай об аллергии." },
+  { id: "blogger", s: "Школьный блогер предлагает рекламу за 1 500 ₽.", step: "Шаг 19 · COCA", o: [
+    ["Сразу согласиться: реклама — это круто", 0, "Пришли 2 клиента. Каждый обошёлся в 750 ₽ — дороже, чем он принесёт."],
+    ["Посчитать COCA и предложить оплату за результат: промокод и процент с продаж", 2, "Блогер согласился на процент. Ты платишь только за реальных клиентов."],
+    ["Отказаться, не думая", 1, "Деньги целы, но, может, ты упустил хороший канал. Сначала считай."]],
+    lesson: "Любая реклама — это COCA. Дели цену рекламы на число клиентов и сравнивай с LTV." },
+  { id: "supplier", s: "Поставщик поднял цену большого флакона на 30%.", step: "Шаги 16–17 · цена и LTV", o: [
+    ["Продавать по старой цене", 0, "Через месяц ты понял, что работаешь почти бесплатно."],
+    ["Пересчитать себестоимость и немного поднять цену или сделать флакон 4 мл", 2, "Маржа сохранилась, клиенты почти не заметили разницы."],
+    ["Найти поставщика подешевле без проверки", 1, "Дешевле, но качество неизвестно. Это новое опасное допущение."]],
+    lesson: "Себестоимость меняется. Профи пересчитывают цифры каждый раз, когда что-то меняется." },
+  { id: "partner", s: "Подруга хочет продавать твои духи в своём классе за процент.", step: "Шаг 18 · каналы продаж", o: [
+    ["Отказать: это мой бизнес", 1, "Ты сохранил контроль, но упустил новый канал."],
+    ["Договориться: 20% с продажи, ты даёшь пробники и правила", 2, "Новый канал заработал. Продажи выросли без лишних усилий."],
+    ["Отдать ей весь товар без договорённостей", 0, "Непонятно, сколько продано и где деньги. Вы поссорились."]],
+    lesson: "Партнёры — это канал продаж. Он работает, когда правила понятны обеим сторонам." },
+  { id: "repeat", s: "Клиентка вернулась за вторым флаконом!", step: "Шаг 23 · собаки едят корм", o: [
+    ["Продать как обычно", 1, "Неплохо, но ты упустил шанс узнать, что ей понравилось."],
+    ["Дать бонус за повторную покупку и спросить, что понравилось", 2, "Она рассказала подругам про бонус. Пришли 2 новых клиента."],
+    ["Поднять ей цену: раз нравится — заплатит", 0, "Она обиделась и больше не пришла."]],
+    lesson: "Повторная покупка — лучший сигнал. Береги таких клиентов: они повышают LTV и приводят друзей." },
+  { id: "mom", s: "Мама просит показать, сколько ты заработал.", step: "Учёт денег", o: [
+    ["Сказать «нормально» и уйти от ответа", 0, "Мама насторожилась. Инвестор без цифр перестаёт доверять."],
+    ["Показать журнал продаж и отчёт из игры", 2, "Мама впечатлена и предложила добавить денег на новую закупку."],
+    ["Назвать сумму наугад", 0, "Цифра не сошлась с кошельком. Неловко."]],
+    lesson: "Инвесторы верят цифрам. Записывай каждую продажу — это твоя репутация." },
+  { id: "trend", s: "В TikTok новый тренд: все хотят ванильные ароматы.", step: "Шаги 21–22 · эксперимент и MVBP", o: [
+    ["Сразу закупить 30 ванильных флаконов", 0, "Тренд прошёл через неделю. 20 флаконов лежат дома."],
+    ["Спросить 5 клиентов и добавить 1 аромат маленькой партией", 2, "Партия разошлась за 2 дня, а риска почти не было."],
+    ["Не обращать внимания", 1, "Безопасно, но ты мог заработать на тренде."]],
+    lesson: "Хайп — это допущение. Проверь маленькой партией, прежде чем вкладываться." },
+  { id: "cash", s: "Ты продал всё за 2 дня, но денег на новую закупку не хватает.", step: "Шаг 22 · MVBP и предзаказы", o: [
+    ["Занять у друзей", 1, "Сработало, но теперь ты должен, а продажи не гарантированы."],
+    ["Собрать предоплату за следующую партию", 2, "Клиенты уже заплатили — закупка без риска. Так делали Apple и Zappos."],
+    ["Потратить выручку на себя", 0, "Бизнес остановился. Клиенты ушли к конкуренту."]],
+    lesson: "Предзаказ — лучший способ расти без долгов: сначала деньги клиента, потом закупка." },
+  { id: "market", s: "Покупатель говорит: «На маркетплейсе такое дешевле».", step: "Шаги 8 и 11 · ценность и конкуренты", o: [
+    ["Спорить, что это неправда", 0, "Спор ничего не дал. Покупатель ушёл."],
+    ["Честно объяснить выгоду: понюхать сразу, мини-объём, без доставки", 2, "Покупатель понял, за что платит, и купил пробный объём."],
+    ["Сразу дать скидку 50%", 0, "Продал, но без прибыли. А другие теперь тоже ждут скидку."]],
+    lesson: "Знай свою ценность в цифрах и словами. Тогда вопрос про цену не страшен." },
+  { id: "grow", s: "Восьмые классы раскупили всё. Девятые тоже спрашивают.", step: "Шаг 14 · следующие рынки", o: [
+    ["Сразу продавать всем подряд и забыть про восьмые", 0, "Товара не хватило никому. Первые клиенты обиделись."],
+    ["Закрепиться в плацдарме и открыть 9-е классы как следующий рынок", 2, "Восьмые остались довольны и рассказали девятым. Рост пошёл сам."],
+    ["Отказать девятым", 1, "Безопасно, но рост остановился."]],
+    lesson: "Сначала захвати плацдарм, потом иди на следующий рынок — как Facebook после Гарварда." }
+];
+
+/* ---------- Зал славы: реальные истории, привязанные к миссиям */
+const LEGENDS = [
+  { id: "facebook", m: "m1", mono: "FB", name: "Facebook", who: "Марк Цукерберг, 2004",
+    story: "Facebook сначала был только для студентов Гарварда. Через месяц его открыли ещё нескольким университетам, потом всем студентам США, и только через два с половиной года — всем желающим.",
+    lesson: "Классический плацдарм: захватить одну маленькую группу, где все друг друга знают, а потом расширяться.", try: "Назови свой «Гарвард» — группу, с которой начнёшь." },
+  { id: "amazon", m: "m1", mono: "AM", name: "Amazon", who: "Джефф Безос, 1995",
+    story: "Безос мог продавать что угодно, но начал только с книг: их очень много, они одинаковые в любом магазине и их удобно пересылать. Музыку, игрушки и всё остальное Amazon добавил позже.",
+    lesson: "Один понятный продукт для одного рынка. «Магазин всего» вырос из маленького плацдарма.", try: "Выбери 3 аромата для старта, а не 30." },
+  { id: "airbnb", m: "m2", mono: "AB", name: "Airbnb", who: "Брайан Чески, Джо Геббиа, Нейтан Блечарчик, 2008",
+    story: "Когда денег совсем не было, основатели продавали коробки хлопьев «Obama O's» и заработали около 30 000 $. А чтобы понять клиентов, они сами ездили к хозяевам квартир в Нью-Йорке, знакомились с ними и фотографировали их жильё.",
+    lesson: "Лучшие идеи приходят из живых разговоров с клиентами, а не из интернета.", try: "Встреться лично с 1 человеком из списка «10 клиентов»." },
+  { id: "glossier", m: "m2", mono: "GL", name: "Glossier", who: "Эмили Вайс, 2014",
+    story: "Сначала Эмили 4 года вела бьюти-блог Into The Gloss и общалась с читательницами. Она так хорошо знала их желания, что первые продукты Glossier делала по их просьбам и комментариям.",
+    lesson: "Персона — не выдумка. Эмили знала своих клиенток по именам и комментариям.", try: "Запиши 3 фразы, которые твоя персона говорит о духах." },
+  { id: "spanx", m: "m3", mono: "SP", name: "Spanx", who: "Сара Блейкли, 2000",
+    story: "Сара сама мучилась: под белые брюки не было подходящего белья. Она отрезала у колготок «ноги» — так появилась идея. Начала с 5 000 $ сбережений, а в 2012 году Forbes назвал её самой молодой женщиной-миллиардером, заработавшей всё сама.",
+    lesson: "Ценность — это решение настоящей проблемы, которую человек чувствует сам.", try: "Спроси 1 человека: что бесит его при покупке духов?" },
+  { id: "mosbows", m: "m4", mono: "MB", name: "Mo's Bows", who: "Мозайя Бриджес, начал в 9 лет",
+    story: "Мозайя хотел стильную бабочку, но в магазинах были только скучные. Бабушка научила его шить, и в 9 лет он начал делать свои яркие бабочки. Потом были выступление в шоу Shark Tank и контракт с НБА на бабочки для всех команд лиги.",
+    lesson: "Ядро — то, что умеешь только ты: свой стиль и ручная работа, которую не купишь на маркетплейсе.", try: "Придумай одну «фишку», которой нет у конкурентов." },
+  { id: "mikaila", m: "m5", mono: "ML", name: "Me & the Bees", who: "Микайла Улмер, начала в 4 года",
+    story: "Микайла начала продавать лимонад с мёдом по бабушкиному рецепту, когда ей было 4 года. Позже, чтобы лимонад появился на полках сети Whole Foods, ей пришлось убеждать закупщиков — и у неё получилось.",
+    lesson: "Продажа в магазин — это тоже «команда решения»: убеди того, кто решает, а не только того, кто пьёт.", try: "Подумай, кого ещё нужно убедить, кроме Маши." },
+  { id: "estee", m: "m6", mono: "EL", name: "Estée Lauder", who: "Эсте Лаудер, 1946",
+    story: "Эсте Лаудер одной из первых начала раздавать бесплатные пробники и дарить подарки к покупке. Она была уверена: стоит женщине попробовать крем или аромат — и она купит. Сегодня это одна из крупнейших бьюти-компаний мира.",
+    lesson: "Пробники — это COCA: они стоят денег, но приводят клиентов. Главное — считать, окупаются ли они.", try: "Посчитай, во сколько тебе обходится 1 пробник." },
+  { id: "buffett", m: "m6", mono: "WB", name: "Уоррен Баффет", who: "первый бизнес в 6 лет",
+    story: "В 6 лет Баффет покупал упаковку из шести бутылок Coca-Cola за 25 центов и продавал каждую бутылку по 5 центов. Прибыль — 5 центов с упаковки. Маленькие деньги, но он сразу понял, как работает маржа.",
+    lesson: "Маржа = цена − себестоимость. Даже один из богатейших людей мира начинал с подсчёта центов.", try: "Посчитай маржу с одного своего флакона." },
+  { id: "zappos", m: "m7", mono: "ZP", name: "Zappos", who: "Ник Свинмерн, 1999",
+    story: "Ник не знал, будут ли люди покупать обувь в интернете. Вместо склада он сфотографировал обувь в местных магазинах и выложил на сайт. Приходил заказ — он шёл в магазин, покупал пару и отправлял. Спрос подтвердился, и в 2009 году Amazon купил Zappos примерно за 1,2 млрд $.",
+    lesson: "Проверь допущение до закупки: сначала заказ, потом товар.", try: "Собери предзаказы, прежде чем закупать флаконы." },
+  { id: "dropbox", m: "m7", mono: "DB", name: "Dropbox", who: "Дрю Хьюстон, 2007",
+    story: "Сделать продукт было долго и дорого, поэтому Дрю сначала записал короткое видео о том, как будет работать Dropbox. За одну ночь список желающих вырос с 5 000 до 75 000 человек.",
+    lesson: "Иногда достаточно показать идею, чтобы проверить спрос.", try: "Покажи друзьям фото 3 ароматов и посчитай, сколько скажут «хочу»." },
+  { id: "instagram", m: "m7", mono: "IG", name: "Instagram", who: "Кевин Систром и Майк Кригер, 2010",
+    story: "Сначала было приложение Burbn для отметок в разных местах — сложное и мало кому нужное. Основатели заметили, что людям нравится только одна функция — фото. Они убрали всё лишнее и сделали Instagram. Через 2 года его купил Facebook за 1 млрд $.",
+    lesson: "Поворот (pivot) — не провал. Оставь то, что людям действительно нравится.", try: "Спроси клиентов, что им нравится больше всего." },
+  { id: "apple", m: "m8", mono: "AP", name: "Apple", who: "Стив Джобс и Стив Возняк, 1976",
+    story: "Первый крупный заказ дал магазин Byte Shop: 50 компьютеров по 500 $. Под этот заказ основатели взяли детали в долг, собрали компьютеры и расплатились, когда получили деньги от магазина.",
+    lesson: "Сначала заказ — потом закупка. Так растут без лишнего риска.", try: "Предложи 5 клиентам предзаказ на новый аромат." },
+  { id: "jomalone", m: "m8", mono: "JM", name: "Jo Malone", who: "Джо Малон, Лондон",
+    story: "Джо Малон делала косметические процедуры и дарила клиенткам масло для ванны, которое сама смешивала на кухне. Клиентки возвращались уже за ароматом. В 1994 году она открыла свой первый магазин в Лондоне.",
+    lesson: "Когда люди возвращаются сами — «собаки едят корм». Это и есть сигнал расти.", try: "Посмотри в журнале: кто купил у тебя второй раз?" },
+  { id: "huda", m: "m8", mono: "HB", name: "Huda Beauty", who: "Худа Каттан, 2013",
+    story: "Худа вела бьюти-блог и знала, чего не хватает её подписчицам. Первым продуктом стали накладные ресницы — на старт она заняла у сестры 6 000 $. Ресницы раскупили, и из них вырос большой бьюти-бренд.",
+    lesson: "Начни с одного продукта, который точно нужен, а потом расширяйся на следующие рынки.", try: "Запиши, какой второй продукт ты добавишь, когда первый пойдёт." }
+];
+
 /* ================================================================== иллюстрации миссий */
 const INK = "#172233";
 function person(x, y, c, s) {
@@ -681,11 +854,91 @@ function sceneSVG(id) {
 }
 
 /* ================================================================== состояние */
+/* Ключ хранилища не меняется между версиями игры — обновления подхватывают старый прогресс.
+   migrate() дополняет старые сохранения новыми полями и ничего не удаляет. */
 const KEY = "startup-quest-v1";
-function fresh() { return { v: 1, xp: 0, a: {}, got: {}, quiz: {}, done: {}, sales: [], swipe: {} }; }
+const STATE_VERSION = 2;
+function fresh() {
+  return { v: STATE_VERSION, xp: 0, a: {}, got: {}, quiz: {}, done: {}, sales: [], swipe: {},
+    streak: { count: 0, best: 0, last: null }, daily: { date: null, quests: [], done: {} },
+    events: { answered: {}, cur: null }, legends: { read: {} } };
+}
+function migrate(raw) {
+  const f = fresh(), s = Object.assign(fresh(), raw || {});
+  ["a", "got", "quiz", "done", "swipe"].forEach(k => { if (!s[k] || typeof s[k] !== "object" || Array.isArray(s[k])) s[k] = f[k]; });
+  if (!Array.isArray(s.sales)) s.sales = [];
+  s.xp = +s.xp || 0;
+  s.streak = Object.assign(f.streak, raw && raw.streak);
+  s.daily = Object.assign(f.daily, raw && raw.daily);
+  s.events = Object.assign(f.events, raw && raw.events); s.events.answered = s.events.answered || {};
+  s.legends = Object.assign(f.legends, raw && raw.legends); s.legends.read = s.legends.read || {};
+  s.v = Math.max(STATE_VERSION, +(raw && raw.v) || 0);
+  return s;
+}
 let S = fresh();
-try { const raw = JSON.parse(localStorage.getItem(KEY)); if (raw && raw.v === 1) S = Object.assign(fresh(), raw); } catch (e) {}
+try {
+  const raw = JSON.parse(localStorage.getItem(KEY));
+  if (raw && typeof raw === "object") {
+    if ((+raw.v || 0) < STATE_VERSION) localStorage.setItem(KEY + "-backup-v" + (raw.v || 0), JSON.stringify(raw));
+    S = migrate(raw);
+  }
+} catch (e) {}
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+/* ---------- даты, серия, задания дня */
+const pad = n => String(n).padStart(2, "0");
+const dstr = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+const today = () => dstr(new Date());
+const yesterday = () => { const d = new Date(); d.setDate(d.getDate() - 1); return dstr(d); };
+function hashStr(s) { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { return () => (seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 4294967296; }
+function streakNow() {
+  const st = S.streak;
+  if (st.last === today()) return { n: st.count, hot: true };
+  if (st.last === yesterday()) return { n: st.count, hot: false, warn: true };
+  return { n: 0, hot: false };
+}
+function ensureDaily() {
+  const d = today(); if (S.daily.date === d && S.daily.quests.length) return;
+  const cur = M.find(m => !S.done[m.id]) || M[7];
+  const r = rng(hashStr(d)), pool = DAILY[cur.id].slice(), all = DAILY.all;
+  const pick = [];
+  while (pick.length < 2 && pool.length) pick.push(pool.splice(Math.floor(r() * pool.length), 1)[0]);
+  pick.push(all[Math.floor(r() * all.length)]);
+  S.daily = { date: d, quests: pick, done: {} }; save();
+}
+function touchStreak() {
+  const st = S.streak, t = today(); if (st.last === t) return;
+  st.count = st.last === yesterday() ? st.count + 1 : 1;
+  st.last = t; st.best = Math.max(st.best, st.count); save();
+  const bonus = STREAK_BONUS[st.count];
+  if (bonus && addXP(bonus, "streak." + st.count)) { confetti(innerWidth / 2, innerHeight / 3, 120); toast("Серия " + st.count + " дн. подряд! +" + bonus + " XP"); }
+  else toast("Серия: " + st.count + " дн. подряд!");
+}
+
+/* ---------- резервный код: перенос прогресса между ссылками, файлами и устройствами */
+function exportCode() { return "SQ" + STATE_VERSION + ":" + btoa(unescape(encodeURIComponent(JSON.stringify(S)))); }
+function importCode(code) {
+  code = code.trim().replace(/\s+/g, "");
+  if (/^SQ\d+:/.test(code)) code = code.slice(code.indexOf(":") + 1);
+  return migrate(JSON.parse(decodeURIComponent(escape(atob(code)))));
+}
+function mergeState(a, b) {
+  const m = migrate(JSON.parse(JSON.stringify(a)));
+  m.xp = Math.max(a.xp, b.xp);
+  m.got = Object.assign({}, b.got, a.got); m.done = Object.assign({}, b.done, a.done);
+  m.swipe = Object.assign({}, b.swipe, a.swipe);
+  Object.entries(b.quiz).forEach(([k, v]) => { const c = m.quiz[k]; if (!c || (!c.solved && v.solved)) m.quiz[k] = v; });
+  const empty = v => v == null || v === "" || v === false || (Array.isArray(v) && !v.length);
+  Object.entries(b.a).forEach(([k, v]) => { if (empty(m.a[k]) && !empty(v)) m.a[k] = v; });
+  const key = s => [s.d, s.c, s.p, s.r].join("|"), seen = new Set(m.sales.map(key));
+  b.sales.forEach(s => { if (!seen.has(key(s))) { m.sales.push(s); seen.add(key(s)); } });
+  if ((b.streak.last || "") > (a.streak.last || "")) m.streak = Object.assign({}, b.streak);
+  m.streak.best = Math.max(a.streak.best, b.streak.best, m.streak.count);
+  m.events.answered = Object.assign({}, b.events.answered, a.events.answered);
+  m.legends.read = Object.assign({}, b.legends.read, a.legends.read);
+  return m;
+}
 let soundOn = true;
 try { soundOn = localStorage.getItem("startup-quest-sound") !== "off"; } catch (e) {}
 
@@ -896,6 +1149,64 @@ function mapSVG() {
     ${start}${nodes}${finish}${tok}</svg>`;
 }
 
+/* ---------- серия и задания дня */
+function fireSVG(hot) {
+  return `<svg viewBox="0 0 24 24" width="38" height="38" aria-hidden="true"><path d="${IC.fire.match(/d="([^"]+)"/)[1]}" fill="${hot ? "var(--c5)" : "var(--locked)"}" stroke="var(--road-edge)" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M12 22c-1.9 0-3-1.3-3-3 0-2 1.6-3 2.4-4.6.8 1.2 1.6 1.8 2.6 2.1.6.9 1 1.6 1 2.5 0 1.7-1.1 3-3 3z" fill="${hot ? "var(--c3)" : "var(--surface-2)"}"/></svg>`;
+}
+function streakBox() {
+  const st = streakNow();
+  return `<div class="streak ${st.hot ? "" : "cold"}" id="streakbox" aria-label="Серия: ${st.n} дн. подряд"><span class="fire">${fireSVG(st.hot)}</span><b>${st.n}</b><small>${st.n === 1 ? "день" : "дн."} подряд</small></div>`;
+}
+function dailyHTML() {
+  ensureDaily();
+  const dn = S.daily.quests.filter((q, i) => S.daily.done[i]).length, st = streakNow();
+  const note = st.hot ? "Серия на сегодня сохранена" : st.warn ? "Сделай задание, чтобы не потерять серию!" : "Сделай задание — начни серию";
+  return `<section class="panel"><div class="row" style="justify-content:space-between"><div class="label muted">${ico("cal")} Задания на сегодня</div>
+      <span style="font-size:13px;font-weight:800;color:var(--${st.hot ? "good" : "c5"})">${note}</span></div>
+    ${S.daily.quests.map((q, i) => `<div class="quest ${S.daily.done[i] ? "done" : ""}"><div class="qi" style="background:var(${["--c1", "--c2", "--c6"][i]})">${ico(q[0], 2.2)}</div>
+      <div style="min-width:0"><div class="qt">${esc(q[1])}</div><div class="xp">+15 XP</div></div>
+      ${S.daily.done[i] ? `<span class="pill good">Готово</span>` : `<button class="btn small" data-daily="${i}">Сделал!</button>`}</div>`).join("")}
+    <div class="chestbar"><span style="font-size:24px;display:inline-flex;color:var(--${dn === 3 ? "c4" : "ink-soft"})">${ico("gift")}</span><div class="bar"><i style="width:${dn / 3 * 100}%"></i></div><span>${dn === 3 ? "Сундук дня открыт!" : dn + "/3 · сундук +25 XP"}</span></div></section>`;
+}
+
+/* ---------- карточки событий */
+function pickEvent(random) {
+  const left = EVENTS.filter(e => S.events.answered[e.id] == null);
+  if (!left.length) return null;
+  const i = random ? Math.floor(Math.random() * left.length) : hashStr(today()) % left.length;
+  return left[i].id;
+}
+function eventHTML(drawn) {
+  let e = EVENTS.find(x => x.id === S.events.cur);
+  if (!e) { S.events.cur = pickEvent(false); save(); e = EVENTS.find(x => x.id === S.events.cur); }
+  const total = Object.keys(S.events.answered).length;
+  if (!e) return `<div class="event"><div class="eh"><span>${ico("dice")} Карточки событий</span><span>${total}/${EVENTS.length}</span></div><div class="eb"><p>Ты прошёл все карточки событий! Новые появятся в следующих обновлениях игры.</p></div></div>`;
+  const ans = S.events.answered[e.id], grades = ["bad", "ok", "best"], gname = ["Неудачно", "Так себе", "Отличный ход"];
+  return `<div class="event ${drawn ? "drawn" : ""}"><div class="eh"><span>${ico("dice")} Карточка события</span><span>${total}/${EVENTS.length}</span></div>
+    <div class="eb"><span class="label muted">${esc(e.step)}</span><p class="situ">${esc(e.s)}</p><p class="muted" style="font-weight:700">Что сделаешь?</p>
+    <div class="opts">${e.o.map((o, i) => {
+      const cls = ans == null ? "" : i === ans ? (o[1] === 2 ? "right" : "wrong") : "";
+      return `<button class="opt ${cls}" data-event="${e.id}|${i}" ${ans != null ? "disabled" : ""}>${esc(o[0])}</button>`;
+    }).join("")}</div>
+    ${ans != null ? `<div class="outcome ${grades[e.o[ans][1]]}"><b>${gname[e.o[ans][1]]}.</b> ${esc(e.o[ans][2])}</div>
+      ${e.o[ans][1] < 2 ? `<p class="hint"><b>Лучший ход:</b> ${esc(e.o.find(o => o[1] === 2)[0])}</p>` : ""}
+      <p class="next">${esc(e.lesson)}</p>
+      ${pickEvent(true) ? `<button class="btn small" data-act="drawevent" style="align-self:flex-start">${ico("dice")} Вытянуть следующую карточку</button>` : ""}` : ""}
+    </div></div>`;
+}
+
+/* ---------- легенды бизнеса */
+function legendHTML(l, open) {
+  const mi = M.findIndex(m => m.id === l.m);
+  return `<div class="legend" data-legendcard="${l.id}" style="--lc:var(${M[mi].color})"><div class="lh"><span class="mono">${esc(l.mono)}</span><div style="min-width:0"><b>${esc(l.name)}</b><div class="muted" style="font-size:13px">${esc(l.who)}</div></div></div>
+    ${open ? `<div class="lb"><p>${esc(l.story)}</p><p class="lesson">${esc(l.lesson)}</p><p class="try"><b>Попробуй:</b> ${esc(l.try)}</p></div>`
+      : `<div class="lb"><button class="btn ghost small" data-legend="${l.id}" style="align-self:flex-start">Читать историю · +5 XP</button></div>`}</div>`;
+}
+function readLegend(id) {
+  if (!S.legends.read[id]) { S.legends.read[id] = 1; save(); addXP(5, "legend." + id); }
+}
+
 function soundBtn() {
   return `<button class="btn ghost sound" data-act="sound" aria-label="${soundOn ? "Выключить звук" : "Включить звук"}" aria-pressed="${soundOn}">${ico(soundOn ? "speaker" : "mute")}</button>`;
 }
@@ -911,12 +1222,18 @@ function renderHome() {
     <div class="rainbow" aria-hidden="true">${["--c1", "--c2", "--c3", "--c4", "--c5", "--c6"].map(c => `<i style="background:var(${c})"></i>`).join("")}</div>
     <p class="muted">8 миссий, чтобы запустить свой маленький бизнес с ароматами так, как это делают стартаперы из MIT. Проходи дорогу, побеждай босса и собирай значки.</p>
   </header>
-  ${xpCard()}
+  <div class="toprow">${xpCard()}${streakBox()}</div>
+  <div style="margin-top:14px" id="dailybox">${dailyHTML()}</div>
   <div class="map">${mapSVG()}</div>
   <div class="stack">
     <div class="row">
       ${nextI >= 0 ? `<button class="btn" data-go="${M[nextI].id}">${doneCount ? "Продолжить" : "Погнали"}: миссия ${nextI + 1}</button>` : `<button class="btn" data-go="report">Демо-день</button>`}
       ${nextI >= 0 ? `<button class="btn ghost" data-go="report">Отчёт</button>` : ""}
+    </div>
+    <div id="eventbox">${eventHTML(false)}</div>
+    <div class="panel"><div class="row" style="justify-content:space-between"><div class="label muted">${ico("crown")} Зал славы: ${LEGENDS.filter(l => S.legends.read[l.id]).length} из ${LEGENDS.length}</div><span class="muted" style="font-size:13px">реальные истории успеха</span></div>
+      <div class="hall">${LEGENDS.map(l => { const mi = M.findIndex(m => m.id === l.m), open = unlocked(mi), read = !!S.legends.read[l.id];
+        return `<button class="hallcard ${open ? (read ? "" : "unread") : "locked"}" data-hall="${l.id}" style="--lc:var(${M[mi].color})"><span class="mono">${open ? esc(l.mono) : "?"}</span>${open ? esc(l.name) : "Миссия " + (mi + 1)}</button>`; }).join("")}</div>
     </div>
     <div class="panel"><div class="label muted">Коллекция значков: ${doneCount} из 8</div>
       <div class="stickers">${M.map(m => `<div class="sticker ${S.done[m.id] ? "" : "off"}"><div class="hex" style="background:var(${m.color})">${ico(m.icon, 2.4)}</div>${esc(m.badge)}</div>`).join("")}</div>
@@ -927,8 +1244,17 @@ function renderHome() {
         <li>XP: +10 за верный ответ с первой попытки, +5 за каждое заполненное поле, +50 за пройденную миссию. Копи XP и повышай уровень.</li>
         <li>Миссия 6 — мини-игра со свайпами, миссия 7 — битва с боссом.</li>
         <li>Возвращаться в прошлые миссии можно и нужно: путь последовательный, но не линейный.</li>
-        <li>Ответы сохраняются на этом устройстве. Отчёт для родителей можно скопировать и отправить в мессенджер.</li>
+        <li>Каждый день — 3 задания в реальной жизни. Делай хотя бы одно в день, чтобы не потерять серию. За 3, 7, 14 и 30 дней подряд — бонусы.</li>
+        <li>Карточки событий — ситуации, как в настольной игре. Выбери, как поступишь, и узнай, что из этого вышло.</li>
+        <li>В «Зале славы» — реальные истории известных предпринимателей. Новые истории открываются вместе с миссиями.</li>
+        <li>Ответы сохраняются на этом устройстве, а обновления игры их не стирают. Отчёт для родителей можно скопировать и отправить в мессенджер.</li>
       </ul>
+    </details>
+    <details class="panel"><summary>${ico("save")} Сохранение и перенос прогресса</summary>
+      <p class="hint">Прогресс хранится в браузере. Обновления игры по той же ссылке его не стирают. Если открываешь игру по другой ссылке, из другого файла или на другом телефоне — скопируй код сохранения здесь и вставь его там. Прогресс объединится: ничего не потеряется.</p>
+      <div class="row"><button class="btn small" data-act="backupcopy">Скопировать код сохранения</button><span class="muted" id="backupmsg"></span></div>
+      <textarea id="importbox" placeholder="Вставь сюда код сохранения" aria-label="Код сохранения"></textarea>
+      <div class="row"><button class="btn ghost small" data-act="backuprestore">Восстановить и объединить</button><span class="muted" id="restoremsg"></span></div>
     </details>
     <details class="panel"><summary>Для родителей: роль инвестора</summary>
       <ul>
@@ -963,6 +1289,8 @@ function renderMission(id) {
     <section class="section why"><div class="label">${ico("target")} Зачем это нужно</div><ul>${m.why.map((w, i) => `<li><b>${i + 1}</b><span>${esc(w)}</span></li>`).join("")}</ul></section>
     <section class="section"><div class="label">${ico("bolt")} Словарик: сложные слова по-простому</div>
       <div class="dict">${m.dict.map(d => `<div class="term"><div class="ti">${ico(d[2] || "star", 2.2)}</div><div><b>${esc(d[0])}</b>${esc(d[1])}</div></div>`).join("")}</div></section>
+    <section class="section"><div class="label">${ico("crown")} Легенды бизнеса · +5 XP за историю</div>
+      ${LEGENDS.filter(l => l.m === m.id).map(l => legendHTML(l, !!S.legends.read[l.id])).join("")}</section>
     <section class="section"><div class="label">${ico("star")} Проверь себя · +10 XP за верный ответ</div>
       ${m.quiz.map((q, qi) => quizHTML(m.id + ".q" + qi, q)).join("")}</section>
     <section class="section"><div class="label">${ico("flag")} Миссия в реальной жизни · +5 XP за поле</div>
@@ -1265,7 +1593,9 @@ function reportText() {
   const cost = unitCost(), margin = num("u.price", 450) - cost, ltv = margin * num("u.rep", 3), coca = num("u.acq", 400) / Math.max(1, num("u.newc", 4));
   let t = `СТАРТАП-КВЕСТ · ОТЧЁТ ДЛЯ ДЕМО-ДНЯ\n`;
   t += `Уровень: ${L.name} · ${fmt(S.xp)} XP · миссий пройдено: ${M.filter(m => S.done[m.id]).length} из 8\n`;
-  t += `Значки: ${M.filter(m => S.done[m.id]).map(m => m.badge).join(", ") || "пока нет"}\n\n`;
+  t += `Значки: ${M.filter(m => S.done[m.id]).map(m => m.badge).join(", ") || "пока нет"}\n`;
+  const evAns = Object.entries(S.events.answered), evBest = evAns.filter(([id, oi]) => { const e = EVENTS.find(x => x.id === id); return e && e.o[oi] && e.o[oi][1] === 2; }).length;
+  t += `Серия: ${streakNow().n} дн. подряд (рекорд ${S.streak.best}) · карточки событий: ${evAns.length} из ${EVENTS.length}, лучших решений ${evBest} · истории в «Зале славы»: ${Object.keys(S.legends.read).length} из ${LEGENDS.length}\n\n`;
   t += `1. КЛИЕНТ\n` + line("Плацдарм", S.a.beach != null ? names[S.a.beach] : "") + line("Персона", [0, 1, 2].map(i => val("m2.persona." + i)).filter(Boolean).join(", "));
   t += line("Объём рынка (TAM)", fmt(num("tam.people", 60) * num("tam.freq", 2) * num("tam.check", 400)) + " ₽ в год");
   let yes = 0; for (let i = 0; i < 10; i++) if (val("ten." + i + ".r") === "Куплю!") yes++;
@@ -1319,8 +1649,40 @@ function go(target) {
 function shakeHead() { const b = document.querySelector(".mhead"); if (b) { b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); } }
 
 app.addEventListener("click", e => {
-  const el = e.target.closest("[data-go],[data-qopt],[data-pick],[data-risk],[data-act],[data-delsale],[data-beach],[data-swipe]");
+  const el = e.target.closest("[data-go],[data-qopt],[data-pick],[data-risk],[data-act],[data-delsale],[data-beach],[data-swipe],[data-daily],[data-event],[data-legend],[data-hall]");
   if (!el) return;
+  if (el.dataset.daily != null) {
+    const i = +el.dataset.daily; if (S.daily.done[i]) return;
+    S.daily.done[i] = true; save(); sfx.good();
+    const r = el.getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 40);
+    addXP(15, "daily." + S.daily.date + "." + i); touchStreak();
+    if (S.daily.quests.every((q, k) => S.daily.done[k]) && addXP(25, "chest." + S.daily.date)) { sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 140); toast("Сундук дня открыт! +25 XP"); }
+    document.getElementById("dailybox").innerHTML = dailyHTML();
+    const sb = document.getElementById("streakbox"); if (sb) sb.outerHTML = streakBox();
+    return;
+  }
+  if (el.dataset.event) {
+    const [id, oi] = el.dataset.event.split("|"), ev = EVENTS.find(x => x.id === id), g = ev.o[+oi][1];
+    if (S.events.answered[id] != null) return;
+    S.events.answered[id] = +oi; save();
+    if (g === 2) { sfx.good(); const r = el.getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 50); addXP(15, "event." + id); }
+    else if (g === 1) { sfx.coin(); addXP(5, "event." + id); }
+    else sfx.bad();
+    document.getElementById("eventbox").innerHTML = eventHTML(false);
+    return;
+  }
+  if (el.dataset.legend) {
+    const l = LEGENDS.find(x => x.id === el.dataset.legend); readLegend(l.id); sfx.good();
+    el.closest(".legend").outerHTML = legendHTML(l, true);
+    return;
+  }
+  if (el.dataset.hall) {
+    const l = LEGENDS.find(x => x.id === el.dataset.hall), mi = M.findIndex(m => m.id === l.m);
+    if (!unlocked(mi)) { sfx.bad(); toast("Откроется в миссии " + (mi + 1)); return; }
+    showModal(legendHTML(l, true), "Вдохновляет!", () => renderHome());
+    readLegend(l.id);
+    return;
+  }
   if (el.dataset.go) {
     const i = M.findIndex(m => m.id === el.dataset.go);
     if (i >= 0 && !unlocked(i)) { sfx.bad(); toast("Сначала пройди миссию " + i); return; }
@@ -1393,6 +1755,21 @@ app.addEventListener("click", e => {
     addXP(5, "sale." + S.sales.length);
     if (repeatBuy) { const rr = el.getBoundingClientRect(); confetti(rr.left + rr.width / 2, rr.top, 60); toast("Повторная покупка! Собаки едят корм"); }
     el.closest(".task").innerHTML = taskHTML(M[7], M[7].tasks[0]); updateOutputs(); refreshProgress(M[7]);
+  } else if (act === "drawevent") {
+    S.events.cur = pickEvent(true); save(); sfx.hit();
+    document.getElementById("eventbox").innerHTML = eventHTML(true);
+  } else if (act === "backupcopy") {
+    const code = exportCode(), msg = document.getElementById("backupmsg"), box = document.getElementById("importbox");
+    const fallback = () => { box.value = code; box.select(); msg.textContent = "Код в поле ниже — скопируй его вручную."; };
+    try { navigator.clipboard.writeText(code).then(() => { msg.textContent = "Код скопирован! Сохрани его в заметках или отправь себе."; sfx.good(); }, fallback); } catch (err) { fallback(); }
+  } else if (act === "backuprestore") {
+    const msg = document.getElementById("restoremsg"), code = document.getElementById("importbox").value;
+    if (!code.trim()) { msg.textContent = "Сначала вставь код сохранения."; return; }
+    try {
+      const before = S.xp; S = mergeState(S, importCode(code)); save();
+      renderHome(); sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 120);
+      toast(S.xp > before ? "Прогресс объединён! Теперь у тебя " + fmt(S.xp) + " XP" : "Прогресс объединён!");
+    } catch (err) { sfx.bad(); msg.textContent = "Код не подошёл. Проверь, что он скопирован целиком."; }
   } else if (act === "swipereset") {
     S.swipe = {}; save(); el.closest(".task").innerHTML = taskHTML(M[5], M[5].tasks[0]); bindDeck(); refreshProgress(M[5]);
   } else if (act === "copy") {
