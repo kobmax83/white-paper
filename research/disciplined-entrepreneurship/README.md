@@ -185,5 +185,7 @@
 
 - `startup-quest.html` — исходник (версия для Claude Artifact);
 - `index.html` — полный HTML-документ для хостинга, собирается командой `./build_index.sh`;
+- `Стартап-квест.html` — тот же файл с названием игры, чтобы отправить и открыть как приложение;
+- `icon.svg`, `icon-180.png` — иконка приложения (встраивается в файл при сборке);
 - публикация на Vercel: New Project → импорт этого репозитория → **Root Directory**:
   `research/disciplined-entrepreneurship/game`, Framework Preset: **Other**, без команды сборки.

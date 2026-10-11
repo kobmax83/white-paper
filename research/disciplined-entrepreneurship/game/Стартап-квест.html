@@ -1,0 +1,2071 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Игра из 8 миссий по методике MIT Disciplined Entrepreneurship для подростков.">
+<meta name="application-name" content="Стартап-квест">
+<meta name="apple-mobile-web-app-title" content="Стартап-квест">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#2b95d6">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMmI5NWQ2Ii8+CiAgPHBhdGggZD0iTTAsMTMwIEM0MCwxMDUgODAsMTUwIDEyMCwxMjAgQzE0NSwxMDIgMTY1LDEwOCAxODAsMTAwIFYxODAgSDAgWiIgZmlsbD0iI2YwYWQxZSIvPgogIDxwYXRoIGQ9Ik0wLDE1MCBDNTAsMTI4IDkwLDE3MCAxODAsMTM1IFYxODAgSDAgWiIgZmlsbD0iI2UyM2Q0ZiIvPgogIDxwYXRoIGQ9Ik0xMzgsMjIgbDQsOSA5LDQgLTksNCAtNCw5IC00LC05IC05LC00IDksLTQgWiIgZmlsbD0iI2ZmZiIvPgogIDxwYXRoIGQ9Ik0zMCw0MCBsMyw2IDYsMyAtNiwzIC0zLDYgLTMsLTYgLTYsLTMgNiwtMyBaIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIuOCIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwIDEzMikiPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSI2IiByeD0iMzQiIHJ5PSI4IiBmaWxsPSIjMDAwIiBvcGFjaXR5PSIuMiIvPgogICAgPHJlY3QgeD0iLTM2IiB5PSItODgiIHdpZHRoPSI3MiIgaGVpZ2h0PSI5MCIgcng9IjI0IiBmaWxsPSIjZmY4ZmIwIiBzdHJva2U9IiMxNzIyMzMiIHN0cm9rZS13aWR0aD0iNiIvPgogICAgPHJlY3QgeD0iLTE3IiB5PSItMTE2IiB3aWR0aD0iMzQiIGhlaWdodD0iMzAiIHJ4PSI3IiBmaWxsPSIjZjJiOTNhIiBzdHJva2U9IiMxNzIyMzMiIHN0cm9rZS13aWR0aD0iNiIvPgogICAgPGNpcmNsZSBjeD0iLTE0IiBjeT0iLTUwIiByPSI3LjUiIGZpbGw9IiMxNzIyMzMiLz48Y2lyY2xlIGN4PSIxNCIgY3k9Ii01MCIgcj0iNy41IiBmaWxsPSIjMTcyMjMzIi8+CiAgICA8Y2lyY2xlIGN4PSItMTEuNSIgY3k9Ii01MyIgcj0iMi41IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMTYuNSIgY3k9Ii01MyIgcj0iMi41IiBmaWxsPSIjZmZmIi8+CiAgICA8cGF0aCBkPSJNLTE0LC0yOCBxMTQsMTQgMjgsMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTcyMjMzIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogICAgPGNpcmNsZSBjeD0iLTI2IiBjeT0iLTM0IiByPSI2IiBmaWxsPSIjZmY1Yzg2IiBvcGFjaXR5PSIuNyIvPjxjaXJjbGUgY3g9IjI2IiBjeT0iLTM0IiByPSI2IiBmaWxsPSIjZmY1Yzg2IiBvcGFjaXR5PSIuNyIvPgogIDwvZz4KPC9zdmc+Cg==">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<title>Стартап-квест</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;800&display=swap">
+<style>
+/* Layout: phone-first single column. Home = board-game road (poster colors) with landmarks and a player token;
+   mission = illustrated colored header + stacked quest cards. Game feel: confetti, XP pops, level-up and badge reveals. */
+:root {
+  --bg: #eef2f8;
+  --surface: #ffffff;
+  --surface-2: #f5f7fc;
+  --ink: #172233;
+  --ink-soft: #4a586c;
+  --line: #d7dfeb;
+  --dot: #d3dbe8;
+  --c1: #2b95d6; --c2: #e23d4f; --c3: #f0ad1e; --c4: #5fa62d; --c5: #ef7420; --c6: #8a5bbd;
+  --good: #1f9d55; --warn: #d48806; --bad: #d4364a;
+  --locked: #b8c2d1;
+  --road-edge: #172233;
+  --font-display: "Unbounded", "Manrope", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1320; --surface: #172131; --surface-2: #1d2a3d; --ink: #e9eef6; --ink-soft: #a9b6c8; --line: #2b3a50; --dot: #1f2b3e;
+    --c1: #45a8e6; --c2: #f05768; --c3: #f2b93a; --c4: #79c046; --c5: #f58a3c; --c6: #a27ad6;
+    --good: #3cc47a; --warn: #f0a92a; --bad: #f2647a; --locked: #3c4a60; --road-edge: #05080f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1320; --surface: #172131; --surface-2: #1d2a3d; --ink: #e9eef6; --ink-soft: #a9b6c8; --line: #2b3a50; --dot: #1f2b3e;
+  --c1: #45a8e6; --c2: #f05768; --c3: #f2b93a; --c4: #79c046; --c5: #f58a3c; --c6: #a27ad6;
+  --good: #3cc47a; --warn: #f0a92a; --bad: #f2647a; --locked: #3c4a60; --road-edge: #05080f; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+  background-image: radial-gradient(var(--dot) 1.4px, transparent 1.6px); background-size: 22px 22px;
+}
+.wrap { max-width: 760px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 72px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(30px, 8vw, 46px); font-weight: 800; }
+h3 { font-size: 15px; font-weight: 600; }
+p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--c1); outline-offset: 2px; }
+.muted { color: var(--ink-soft); }
+.label { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.ico { width: 1em; height: 1em; display: inline-block; vertical-align: -0.15em; flex: none; }
+
+/* ---------- home */
+.hero { display: flex; flex-direction: column; gap: 10px; padding-block: 6px 16px; }
+.hero h1 .w1 { color: var(--c2); }
+.hero h1 .w2 { display: inline-block; background: var(--c3); color: #1b2333; padding: 0 .25em; border-radius: .2em; transform: rotate(-2deg); }
+.rainbow { display: flex; height: 8px; border-radius: 99px; overflow: hidden; }
+.rainbow i { flex: 1; }
+.xpcard { background: var(--surface); border: 2px solid var(--ink); border-radius: var(--r); padding: 12px 14px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 12px; align-items: center; box-shadow: 4px 4px 0 var(--ink); }
+.lvl-badge { width: 50px; height: 50px; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 20px; grid-row: span 2; color: #fff; background: var(--c6); clip-path: polygon(50% 0, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); }
+.xpbar { height: 12px; border-radius: 99px; background: var(--surface-2); border: 2px solid var(--ink); overflow: hidden; }
+.xpbar i { display: block; height: 100%; background: repeating-linear-gradient(-45deg, var(--c3) 0 8px, var(--c5) 8px 16px); transition: width .6s cubic-bezier(.2,.9,.3,1.2); }
+.xpnum { font-family: var(--font-display); font-weight: 800; font-variant-numeric: tabular-nums; grid-row: span 2; text-align: right; }
+.map { margin-block: 14px 4px; }
+.map svg { width: 100%; height: auto; display: block; overflow: visible; }
+.map .node { cursor: pointer; }
+.map .node.locked { cursor: not-allowed; }
+.map .node:focus-visible .ring { stroke: var(--ink); }
+.roadflow { animation: flow 1.6s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -28; } }
+.token { animation: bob 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.twinkle { animation: twinkle 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes twinkle { 0%,100% { opacity: .25; transform: scale(.8); } 50% { opacity: .9; transform: scale(1.1); } }
+.pulse { animation: pulse 2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+.rocket-idle { animation: hover 2s ease-in-out infinite; }
+@keyframes hover { 0%,100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+.flame { animation: flame .25s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center top; }
+@keyframes flame { from { transform: scaleY(.8); } to { transform: scaleY(1.15); } }
+.stickers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.sticker { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; font-size: 12px; font-weight: 800; min-width: 0; }
+.hex { width: 58px; height: 64px; display: grid; place-items: center; clip-path: polygon(50% 0, 96% 25%, 96% 75%, 50% 100%, 4% 75%, 4% 25%); color: #fff; font-size: 28px; }
+.sticker.off .hex { background: var(--locked) !important; opacity: .6; }
+.sticker.off { color: var(--ink-soft); }
+.panel { background: var(--surface); border: 2px solid var(--line); border-radius: var(--r); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+details.panel summary { cursor: pointer; font-weight: 800; }
+details.panel ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.btn { border: 2px solid var(--ink); border-radius: 14px; padding: 12px 18px; font-weight: 800; background: var(--ink); color: var(--bg); box-shadow: 3px 3px 0 var(--c5); transition: transform .12s, box-shadow .12s; }
+.btn:active:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--c5); }
+.btn.ghost { background: var(--surface); color: var(--ink); box-shadow: 3px 3px 0 var(--line); }
+.btn.small { padding: 6px 10px; font-size: 14px; border-radius: 10px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+
+/* ---------- mission */
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
+.topbar .xpcard { flex: 1; min-width: 0; max-width: 340px; padding: 8px 12px; box-shadow: 3px 3px 0 var(--ink); }
+.topbar .lvl-badge { width: 40px; height: 40px; font-size: 16px; }
+.topbar .xpcard .label { display: none; }
+.topbar .xpcard b { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.topbar .xpnum { font-size: 13px; white-space: nowrap; }
+.mhead { border-radius: 22px; color: #fff; background: var(--mc); border: 2px solid var(--road-edge); box-shadow: 5px 5px 0 var(--road-edge); overflow: hidden; }
+.mhead.dark-text { color: #1b2333; }
+.mhead .scene { display: block; width: 100%; height: auto; background: rgba(255,255,255,.12); }
+.mhead .mtitle { display: flex; gap: 14px; align-items: center; padding: 14px 18px 18px; }
+.mnum { font-family: var(--font-display); font-weight: 800; font-size: 54px; line-height: 1; }
+.mhead .label { opacity: .9; }
+.mhead h1 { font-size: clamp(21px, 5.4vw, 29px); }
+.mprog { display: flex; align-items: center; gap: 10px; padding: 0 18px 16px; font-weight: 800; font-size: 13px; }
+.mprog .bar { flex: 1; height: 10px; border-radius: 99px; background: rgba(0,0,0,.18); overflow: hidden; }
+.mprog .bar i { display: block; height: 100%; background: currentColor; border-radius: 99px; transition: width .5s; }
+.section { background: var(--surface); border: 2px solid var(--line); border-radius: var(--r); padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; }
+.section > .label { color: var(--mc); display: flex; gap: 8px; align-items: center; }
+.coach { display: grid; grid-template-columns: 56px 1fr; gap: 12px; align-items: start; }
+.bubble { background: var(--surface-2); border: 2px solid var(--line); border-radius: 4px 18px 18px 18px; padding: 12px 14px; }
+.why ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.why li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: start; }
+.why li b { width: 26px; height: 26px; border-radius: 8px; background: var(--mc); color: #fff; display: grid; place-items: center; font-size: 13px; }
+.dict { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.term { border: 2px solid var(--line); border-radius: 14px; padding: 12px; background: var(--surface-2); min-width: 0; display: grid; grid-template-columns: 44px 1fr; gap: 10px; align-items: start; }
+.term .ti { width: 44px; height: 44px; border-radius: 12px; background: var(--mc); color: #fff; display: grid; place-items: center; font-size: 24px; }
+.term b { display: block; font-family: var(--font-display); font-size: 14px; font-weight: 600; margin-bottom: 2px; color: var(--mc); }
+.q { border: 2px solid var(--line); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.q p.qt { font-weight: 800; }
+.opts { display: flex; flex-direction: column; gap: 8px; }
+.opt { text-align: left; border: 2px solid var(--line); background: var(--surface); border-radius: 12px; padding: 10px 12px; font-weight: 600; transition: transform .1s; }
+.opt:hover:not(:disabled) { border-color: var(--mc); transform: translateX(3px); }
+.opt.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 14%, var(--surface)); }
+.opt.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+.shake { animation: shake .4s; }
+@keyframes shake { 20%,60% { transform: translateX(-6px); } 40%,80% { transform: translateX(6px); } }
+.explain { font-size: 14px; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); }
+.task { border-top: 2px dashed var(--line); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.section > .label + .task { border-top: 0; padding-top: 0; }
+.task h3 { font-family: var(--font-body); font-size: 16px; font-weight: 800; display: flex; gap: 8px; align-items: center; }
+.task h3 .done-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-size: 12px; color: #fff; flex: none; }
+.task h3 .done-dot.on { background: var(--good); border-color: var(--good); }
+.hint { font-size: 14px; color: var(--ink-soft); }
+label.f { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: var(--ink-soft); min-width: 0; }
+input[type=text], input[type=number], textarea, select {
+  width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface-2);
+  border: 2px solid var(--line); border-radius: 10px; padding: 9px 11px;
+}
+textarea { min-height: 70px; resize: vertical; }
+input:focus, textarea:focus, select:focus { border-color: var(--mc); outline: none; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.checks label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; font-weight: 600; }
+.checks input { width: 22px; height: 22px; margin-top: 1px; accent-color: var(--mc); flex: none; }
+.out { border-radius: 14px; padding: 14px; background: color-mix(in srgb, var(--mc) 10%, var(--surface)); border: 2px solid color-mix(in srgb, var(--mc) 45%, var(--line)); display: flex; flex-direction: column; gap: 8px; }
+.big { font-family: var(--font-display); font-weight: 800; font-size: 26px; font-variant-numeric: tabular-nums; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.kpi { background: var(--surface); border: 2px solid var(--line); border-radius: 12px; padding: 10px; min-width: 0; }
+.kpi small { display: block; font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+.kpi span { font-family: var(--font-display); font-weight: 800; font-size: 19px; font-variant-numeric: tabular-nums; }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 13px; font-weight: 800; color: #fff; }
+.pill.good { background: var(--good); } .pill.warn { background: var(--warn); } .pill.bad { background: var(--bad); }
+.meter svg { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+th { font-size: 12px; color: var(--ink-soft); font-weight: 800; }
+td select { padding: 6px 4px; font-size: 14px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.card { text-align: left; border: 2px solid var(--line); border-radius: 14px; padding: 12px; background: var(--surface); display: grid; grid-template-columns: 40px 1fr; gap: 4px 10px; min-width: 0; transition: transform .12s; }
+.card:hover { transform: translateY(-2px); }
+.card .ci { width: 40px; height: 40px; border-radius: 12px; background: var(--surface-2); color: var(--mc); display: grid; place-items: center; font-size: 22px; grid-row: span 2; }
+.card b { font-weight: 800; }
+.card .verdict { grid-column: 1 / -1; }
+.card.on { border-color: var(--mc); background: color-mix(in srgb, var(--mc) 12%, var(--surface)); box-shadow: 3px 3px 0 var(--mc); }
+.card.on .ci { background: var(--mc); color: #fff; }
+.card.on.badpick { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); box-shadow: 3px 3px 0 var(--bad); }
+.card.on.badpick .ci { background: var(--bad); }
+.verdict { font-size: 14px; font-weight: 700; }
+.verdict.good { color: var(--good); } .verdict.bad { color: var(--bad); }
+.flip { perspective: 800px; border: 0; background: none; padding: 0; text-align: left; min-height: 170px; }
+.flip .in { position: relative; width: 100%; height: 100%; min-height: 170px; transition: transform .55s; transform-style: preserve-3d; }
+.flip.open .in { transform: rotateY(180deg); }
+.flip .face { position: absolute; inset: 0; border-radius: 14px; padding: 14px; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; gap: 6px; border: 2px solid var(--line); overflow: auto; }
+.flip .front { background: var(--surface-2); border-style: dashed; }
+.flip .front .q-mark { font-family: var(--font-display); font-size: 26px; color: var(--mc); }
+.flip .back { transform: rotateY(180deg); background: var(--surface); }
+.flip .tag { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.boss { display: flex; flex-direction: column; gap: 6px; padding: 0 18px 16px; font-weight: 800; }
+.hp { height: 16px; border-radius: 99px; background: rgba(0,0,0,.3); border: 2px solid var(--road-edge); overflow: hidden; }
+.hp i { display: block; height: 100%; background: linear-gradient(90deg, #ff4d5e, #ffb02e); transition: width .7s cubic-bezier(.3,1.4,.5,1); }
+.boss-body { transition: opacity .8s; }
+.next { border-left: 6px solid var(--mc); padding: 4px 0 4px 14px; font-weight: 700; }
+.done-bar { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+.slider-row { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.slider-row .sl { display: grid; grid-template-columns: 92px 1fr 28px; gap: 8px; align-items: center; font-size: 13px; }
+input[type=range] { width: 100%; accent-color: var(--mc); }
+.plot svg { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; }
+
+/* swipe mini-game */
+.deck { position: relative; height: 230px; max-width: 380px; width: 100%; margin: 0 auto; }
+.deal { position: absolute; inset: 0; border-radius: 20px; border: 2px solid var(--road-edge); background: var(--surface); box-shadow: 5px 5px 0 var(--mc); padding: 18px; display: flex; flex-direction: column; gap: 10px; justify-content: center; user-select: none; touch-action: pan-y; cursor: grab; }
+.deal.back { transform: rotate(-3deg) translate(-4px, 6px); box-shadow: none; opacity: .6; }
+.deal .d-step { font-size: 12px; font-weight: 800; color: var(--ink-soft); }
+.deal .d-text { font-weight: 800; font-size: 17px; }
+.deal .d-nums { display: flex; gap: 8px; flex-wrap: wrap; }
+.deal .d-nums span { background: var(--surface-2); border: 2px solid var(--line); border-radius: 10px; padding: 4px 8px; font-size: 13px; font-weight: 800; }
+.stamp { position: absolute; top: 14px; padding: 4px 10px; border: 3px solid; border-radius: 8px; font-family: var(--font-display); font-weight: 800; font-size: 15px; opacity: 0; transform: rotate(-12deg); }
+.stamp.yes { right: 14px; color: var(--good); } .stamp.no { left: 14px; color: var(--bad); transform: rotate(12deg); }
+.swipe-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 380px; width: 100%; margin: 0 auto; }
+.swipe-btns .no { box-shadow: 3px 3px 0 var(--bad); }
+.swipe-btns .yes { box-shadow: 3px 3px 0 var(--good); }
+
+/* overlays */
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(140%); background: var(--ink); color: var(--bg); padding: 12px 18px; border-radius: 14px; font-weight: 800; transition: transform .35s, opacity .35s, visibility .35s; z-index: 30; opacity: 0; visibility: hidden; max-width: calc(100% - 32px); text-align: center; }
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
+.xpfloat { position: fixed; z-index: 40; pointer-events: none; font-family: var(--font-display); font-weight: 800; font-size: 20px; color: var(--c5); -webkit-text-stroke: 1px var(--road-edge); animation: xpup 1s ease-out forwards; }
+@keyframes xpup { from { transform: translate(-50%, 0) scale(.6); opacity: 0; } 20% { opacity: 1; transform: translate(-50%, -14px) scale(1.15); } to { transform: translate(-50%, -70px) scale(1); opacity: 0; } }
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+.overlay { position: fixed; inset: 0; z-index: 45; background: rgba(8, 12, 22, .6); display: grid; place-items: center; padding: 16px; }
+.overlay .modal { background: var(--surface); border: 3px solid var(--road-edge); border-radius: 24px; box-shadow: 6px 6px 0 var(--c5); padding: 24px 20px; max-width: 360px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; animation: popin .45s cubic-bezier(.2,1.4,.4,1); }
+@keyframes popin { from { transform: scale(.6) rotate(-4deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.overlay .hex.bigx { width: 110px; height: 122px; font-size: 56px; position: relative; overflow: hidden; animation: spinin .8s cubic-bezier(.2,1.3,.4,1); }
+.overlay .hex.bigx::after { content: ""; position: absolute; inset: -40%; background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.75) 50%, transparent 60%); animation: shine 1.6s .5s ease-in-out infinite; }
+@keyframes spinin { from { transform: rotateY(180deg) scale(.4); } to { transform: none; } }
+@keyframes shine { from { transform: translateX(-60%); } to { transform: translateX(60%); } }
+.sound { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; padding: 0; flex: none; }
+.report { white-space: pre-wrap; font-size: 14px; background: var(--surface-2); border-radius: 12px; padding: 14px; border: 2px solid var(--line); max-height: 440px; overflow: auto; }
+/* streak, daily, events, legends */
+.toprow { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: stretch; }
+.streak { background: var(--surface); border: 2px solid var(--ink); border-radius: var(--r); box-shadow: 4px 4px 0 var(--c5); padding: 8px 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 86px; }
+.streak.cold { box-shadow: 4px 4px 0 var(--line); }
+.streak .fire { display: inline-flex; }
+.streak:not(.cold) .fire svg { animation: flicker 1s ease-in-out infinite alternate; transform-origin: center bottom; }
+@keyframes flicker { from { transform: scale(1) rotate(-4deg); } to { transform: scale(1.1) rotate(4deg); } }
+.streak b { font-family: var(--font-display); font-size: 22px; line-height: 1; font-variant-numeric: tabular-nums; }
+.streak small { font-size: 11px; font-weight: 800; color: var(--ink-soft); white-space: nowrap; }
+.quest { display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center; padding: 10px; border: 2px solid var(--line); border-radius: 14px; background: var(--surface-2); }
+.quest .qi { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: #fff; font-size: 22px; border: 2px solid var(--road-edge); }
+.quest .qt { font-weight: 700; }
+.quest.done .qt { text-decoration: line-through; color: var(--ink-soft); }
+.quest .xp { font-size: 12px; font-weight: 800; color: var(--c5); }
+.chestbar { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 14px; }
+.chestbar .bar { flex: 1; height: 12px; border-radius: 99px; background: var(--surface-2); border: 2px solid var(--ink); overflow: hidden; min-width: 60px; }
+.chestbar .bar i { display: block; height: 100%; background: var(--c4); transition: width .5s; }
+.event { border: 3px solid var(--road-edge); border-radius: 20px; overflow: hidden; background: var(--surface); box-shadow: 5px 5px 0 var(--c3); }
+.event.drawn { animation: draw .6s cubic-bezier(.2,1.3,.4,1); }
+@keyframes draw { from { transform: rotateY(90deg) scale(.85); opacity: 0; } to { transform: none; opacity: 1; } }
+.event .eh { background: var(--c3); color: #1b2333; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 800; }
+.event .eh span { display: inline-flex; gap: 6px; align-items: center; }
+.event .eb { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.event .situ { font-family: var(--font-display); font-size: 18px; font-weight: 600; line-height: 1.3; }
+.outcome { border-radius: 12px; padding: 10px 12px; font-size: 14px; border: 2px solid; }
+.outcome.best { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--surface)); }
+.outcome.ok { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, var(--surface)); }
+.outcome.bad { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+.legend { border: 2px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--surface); text-align: left; width: 100%; }
+.legend .lh { display: grid; grid-template-columns: 72px 1fr; gap: 12px; align-items: center; padding: 12px; background: color-mix(in srgb, var(--lc) 16%, var(--surface)); }
+.legend .lh > svg { width: 72px; height: 72px; }
+.legend .lname { display: block; font-family: var(--font-display); font-size: 16px; font-weight: 600; margin-top: 4px; }
+.legend .lb { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.legend .hook { font-weight: 800; font-size: 17px; line-height: 1.35; }
+.chip { display: inline-flex; gap: 5px; align-items: center; font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 99px; background: var(--lc); color: #fff; letter-spacing: .02em; }
+.chip.light { background: rgba(255,255,255,.25); color: inherit; border: 1.5px solid currentColor; }
+.hall { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+.hallcard { border: 2px solid var(--line); border-radius: 16px; padding: 10px 6px; background: var(--surface-2); display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; font-size: 12px; font-weight: 800; min-width: 0; overflow-wrap: anywhere; transition: transform .12s; }
+.hallcard:hover { transform: translateY(-2px); }
+.hallcard small { font-size: 10px; font-weight: 700; color: var(--ink-soft); }
+.hallcard.locked { color: var(--ink-soft); }
+.hallcard.unread { border: 2px dashed var(--lc); background: color-mix(in srgb, var(--lc) 8%, var(--surface)); }
+.storyview { position: fixed; inset: 0; z-index: 46; background: rgba(8, 12, 22, .78); display: grid; place-items: center; padding: 12px; }
+.sv-card { position: relative; width: 100%; max-width: 420px; height: min(720px, calc(100dvh - 24px)); border-radius: 26px; border: 3px solid var(--road-edge); box-shadow: 6px 6px 0 var(--road-edge);
+  background: radial-gradient(circle at 85% 10%, rgba(255,255,255,.25) 0 60px, transparent 61px), radial-gradient(circle at 10% 90%, rgba(255,255,255,.12) 0 90px, transparent 91px), linear-gradient(160deg, var(--lc), color-mix(in srgb, var(--lc) 55%, #10131c));
+  color: #fff; overflow: hidden; display: flex; flex-direction: column; animation: popin .4s cubic-bezier(.2,1.3,.4,1); }
+.storyview.dk .sv-card { color: #1b2333; background: radial-gradient(circle at 85% 10%, rgba(255,255,255,.35) 0 60px, transparent 61px), linear-gradient(160deg, var(--lc), color-mix(in srgb, var(--lc) 60%, #fff)); }
+.sv-bars { display: flex; gap: 4px; padding: 12px 12px 0; position: relative; z-index: 3; }
+.sv-bars i { flex: 1; height: 4px; border-radius: 99px; background: rgba(255,255,255,.35); overflow: hidden; }
+.storyview.dk .sv-bars i { background: rgba(27,35,51,.25); }
+.sv-bars i b { display: block; height: 100%; width: 0; background: currentColor; transition: width .35s; }
+.sv-bars i.done b, .sv-bars i.cur b { width: 100%; }
+.sv-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; position: relative; z-index: 3; }
+.sv-mini { display: flex; gap: 8px; align-items: center; font-weight: 800; font-size: 14px; }
+.sv-x { width: 40px; height: 40px; border-radius: 12px; border: 2px solid currentColor; background: transparent; color: inherit; font-size: 24px; line-height: 1; }
+.sv-prev, .sv-next { position: absolute; top: 72px; bottom: 0; border: 0; background: transparent; z-index: 1; padding: 0; }
+.sv-prev { left: 0; width: 33%; } .sv-next { right: 0; width: 67%; }
+.sv-body { flex: 1; padding: 6px 22px 26px; display: flex; position: relative; z-index: 2; pointer-events: none; overflow: hidden; }
+.sv-body button { pointer-events: auto; }
+.sv-slide { margin: auto 0; display: flex; flex-direction: column; gap: 14px; width: 100%; animation: slidein .35s ease-out; }
+@keyframes slidein { from { transform: translateX(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.sv-slide p { font-size: clamp(16px, 4.4vw, 19px); line-height: 1.45; font-weight: 600; }
+.sv-slide mark { background: #ffd23f; color: #1b2333; padding: 0 .2em; border-radius: .25em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.sv-ico { width: 62px; height: 62px; border-radius: 18px; background: rgba(255,255,255,.2); border: 2px solid currentColor; display: grid; place-items: center; font-size: 34px; }
+.sv-k { font-weight: 800; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; opacity: .9; }
+.sv-big { font-family: var(--font-display); font-weight: 800; font-size: clamp(42px, 13vw, 62px); line-height: 1; }
+.sv-cover { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+.sv-cover h2 { font-size: 26px; }
+.sv-brand { font-weight: 800; opacity: .85; }
+.sv-hook { font-family: var(--font-display); font-weight: 600; font-size: clamp(17px, 4.6vw, 20px) !important; line-height: 1.3 !important; }
+.sv-note { font-size: 12px; opacity: .75; font-weight: 700; }
+.sv-lesson { font-family: var(--font-display); font-weight: 600 !important; }
+.sv-try { background: rgba(255,255,255,.18); border-radius: 14px; padding: 10px 12px; font-size: 16px !important; }
+.sv-xp { font-size: 14px !important; font-weight: 800 !important; }
+.sv-slide .btn { align-self: flex-start; background: #fff; color: #1b2333; border-color: #1b2333; }
+.overlay .modal { max-height: 88vh; overflow: auto; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap" id="app"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+"use strict";
+
+/* ================================================================== иконки (собственные, линейные) */
+const IC = {
+  users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2c2.9.3 5.5 2.6 5.5 5.8"/>',
+  flag: '<path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/>',
+  target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/>',
+  pie: '<path d="M11 4a8 8 0 1 0 9 9h-9z"/><path d="M14 2.5A7.5 7.5 0 0 1 21.5 10H14z"/>',
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11"/><path d="m3 6 1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17"/>',
+  route: '<circle cx="5" cy="19" r="2"/><circle cx="19" cy="5" r="2"/><path d="M7 19h7a3.5 3.5 0 0 0 0-7h-4a3.5 3.5 0 0 1 0-7h7"/>',
+  tag: '<path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+  bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+  castle: '<path d="M4 21V9h3v3h2V9h2v3h2V9h2v3h2V9h3v12z"/><path d="M10 21v-4a2 2 0 0 1 4 0v4"/>',
+  shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+  map: '<path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/>',
+  chat: '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',
+  stop: '<path d="M8 3h8l5 5v8l-5 5H8l-5-5V8z"/><path d="M8 12h8"/>',
+  mega: '<path d="M3 10v4h4l8 5V5l-8 5z"/><path d="M19 9a4 4 0 0 1 0 6"/>',
+  coins: '<circle cx="9" cy="9" r="6"/><path d="M9 6v6M7 8h3.5a1 1 0 0 1 0 2H7"/><path d="M15.5 9.5a6 6 0 1 1-6 6"/>',
+  scale: '<path d="M12 3v18M6 21h12M4 7h16"/><path d="M4 7 1.5 13h5zM20 7l-2.5 6h5z"/>',
+  wallet: '<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 11h5v4h-5a2 2 0 0 1 0-4z"/><path d="M6 6l9-3 1 3"/>',
+  search: '<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>',
+  bomb: '<circle cx="10" cy="14" r="7"/><path d="m14 9 3-3"/><path d="M18 2v2M21 5h-2M20.5 2.5l-1.5 1.5"/>',
+  flask: '<path d="M9 3h6M10 3v6l-6 10a1.5 1.5 0 0 0 1.3 2h13.4a1.5 1.5 0 0 0 1.3-2L14 9V3"/><path d="M7 15h10"/>',
+  turn: '<path d="M4 12a8 8 0 0 1 14-5.3L20 9"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L4 15"/><path d="M4 20v-5h5"/>',
+  box: '<path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/>',
+  dog: '<path d="M5 9 3 4.5l4 1.5 2 3h6l2-3 4-1.5L19 9v6a7 7 0 0 1-14 0z"/><circle cx="9.5" cy="12.5" r=".9" fill="currentColor"/><circle cx="14.5" cy="12.5" r=".9" fill="currentColor"/><path d="M11 16.5h2l-1 1.2z"/>',
+  repeat: '<path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/>',
+  rocket: '<path d="M12 2c3 2 5 6 5 10l-2 4H9l-2-4c0-4 2-8 5-10z"/><circle cx="12" cy="9" r="2"/><path d="m9 16-3 4M15 16l3 4M12 18v4"/>',
+  cal: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  bottle: '<rect x="6" y="9" width="12" height="12" rx="3"/><path d="M10 9V6h4v3"/><path d="M9 3h6v3H9z"/><path d="M9 14h6"/>',
+  eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  star: '<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13"/><path d="M12 8C10 4 6 4 7 7c.5 1 5 1 5 1s4.5 0 5-1c1-3-3-3-5 1z"/>',
+  zap: '<path d="M4 14h6l-2 8 12-12h-6l2-8z"/>',
+  heart: '<path d="M12 20s-8-4.6-8-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 8 2.8C20 15.4 12 20 12 20z"/>',
+  fire: '<path d="M12 22c4 0 7-2.7 7-6.8 0-3.6-2.4-5.6-3.8-8.2-.5 1.8-1.4 3-2.8 3.7C12.7 7 11.6 4.2 9 2c.3 3.6-1.9 5.7-3.6 8C4.6 11.2 5 12.9 5 15.2 5 19.3 8 22 12 22z"/>',
+  dice: '<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.3" fill="currentColor"/><circle cx="16" cy="16" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="16" cy="8" r="1.3" fill="currentColor"/><circle cx="8" cy="16" r="1.3" fill="currentColor"/>',
+  crown: '<path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/><path d="M5 19h14"/>',
+  save: '<path d="M5 3h11l4 4v14H4V3z"/><path d="M8 3v5h8V3M8 21v-7h8v7"/>',
+  speaker: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>',
+  mute: '<path d="M4 9v6h4l5 4V5L8 9z"/><path d="m17 9 5 6M22 9l-5 6"/>'
+};
+const ico = (n, sw) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw || 2}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n] || IC.star}</svg>`;
+
+/* ================================================================== данные */
+const LEVELS = [
+  [0, "Новичок"], [100, "Разведчик рынка"], [250, "Продавец"],
+  [450, "Предприниматель"], [700, "Стартапер"], [950, "Профи"],
+  [1300, "Серийный предприниматель"], [1800, "Акула бизнеса"], [2500, "Единорог"]
+];
+
+const M = [
+{
+  id: "m1", color: "--c1", icon: "flag", short: "Кто купит?", title: "Кто вообще купит?", steps: "1 · 2 · 3",
+  badge: "Разведчик",
+  coach: "Ты хочешь продавать духи в школе. Большинство новичков сразу закупают товар и застревают с коробкой флаконов, которые никто не берёт. Профи из MIT начинают с другого вопроса: кто будет покупать?",
+  why: [
+    "Не знаешь клиента — не знаешь, что закупать, сколько просить и где продавать.",
+    "Ошибка на этом шаге самая дорогая: всё остальное строится поверх неё.",
+    "Разговор с людьми бесплатный. Закупка без разговоров — лотерея."
+  ],
+  dict: [
+    ["Сегмент", "Группа людей с похожими желаниями и деньгами. Например, «девочки 8-х классов» или «парни 10–11 классов перед выпускным».", "users"],
+    ["Плацдарм", "Первая маленькая территория, которую ты захватываешь целиком. Как в стратегии: сначала одна база, потом расширение.", "flag"],
+    ["Профиль клиента", "Описание типичного покупателя: возраст, деньги, интересы, где он проводит время.", "user"]
+  ],
+  quiz: [
+    { q: "С чего лучше начать бизнес с духами?", o: ["Закупить 50 флаконов самых популярных ароматов", "Поговорить с 10 возможными покупателями", "Сделать красивую страницу в соцсетях"], c: 1,
+      e: "Разговор даёт правду бесплатно. После него ты закупишь то, что точно возьмут." },
+    { q: "Какой плацдарм лучше для старта?", o: ["Вся школа: чем больше людей, тем лучше", "Девочки 8–9 классов, где у тебя есть знакомые", "Учителя: у них больше денег"], c: 1,
+      e: "Узкая группа, которую ты знаешь и где все общаются между собой. Сарафанное радио сделает рекламу за тебя." },
+    { q: "Зачем плацдарм должен быть маленьким?", o: ["Чтобы стать в нём №1, и слух о тебе разошёлся сам", "Чтобы платить меньше налогов", "В маленьких группах не бывает конкурентов"], c: 0,
+      e: "В маленькой группе проще стать «тем самым, у кого классные духи». Потом с этой репутацией легче идти дальше." }
+  ],
+  tasks: [
+    { type: "list", key: "segs", n: 6, icon: "users", title: "Запиши 6 групп людей, которые могли бы купить духи",
+      hint: "Думай широко: не только одноклассники.",
+      ph: ["Девочки 7–8 классов", "Девочки 9–11 классов", "Парни 10–11 классов", "Учителя", "Мамы одноклассников", "Ребята из секции"] },
+    { type: "checks", key: "talk", icon: "chat", title: "Поговори с людьми из этих групп",
+      hint: "Спроси: «Пользуешься духами? Какими? Сколько готов(а) потратить? Где покупаешь? Что бесит при покупке?»",
+      items: ["Поговорил(а) хотя бы с 2 людьми из каждой группы", "Записал(а), какие ароматы им нравятся", "Узнал(а), сколько они готовы потратить"] },
+    { type: "text", key: "surprise", icon: "bolt", title: "Что тебя удивило в разговорах?", ph: "Например: парни тоже покупают, но стесняются спросить…" },
+    { type: "segscore", key: "seg", icon: "target", title: "Оцени группы и выбери плацдарм",
+      hint: "Поставь от 1 до 5 по каждому пункту. Побеждает группа с наибольшей суммой — но последнее слово за тобой." },
+    { type: "fields", key: "prof", icon: "user", title: "Профиль клиента на плацдарме", fields: [
+      ["Возраст / класс", "13–15 лет, 8–9 класс"], ["Сколько денег в неделю", "300–500 ₽ карманных"],
+      ["Какие ароматы любят", "сладкие, ванильные, «как у блогерши»"], ["Где проводят время", "TikTok, перемены у окна, кружок танцев"],
+      ["Чего боятся при покупке", "что запах дешёвый, что засмеют"]] }
+  ],
+  next: "Плацдарм определяет всё дальше: для кого ты считаешь деньги, какие ароматы закупаешь и где рекламируешь. Ошибёшься здесь — продукт не продастся, как бы хорош он ни был."
+},
+{
+  id: "m2", color: "--c1", icon: "pie", short: "Сколько денег?", title: "Сколько тут денег и кто такая Маша", steps: "4 · 5 · 9",
+  badge: "Знаток клиента",
+  coach: "Плацдарм выбран. Теперь два вопроса: стоит ли он усилий, то есть сколько там денег? И кто конкретно твой покупатель?",
+  why: [
+    "Подсчёт показывает потолок: больше этой суммы с плацдарма не заработать.",
+    "Персона превращает «какие-то девочки» в живого человека, под которого легко принимать решения.",
+    "10 реальных людей, сказавших «куплю», — первое доказательство, что идея работает."
+  ],
+  dict: [
+    ["TAM (объём рынка)", "«Весь пирог»: сколько денег в год потратил бы плацдарм на твой товар, если бы все покупали только у тебя.", "pie"],
+    ["Персона", "Один реальный человек — «лицо» плацдарма. Не «девочки», а Маша из 8Б со своими деньгами, вкусами и страхами.", "user"],
+    ["Первые 10 клиентов", "10 живых людей, похожих на персону, которые подтвердили: «да, я бы купил(а)».", "list"]
+  ],
+  quiz: [
+    { q: "60 девочек, каждая покупает 2 флакона в год по 400 ₽. Какой TAM?", o: ["4 800 ₽", "48 000 ₽", "24 000 ₽"], c: 1,
+      e: "60 × 2 × 400 = 48 000 ₽ в год. Это потолок: на деле ты получишь только часть пирога." },
+    { q: "Зачем персона, если уже есть профиль группы?", o: ["Чтобы было что показать учителю", "Чтобы при любом решении спросить: «А Маша бы это купила?»", "Персона нужна только большим компаниям"], c: 1,
+      e: "Когда сомневаешься в цене, аромате или рекламе — представь Машу. Решения становятся быстрыми и точными." },
+    { q: "Ты нашёл только 3 человек, которые сказали «куплю». Что делать?", o: ["Всё равно закупать: остальные подтянутся", "Вернуться на шаг назад: может, не тот плацдарм или не тот товар", "Снизить цену вдвое"], c: 1,
+      e: "Это и есть «путь не линейный»: профи возвращаются назад, а не прут вперёд вслепую." }
+  ],
+  tasks: [
+    { type: "tam", icon: "pie", title: "Посчитай свой пирог (TAM)" },
+    { type: "fields", key: "persona", icon: "user", title: "Опиши свою персону", hint: "Возьми реального человека из плацдарма. Имя можно изменить.", fields: [
+      ["Имя и класс", "Маша, 8Б"], ["Карманные деньги", "400 ₽ в неделю"], ["Любимые ароматы и бренды", "сладкие, мечтает о дорогом бренде"],
+      ["Кумир / блогер", "бьюти-блогер из TikTok"], ["Что для неё важно в духах", "чтобы спрашивали «чем ты пахнешь?»"], ["Чего боится", "потратить деньги на ерунду"]] },
+    { type: "ten", icon: "list", title: "Найди 10 реальных людей, похожих на персону", hint: "Дай понюхать, расскажи идею, запиши честную реакцию." }
+  ],
+  next: "Персона и 10 клиентов — твой компас. Цены, ароматы, реклама: дальше всё проверяй вопросом «а Маша бы это взяла?»."
+},
+{
+  id: "m3", color: "--c2", icon: "bolt", short: "Твоя ценность", title: "Что ты на самом деле продаёшь", steps: "6 · 7 · 8",
+  badge: "Создатель ценности",
+  coach: "Люди покупают не флакон. Они покупают ощущение: пахнуть как звезда, получать комплименты и не тратить всю копилку. Давай поймём, что именно ты даёшь.",
+  why: [
+    "Если продумать весь путь клиента, видно, где он может «потеряться» и не купить.",
+    "Понятное описание продукта продаёт лучше, чем длинные объяснения.",
+    "Выгода в цифрах — самый сильный аргумент для покупателя и для его родителей."
+  ],
+  dict: [
+    ["Полный цикл использования", "Весь путь клиента: узнал о тебе → понюхал → купил → пользуется → закончилось → рассказал подруге.", "route"],
+    ["Спецификация", "Описание продукта простыми словами: что это, сколько мл, как выглядит, сколько стоит.", "tag"],
+    ["Ценность в цифрах", "Выгода, посчитанная честно: «тот же аромат за 450 ₽ вместо 12 000 ₽».", "bolt"]
+  ],
+  quiz: [
+    { q: "Что лучше написать в описании?", o: ["«Объём 5 мл, стекло, спрей»", "«Пахнет как дорогой аромат, хватает на месяц, помещается в пенал»", "«Произведено на заводе»"], c: 1,
+      e: "Покупатель думает о выгоде, а не о характеристиках. Характеристики можно написать мелко внизу." },
+    { q: "Почему важен момент «духи закончились»?", o: ["Это момент повторной покупки: если о нём не подумать, клиент уйдёт к другому", "Он не важен: продажа уже случилась", "Чтобы вовремя выбросить флакон"], c: 0,
+      e: "Повторные покупки — главный источник денег. Напомни о себе, предложи новый аромат или скидку за возврат флакона." }
+  ],
+  tasks: [
+    { type: "fields", key: "journey", icon: "route", title: "Путь клиента: как это происходит у тебя?", fields: [
+      ["1. Узнаёт о тебе", "подруга рассказала, увидела пробник"], ["2. Нюхает и выбирает", "даю понюхать на перемене"], ["3. Платит", "перевод с телефона, согласовано с мамой"],
+      ["4. Получает", "в тот же день после уроков"], ["5. Пользуется", "носит в рюкзаке, хватает на месяц"], ["6. Духи заканчиваются", "пишу через 3 недели, предлагаю новинку"],
+      ["7. Рассказывает другим", "за приведённую подругу — пробник в подарок"]] },
+    { type: "text", key: "spec", icon: "tag", title: "Опиши продукт в 3 предложениях, как на этикетке", ph: "Мини-флакон 5 мл с популярным ароматом. Помещается в пенал, хватает на месяц. Можно понюхать до покупки." },
+    { type: "value", icon: "bolt", title: "Посчитай выгоду в цифрах" }
+  ],
+  next: "Фраза с выгодой станет главной в твоей рекламе (миссия 5) и подскажет цену (миссия 6)."
+},
+{
+  id: "m4", color: "--c2", icon: "castle", short: "Почему ты?", title: "Почему купят именно у тебя", steps: "10 · 11",
+  badge: "Стратег",
+  coach: "Духи продают маркетплейсы, магазины и, возможно, ещё кто-то в школе. Почему Маша купит у тебя? Найдём твою суперсилу.",
+  why: [
+    "Без суперсилы ты соревнуешься только ценой — а маркетплейс всегда может дешевле.",
+    "Карта конкурентов показывает свободное место, где ты лучше всех.",
+    "Главный конкурент часто вообще не магазин, а привычка «ничего не покупать»."
+  ],
+  dict: [
+    ["Ядро", "Твоя суперсила, которую сложно скопировать: личный подбор, возможность понюхать, знание вкусов класса. Как замок со рвом.", "castle"],
+    ["Статус-кво", "«Оставить как есть» — не покупать ничего. Это главный конкурент любого нового продукта.", "stop"],
+    ["Конкурентная позиция", "Карта, где ты и конкуренты расставлены по двум самым важным для персоны вещам.", "map"]
+  ],
+  quiz: [
+    { q: "Что из этого — настоящее ядро?", o: ["Самая низкая цена", "Можно понюхать до покупки и получить личный подбор от того, кто знает вкусы класса", "Красивые наклейки"], c: 1,
+      e: "Цену может перебить кто угодно, наклейки — скопировать за вечер. А личный подбор и доверие однокласснику скопировать сложно." },
+    { q: "Кто твой главный конкурент?", o: ["Маркетплейс", "Привычка ничего не покупать", "Магазин в торговом центре"], c: 1,
+      e: "Большинство людей просто ничего не делают. Твоя задача — дать причину купить сейчас." }
+  ],
+  tasks: [
+    { type: "pick", key: "core", icon: "shield", title: "Выбери до двух суперсил", max: 2, options: [
+      ["Понюхать до покупки", "На маркетплейсе так нельзя.", 0, "", "eye"], ["Личный подбор", "Подскажу аромат под характер и стиль.", 0, "", "heart"],
+      ["Мини-объём", "Можно попробовать много ароматов за небольшие деньги.", 0, "", "bottle"], ["Сразу в руках", "Без доставки и ожидания.", 0, "", "zap"],
+      ["«Топ ароматов школы»", "Знаю, что сейчас носят все.", 0, "", "star"], ["Свой стиль", "Своя этикетка и название — это узнают.", 0, "", "tag"]] },
+    { type: "text", key: "coreline", icon: "castle", title: "Твоё ядро одной фразой", ph: "Подберу аромат под тебя, и ты понюхаешь его до покупки." },
+    { type: "compete", icon: "map", title: "Карта конкурентов", hint: "Передвинь ползунки: где каждый находится по двум самым важным для Маши вещам? Ищи место, где ты лучше всех." }
+  ],
+  next: "Суперсила подскажет, что говорить в рекламе и почему у тебя можно брать чуть дороже, чем на маркетплейсе."
+},
+{
+  id: "m5", color: "--c3", dark: true, icon: "chat", short: "Кто решает?", title: "Кто решает и как дойти до оплаты", steps: "12 · 13 · 18",
+  badge: "Переговорщик",
+  coach: "Маша хочет аромат. Но платит мама, подруга может сказать «фу», а завуч — запретить торговлю в школе. Покупка — командная игра, и тебе надо убедить всю команду.",
+  why: [
+    "Забудешь про того, кто может запретить, — бизнес закроют в первый же день.",
+    "Не продумаешь оплату — клиенты «отвалятся» на последнем шаге.",
+    "Понятные каналы продаж — это рост без лишней беготни."
+  ],
+  dict: [
+    ["DMU — «команда решения»", "Все, кто влияет на покупку: пользователь, плательщик, советчик и тот, у кого есть право вето. Как групповой чат, где решают вместе.", "chat"],
+    ["Право вето", "Право запретить. У завуча и родителей оно есть, у подруги — нет, хотя она может отговорить.", "stop"],
+    ["Путь к оплате", "По шагам: что должно случиться, чтобы деньги честно оказались у тебя, а товар — у клиента.", "route"],
+    ["Каналы продаж", "Как ты продаёшь: лично, через друзей-помощников, через соцсети.", "mega"]
+  ],
+  quiz: [
+    { q: "У кого право вето?", o: ["У подруги Маши", "У завуча и у родителей", "У блогера, которого любит Маша"], c: 1,
+      e: "Подруга влияет, но запретить не может. Завуч и родители — могут. Узнай их позицию заранее." },
+    { q: "Как лучше организовать оплату и передачу?", o: ["Деньги на уроке, товар под партой", "Взять деньги вперёд и привезти через месяц", "Оплата переводом с согласия родителей, передача после уроков"], c: 2,
+      e: "Честно, прозрачно и без нарушения правил школы. Так тебе будут доверять и клиенты, и их родители." }
+  ],
+  tasks: [
+    { type: "fields", key: "dmu", icon: "chat", title: "Команда решения у твоей персоны", fields: [
+      ["Пользователь — кто нюхает и носит", "Маша"], ["Плательщик — чьи деньги", "мама Маши / карманные"], ["Советчик — кто влияет", "лучшая подруга"],
+      ["Право вето — кто может запретить", "завуч, родители"], ["Как убедишь каждого", "маме — честная цена и состав; завучу — продаю вне школы"]] },
+    { type: "list", key: "path", n: 5, icon: "route", title: "Путь к оплате по шагам", ph: ["Маша нюхает пробник", "Выбирает аромат", "Спрашивает маму", "Переводит деньги", "Получает флакон после уроков"] },
+    { type: "checks", key: "rules", icon: "shield", title: "Проверь правила игры", items: ["Узнал(а) правила школы про продажу", "Обсудил(а) бизнес с родителями", "Выбрал(а) честный способ оплаты", "Решил(а), где передаю товар (вне уроков)"] },
+    { type: "pick", key: "chan", icon: "mega", title: "Каналы продаж: с чего начнёшь?", max: 2, options: [
+      ["Лично знакомым", "Быстро и бесплатно — идеально для старта.", 0, "", "users"], ["Друзья-помощники", "Подруга продаёт за процент — позже, когда пойдёт.", 0, "", "heart"],
+      ["Соцсети / чат класса", "Охват больше, но сначала узнай правила.", 0, "", "chat"], ["Подарочные наборы к праздникам", "8 Марта, Новый год — для мам и сестёр.", 0, "", "gift"]] }
+  ],
+  next: "Теперь ты знаешь всех, кого надо убедить, и путь к оплате без дыр. Дальше посчитаем, приносит ли это деньги."
+},
+{
+  id: "m6", color: "--c4", icon: "coins", short: "Деньги", title: "Зарабатываешь или работаешь в минус?", steps: "15 · 16 · 17 · 19",
+  badge: "Финансист",
+  coach: "Самый частый провал новичков — продавать много и всё равно оставаться в минусе. Сейчас посчитаем, сколько ты реально зарабатываешь с одного клиента.",
+  why: [
+    "Цена «от себестоимости» часто оставляет тебя без прибыли.",
+    "Если привлечь клиента дороже, чем он принесёт, каждая продажа — минус.",
+    "Посчитать сейчас дешевле, чем узнать это после закупки."
+  ],
+  dict: [
+    ["Бизнес-модель", "Как ты берёшь деньги: разовая продажа, набор пробников, «аромат месяца» по подписке.", "wallet"],
+    ["Себестоимость", "Сколько тебе стоит один мини-флакон: доля большого флакона + пустой флакон и наклейка.", "bottle"],
+    ["Маржа", "Сколько остаётся с одной продажи: цена минус себестоимость.", "tag"],
+    ["LTV — ценность клиента", "Сколько прибыли принесёт один клиент за всё время: маржа × сколько раз купит.", "coins"],
+    ["COCA — цена клиента", "Сколько стоит привлечь одного нового клиента: пробники, скидки, подарки за друзей.", "gift"],
+    ["Золотое правило", "LTV должен быть хотя бы в 3 раза больше COCA. Иначе бизнес съедает сам себя.", "scale"]
+  ],
+  quiz: [
+    { q: "Флакон обходится в 150 ₽, продаёшь за 400 ₽, клиент покупает 3 раза. Какой LTV?", o: ["1 200 ₽", "750 ₽", "450 ₽"], c: 1,
+      e: "Маржа 400 − 150 = 250 ₽. За 3 покупки: 250 × 3 = 750 ₽. Выручка 1 200 ₽ — это не прибыль." },
+    { q: "За месяц раздал пробников на 600 ₽ и получил 3 новых клиента. Какой COCA?", o: ["600 ₽", "200 ₽", "1 800 ₽"], c: 1,
+      e: "600 ₽ ÷ 3 клиента = 200 ₽ за одного клиента." },
+    { q: "LTV = 750 ₽, COCA = 200 ₽. Это хорошо?", o: ["Да: 750 больше, чем 3 × 200 = 600", "Нет: нужно, чтобы COCA был больше", "Непонятно без рекламы в соцсетях"], c: 0,
+      e: "Правило выполнено: клиент приносит больше чем втрое против затрат на его привлечение." }
+  ],
+  tasks: [
+    { type: "swipe", icon: "zap", title: "Мини-игра: свайпни сделку", hint: "Вправо — выгодно (LTV ≥ 3 × COCA), влево — в минус. Можно кнопками." },
+    { type: "pick", key: "model", icon: "wallet", title: "Выбери бизнес-модель", max: 1, options: [
+      ["Разовая продажа", "Мини-флакон 5 мл — просто и понятно.", 0, "", "bottle"], ["Набор пробников", "3 аромата по 2 мл — попробовать и выбрать любимый.", 0, "", "box"],
+      ["«Аромат месяца»", "Каждый месяц новый мини-флакон по подписке.", 0, "", "cal"], ["Возврат флакона", "Принёс пустой — скидка на новый.", 0, "", "repeat"]] },
+    { type: "unit", icon: "scale", title: "Калькулятор: твои настоящие деньги" },
+    { type: "text", key: "price", icon: "tag", title: "Твоя цена и почему именно такая", ph: "450 ₽: это в 25 раз дешевле оригинала, а маржа позволяет дарить пробники." }
+  ],
+  next: "Если LTV меньше 3 × COCA — меняй цену, модель или способ привлечения ДО того, как закупишь много товара."
+},
+{
+  id: "m7", color: "--c5", icon: "bomb", short: "Босс: проверка", title: "Босс-уровень: опасные допущения", steps: "20 · 21 · 22",
+  badge: "Охотник за рисками", boss: true,
+  coach: "Это босс-уровень. Перед тобой Мистер Допущение — всё, во что ты веришь, но не проверил. Профи из MIT ищут такие мины первыми: одна может обнулить весь бизнес. Переворачивай карточки и выбери безопасный путь, чтобы победить босса.",
+  why: [
+    "Непроверенное допущение — мина. Лучше найти её сейчас, чем наступить.",
+    "Быстрый эксперимент стоит копейки, а закупка «наугад» — все твои деньги.",
+    "Иногда проверка показывает, что идею надо повернуть. Это не провал, а то, что делают все успешные стартапы."
+  ],
+  dict: [
+    ["Допущение", "То, что ты считаешь правдой без доказательств: «всем понравится», «школа разрешит».", "bomb"],
+    ["Эксперимент", "Быстрая и дешёвая проверка: дать понюхать 15 людям, собрать предзаказы.", "flask"],
+    ["Поворот (pivot)", "Изменение идеи после проверки. Instagram, YouTube и многие другие начинались совсем с другого.", "turn"],
+    ["MVBP", "Минимальный продукт, за который уже платят: не 50 флаконов, а 3 аромата по 5 штук.", "box"]
+  ],
+  quiz: [
+    { q: "Какой эксперимент лучше проверит спрос?", o: ["Спросить «тебе бы понравилось?»", "Попросить оставить предзаказ с предоплатой или бронью", "Посчитать лайки под постом"], c: 1,
+      e: "Слова ничего не стоят. Предзаказ — это когда человек готов отдать деньги. Это настоящая проверка." },
+    { q: "Что такое MVBP для твоего бизнеса?", o: ["Сайт, логотип и 50 флаконов", "3 аромата по 5 мини-флаконов, которые уже купили", "Идея в голове"], c: 1,
+      e: "Самая маленькая версия, за которую платят. Всё остальное добавишь, когда докажешь спрос." }
+  ],
+  tasks: [
+    { type: "risks", icon: "search", title: "Переверни карточки с допущениями", hint: "Каждая перевёрнутая карточка снимает 20% здоровья босса." },
+    { type: "pick", key: "pivot", icon: "turn", title: "Выбери, как сделать бизнес правильно", hint: "Безопасный выбор наносит финальный удар.", max: 1, pivot: true, options: [
+      ["Распив оригиналов", "Покупаешь настоящий флакон и разливаешь по 3–5 мл. Оригинальный аромат по доступной цене.", 0, "Отлично: это настоящий парфюм, честно и законно. Многие подростки так зарабатывают.", "bottle"],
+      ["Аналоги без чужих логотипов", "Честно говоришь «пахнет похоже на…». Своя этикетка, проверенный поставщик.", 0, "Хороший выбор: никаких чужих логотипов, и ты не обманываешь покупателя.", "tag"],
+      ["Свой бренд-микс", "Своё название, наклейка и подборка ароматов. Сложнее, зато это твоё ядро.", 0, "Сильный ход: свой бренд сложно скопировать. Проверь поставщика и состав.", "star"],
+      ["Реплики с логотипами брендов", "Копия флакона с названием дорогого бренда.", 1, "Опасно. Это подделка чужого товарного знака: товар могут изъять, отвечать будут родители, а в школе такое быстро запретят. Босс лечится! Выбери другой вариант.", "bomb"]] },
+    { type: "grid", key: "exp", icon: "flask", title: "Спланируй 3 эксперимента", rows: 3,
+      cols: [["Допущение", "Девочкам понравятся мои 3 аромата"], ["Как проверю за 1–3 дня", "Дам понюхать 15 людям из плацдарма"], ["Успех, если…", "минимум 6 оставят предзаказ"]] },
+    { type: "text", key: "mvbp", icon: "box", title: "Твой минимальный продукт (MVBP)", ph: "3 аромата × 5 мини-флаконов по 5 мл, простая наклейка, цена 450 ₽. Закупаю только под предзаказы." },
+    { type: "checks", key: "test", icon: "shield", title: "Проверки проведены", items: ["Провёл(а) хотя бы один эксперимент", "Получил(а) минимум 5 предзаказов", "Проверил(а) поставщика и состав"] }
+  ],
+  next: "Проверенные допущения экономят деньги: ты закупаешь только то, что уже купили, и не рискуешь репутацией."
+},
+{
+  id: "m8", color: "--c6", icon: "rocket", short: "Запуск", title: "Запуск: едят ли собаки корм?", steps: "23 · 14 · 24",
+  badge: "Стартапер",
+  coach: "В MIT говорят: «Докажи, что собаки едят корм». Не верь словам «классно, куплю когда-нибудь». Верь только покупкам — особенно повторным.",
+  why: [
+    "Повторные покупки — самый честный знак, что продукт нравится.",
+    "Цифры продаж убедят инвестора (родителей) лучше любых слов.",
+    "План роста показывает, куда идти, когда плацдарм захвачен."
+  ],
+  dict: [
+    ["«Собаки едят корм»", "Люди реально платят и возвращаются сами, без уговоров.", "dog"],
+    ["Доля повторных", "Сколько клиентов купили хотя бы второй раз. 30% и выше — отличный знак.", "repeat"],
+    ["Следующие рынки", "Куда расти после плацдарма: другие классы, подарки к праздникам, парни.", "map"],
+    ["План продукта", "Что ты добавишь и куда пойдёшь в ближайшие месяцы.", "cal"]
+  ],
+  quiz: [
+    { q: "Что лучший признак успеха?", o: ["100 лайков на пост", "Все сказали «прикольно»", "4 из 10 клиентов сами купили второй раз"], c: 2,
+      e: "Лайки и слова бесплатны. Повторная покупка — это когда человек голосует деньгами." }
+  ],
+  tasks: [
+    { type: "sales", icon: "dog", title: "Журнал продаж", hint: "Записывай каждую продажу. Игра сама посчитает выручку, прибыль и долю повторных покупок." },
+    { type: "list", key: "nextm", n: 3, icon: "map", title: "Куда расти после плацдарма?", ph: ["Девочки 10–11 классов", "Подарки мамам к 8 Марта", "Парни перед выпускным"] },
+    { type: "fields", key: "plan", icon: "cal", title: "План на 3 месяца", fields: [["Месяц 1", "захватить плацдарм: 20 клиентов"], ["Месяц 2", "добавить 2 новых аромата и набор пробников"], ["Месяц 3", "выйти на следующий рынок"]] }
+  ],
+  next: "Ты прошёл весь путь, как стартаперы из MIT. Теперь собери отчёт и покажи результаты на «демо-дне» своему инвестору — родителям."
+}
+];
+
+const RISKS = [
+  ["«Реплики с логотипом бренда — это нормально, все так делают»", "bad", "Мина!", "Флакон с чужим логотипом или названием — подделка товарного знака. Это нарушение закона: товар могут изъять, отвечать будут родители."],
+  ["«Школа не против торговли»", "warn", "Проверь", "Во многих школах торговля запрещена. Узнай правила заранее — иначе бизнес закроют за один день."],
+  ["«Дешёвые духи безопасны»", "warn", "Риск", "У подделок бывает неизвестный состав. Одна аллергия у одноклассницы — и репутация потеряна. Бери товар у проверенных поставщиков."],
+  ["«Все захотят купить»", "warn", "Проверь", "Слова — не покупки. Проверяется предзаказами: попроси 10 человек забронировать аромат."]
+];
+
+const DEALS = [
+  { t: "Раздал пробников на 600 ₽ — пришли 3 новых клиента. Каждый принесёт 750 ₽ прибыли.", coca: 200, ltv: 750 },
+  { t: "Скидки на 1 000 ₽ — пришли 2 клиента. Каждый принесёт 300 ₽ прибыли.", coca: 500, ltv: 300 },
+  { t: "Подруга бесплатно рассказала в чате класса — пришли 4 клиента по 250 ₽ прибыли.", coca: 0, ltv: 250 },
+  { t: "Реклама у школьного блогера за 1 500 ₽ — пришли 5 клиентов по 400 ₽ прибыли.", coca: 300, ltv: 400 },
+  { t: "Наборы-пробники на 400 ₽ — пришли 2 клиента по 900 ₽ прибыли.", coca: 200, ltv: 900 },
+  { t: "Розыгрыш флакона за 500 ₽ — пришёл 1 клиент на 450 ₽ прибыли.", coca: 500, ltv: 450 }
+];
+
+/* ---------- задания дня: 2 по текущей миссии + 1 общее */
+const DAILY = {
+  m1: [["users", "Спроси 1 человека, какими духами он пользуется и почему"], ["map", "Запиши 3 места, где чаще всего бывает твой плацдарм"], ["search", "Посмотри, что уже продают в школе другие ребята"], ["chat", "Спроси 2 людей из разных классов, что они дарят друг другу"]],
+  m2: [["coins", "Узнай у 1 человека, сколько он тратит на духи за год"], ["list", "Добавь 1 человека в список «10 клиентов»"], ["user", "Запиши 3 фразы, которые твоя персона говорит о духах"]],
+  m3: [["bottle", "Дай понюхать пробник 1 человеку и запиши реакцию"], ["bolt", "Придумай 1 фразу-выгоду и покажи другу"], ["tag", "Узнай цену 1 оригинального аромата в магазине или онлайн"]],
+  m4: [["search", "Найди 1 конкурента и запиши его цену"], ["castle", "Спроси 1 человека: почему он купил бы у тебя, а не на маркетплейсе?"], ["star", "Придумай 1 «фишку», которой нет у конкурентов"]],
+  m5: [["stop", "Узнай правила школы про продажу вещей"], ["chat", "Спроси 1 взрослого, что для него важно, когда ребёнок покупает духи"], ["route", "Проверь, удобно ли платить переводом: попробуй с другом на 1 ₽"]],
+  m6: [["scale", "Посчитай себестоимость 1 мини-флакона"], ["tag", "Спроси 2 людей: купили бы за 350 ₽? А за 450 ₽?"], ["gift", "Посчитай, сколько стоит тебе 1 пробник"]],
+  m7: [["flask", "Проведи мини-эксперимент: дай 5 пробников и посчитай «куплю»"], ["box", "Получи 1 предзаказ"], ["shield", "Проверь состав 1 аромата у поставщика"]],
+  m8: [["repeat", "Напиши 1 клиенту, у которого скоро закончатся духи"], ["dog", "Запиши в журнал все продажи за сегодня"], ["chat", "Спроси 1 клиента, что улучшить"]],
+  all: [["star", "Прочитай 1 историю в «Зале славы»"], ["chat", "Расскажи родителям одну вещь, которую узнал сегодня"], ["cal", "Запиши план на завтра: 1 конкретное действие"]]
+};
+const STREAK_BONUS = { 3: 30, 7: 70, 14: 150, 30: 300 };
+
+/* ---------- карточки событий: [вариант, оценка 2/1/0, что произошло] */
+const EVENTS = [
+  { id: "veto", s: "Завуч запретил торговлю в школе.", step: "Шаг 12 · право вето", o: [
+    ["Продолжать тайком на переменах", 0, "Тебя заметили. Товар забрали, родителей вызвали в школу, доверие потеряно."],
+    ["Перенести продажи вне школы: предзаказ в чате и передача после уроков с согласия родителей", 2, "Правила соблюдены, клиенты остались. Ты сменил канал продаж, а не бросил идею."],
+    ["Бросить бизнес", 1, "Безопасно, но рано. Одно «нет» — повод поменять способ, а не сдаваться."]],
+    lesson: "У завуча есть право вето. Профи узнают правила заранее и строят продажи так, чтобы их не нарушать." },
+  { id: "price", s: "Конкурент из параллельного класса продаёт на 100 ₽ дешевле.", step: "Шаг 10 · ядро", o: [
+    ["Снизить цену ещё сильнее", 0, "Началась ценовая война. Через неделю вы оба продаёте почти без прибыли."],
+    ["Напомнить о своём ядре: можно понюхать, личный подбор, набор пробников", 2, "Клиенты поняли, за что платят. Многие остались с тобой даже при цене выше."],
+    ["Писать в чате, что у него плохие духи", 0, "Выглядит некрасиво. Часть клиентов ушла от вас обоих."]],
+    lesson: "Ценой соревноваться опасно: всегда найдётся кто-то дешевле. Побеждает тот, у кого есть суперсила." },
+  { id: "allergy", s: "У одноклассницы покраснела кожа после твоего пробника.", step: "Шаг 20 · допущения", o: [
+    ["Сделать вид, что ничего не было", 0, "Слух разошёлся быстрее, чем духи. Репутация пострадала."],
+    ["Извиниться, вернуть деньги, проверить состав и советовать сначала тест на запястье", 2, "Ты поступил честно. Клиенты увидели, что тебе можно доверять."],
+    ["Сказать, что она сама виновата", 0, "Теперь о тебе говорят как о нечестном продавце."]],
+    lesson: "«Мои духи безопасны» — тоже допущение. Проверяй поставщика и состав, предупреждай об аллергии." },
+  { id: "blogger", s: "Школьный блогер предлагает рекламу за 1 500 ₽.", step: "Шаг 19 · COCA", o: [
+    ["Сразу согласиться: реклама — это круто", 0, "Пришли 2 клиента. Каждый обошёлся в 750 ₽ — дороже, чем он принесёт."],
+    ["Посчитать COCA и предложить оплату за результат: промокод и процент с продаж", 2, "Блогер согласился на процент. Ты платишь только за реальных клиентов."],
+    ["Отказаться, не думая", 1, "Деньги целы, но, может, ты упустил хороший канал. Сначала считай."]],
+    lesson: "Любая реклама — это COCA. Дели цену рекламы на число клиентов и сравнивай с LTV." },
+  { id: "supplier", s: "Поставщик поднял цену большого флакона на 30%.", step: "Шаги 16–17 · цена и LTV", o: [
+    ["Продавать по старой цене", 0, "Через месяц ты понял, что работаешь почти бесплатно."],
+    ["Пересчитать себестоимость и немного поднять цену или сделать флакон 4 мл", 2, "Маржа сохранилась, клиенты почти не заметили разницы."],
+    ["Найти поставщика подешевле без проверки", 1, "Дешевле, но качество неизвестно. Это новое опасное допущение."]],
+    lesson: "Себестоимость меняется. Профи пересчитывают цифры каждый раз, когда что-то меняется." },
+  { id: "partner", s: "Подруга хочет продавать твои духи в своём классе за процент.", step: "Шаг 18 · каналы продаж", o: [
+    ["Отказать: это мой бизнес", 1, "Ты сохранил контроль, но упустил новый канал."],
+    ["Договориться: 20% с продажи, ты даёшь пробники и правила", 2, "Новый канал заработал. Продажи выросли без лишних усилий."],
+    ["Отдать ей весь товар без договорённостей", 0, "Непонятно, сколько продано и где деньги. Вы поссорились."]],
+    lesson: "Партнёры — это канал продаж. Он работает, когда правила понятны обеим сторонам." },
+  { id: "repeat", s: "Клиентка вернулась за вторым флаконом!", step: "Шаг 23 · собаки едят корм", o: [
+    ["Продать как обычно", 1, "Неплохо, но ты упустил шанс узнать, что ей понравилось."],
+    ["Дать бонус за повторную покупку и спросить, что понравилось", 2, "Она рассказала подругам про бонус. Пришли 2 новых клиента."],
+    ["Поднять ей цену: раз нравится — заплатит", 0, "Она обиделась и больше не пришла."]],
+    lesson: "Повторная покупка — лучший сигнал. Береги таких клиентов: они повышают LTV и приводят друзей." },
+  { id: "mom", s: "Мама просит показать, сколько ты заработал.", step: "Учёт денег", o: [
+    ["Сказать «нормально» и уйти от ответа", 0, "Мама насторожилась. Инвестор без цифр перестаёт доверять."],
+    ["Показать журнал продаж и отчёт из игры", 2, "Мама впечатлена и предложила добавить денег на новую закупку."],
+    ["Назвать сумму наугад", 0, "Цифра не сошлась с кошельком. Неловко."]],
+    lesson: "Инвесторы верят цифрам. Записывай каждую продажу — это твоя репутация." },
+  { id: "trend", s: "В TikTok новый тренд: все хотят ванильные ароматы.", step: "Шаги 21–22 · эксперимент и MVBP", o: [
+    ["Сразу закупить 30 ванильных флаконов", 0, "Тренд прошёл через неделю. 20 флаконов лежат дома."],
+    ["Спросить 5 клиентов и добавить 1 аромат маленькой партией", 2, "Партия разошлась за 2 дня, а риска почти не было."],
+    ["Не обращать внимания", 1, "Безопасно, но ты мог заработать на тренде."]],
+    lesson: "Хайп — это допущение. Проверь маленькой партией, прежде чем вкладываться." },
+  { id: "cash", s: "Ты продал всё за 2 дня, но денег на новую закупку не хватает.", step: "Шаг 22 · MVBP и предзаказы", o: [
+    ["Занять у друзей", 1, "Сработало, но теперь ты должен, а продажи не гарантированы."],
+    ["Собрать предоплату за следующую партию", 2, "Клиенты уже заплатили — закупка без риска. Так делали Apple и Zappos."],
+    ["Потратить выручку на себя", 0, "Бизнес остановился. Клиенты ушли к конкуренту."]],
+    lesson: "Предзаказ — лучший способ расти без долгов: сначала деньги клиента, потом закупка." },
+  { id: "market", s: "Покупатель говорит: «На маркетплейсе такое дешевле».", step: "Шаги 8 и 11 · ценность и конкуренты", o: [
+    ["Спорить, что это неправда", 0, "Спор ничего не дал. Покупатель ушёл."],
+    ["Честно объяснить выгоду: понюхать сразу, мини-объём, без доставки", 2, "Покупатель понял, за что платит, и купил пробный объём."],
+    ["Сразу дать скидку 50%", 0, "Продал, но без прибыли. А другие теперь тоже ждут скидку."]],
+    lesson: "Знай свою ценность в цифрах и словами. Тогда вопрос про цену не страшен." },
+  { id: "grow", s: "Восьмые классы раскупили всё. Девятые тоже спрашивают.", step: "Шаг 14 · следующие рынки", o: [
+    ["Сразу продавать всем подряд и забыть про восьмые", 0, "Товара не хватило никому. Первые клиенты обиделись."],
+    ["Закрепиться в плацдарме и открыть 9-е классы как следующий рынок", 2, "Восьмые остались довольны и рассказали девятым. Рост пошёл сам."],
+    ["Отказать девятым", 1, "Безопасно, но рост остановился."]],
+    lesson: "Сначала захвати плацдарм, потом иди на следующий рынок — как Facebook после Гарварда." }
+];
+
+/* ---------- Зал славы: реальные истории, привязанные к миссиям.
+   Формат «сторис»: кем был → что все пропускали → гениальный ход → результат → твой ход.
+   **текст** — выделение. av — параметры рисованного образа (не портрет, а узнаваемый стиль). */
+const LEGENDS = [
+  { id: "facebook", m: "m1", cls: "Стратег плацдарма", clsIcon: "flag", name: "Марк Цукерберг", brand: "Facebook · 2004",
+    av: { skin: "#f3c9a8", hair: "curly", hc: "#6b4a2b", outfit: "hoodie", oc: "#8d98a8", extra: ["laptop"] },
+    hook: "Студент, который не пустил в свою сеть никого, кроме однокурсников",
+    start: "2004 год. Марку 19, он второкурсник Гарварда и пишет программы прямо в общежитии. Ни денег, ни офиса, ни команды — только ноутбук и идея.",
+    pain: "В Гарварде были бумажные справочники с фото студентов — их называли «facebook». А нормального способа найти однокурсников в интернете **не было ни у кого**.",
+    move: "Марк открыл TheFacebook **только для Гарварда**: зайти можно было лишь с университетской почты. Все настоящие, все друг друга знают — и сеть стала модной за считаные дни.",
+    big: "3 млрд+", result: "Больше половины студентов Гарварда зарегистрировались в первый же месяц. Потом — другие университеты, потом весь мир. Сегодня Facebook пользуются больше 3 миллиардов человек в месяц.",
+    lesson: "Не пытайся понравиться всем сразу. Захвати маленькую группу, где все общаются, — дальше слух сделает работу за тебя.",
+    try: "Назови свой «Гарвард»: группу, где тебя знают и где все общаются между собой." },
+  { id: "amazon", m: "m1", cls: "Стратег плацдарма", clsIcon: "flag", name: "Джефф Безос", brand: "Amazon · 1995",
+    av: { skin: "#f1c6a2", hair: "short", hc: "#5a4430", outfit: "shirt", oc: "#4f86c6", extra: ["book"] },
+    hook: "Ушёл с отличной работы, чтобы продавать книги из гаража",
+    start: "1994 год. Джеффу 30, у него отличная зарплата в финансовой компании в Нью-Йорке. Друзья считали, что уходить с такой работы — безумие.",
+    pain: "Он прочитал, что интернет растёт **на 2 300% в год**. Почти никто ещё не покупал онлайн — место было свободно, но этого никто не замечал.",
+    move: "Джефф составил список из 20 товаров и выбрал **один — книги**. Их миллионы видов: ни один магазин не вместит все, а онлайн-каталог может. И книги удобно пересылать.",
+    big: "из гаража", result: "Amazon начинался в гараже, а Джефф сам упаковывал заказы. Музыку, игрушки и всё остальное добавили только потом. Сегодня Amazon — одна из крупнейших компаний мира.",
+    lesson: "Найди продукт, в котором у тебя есть явное преимущество, и начни только с него.",
+    try: "Выбери 3 аромата для старта, а не 30." },
+  { id: "airbnb", m: "m2", cls: "Охотник за возможностями", clsIcon: "search", name: "Брайан Чески", brand: "Airbnb · 2007",
+    av: { skin: "#f0c3a0", hair: "short", hc: "#2f2a26", outfit: "tee", oc: "#ff5a5f", extra: ["home"] },
+    hook: "Нечем платить за квартиру? Сдай надувной матрас в гостиной",
+    start: "2007 год. Два молодых дизайнера, Брайан и Джо, живут в Сан-Франциско, и им нечем платить за аренду.",
+    pain: "В город приехала большая конференция дизайнеров, и **все гостиницы были заняты**. Сотни людей не знали, где ночевать. Видели это все — но никто ничего не сделал.",
+    move: "Ребята надули **три надувных матраса** у себя в квартире и сдали их гостям с завтраком. Так появился Air Bed & Breakfast. Позже, когда денег совсем не было, они продавали коробки хлопьев «Obama O's» и заработали около 30 000 $.",
+    big: "миллионы", result: "Основатели сами ездили к первым хозяевам и фотографировали их квартиры — так они поняли клиентов. Сегодня на Airbnb миллионы вариантов жилья по всему миру.",
+    lesson: "Возможность часто прячется в проблеме, которую видят все, но никто не решает.",
+    try: "Послушай, на что жалуются ребята в школе. Нет ли там идеи?" },
+  { id: "glossier", m: "m2", cls: "Знаток клиента", clsIcon: "user", name: "Эмили Вайс", brand: "Glossier · 2014",
+    av: { skin: "#f6d2b5", hair: "long", hc: "#c9a46a", outfit: "blouse", oc: "#f6c1cc", extra: ["chat"] },
+    hook: "Писала блог до работы — и узнала о клиентках больше, чем крупные бренды",
+    start: "Эмили работала ассистенткой в мире моды, в том числе в журнале Vogue. По утрам, ещё до работы, она вела бьюти-блог Into The Gloss.",
+    pain: "Большие бренды сами решали, что нужно девушкам. А Эмили каждый день **читала комментарии** и знала, чего на самом деле хотят обычные читательницы.",
+    move: "Она прямо спросила аудиторию: «Какой у вас продукт мечты?» — и сделала Glossier **по их ответам**. Первый запуск в 2014 году — всего 4 продукта.",
+    big: "1 млрд $+", result: "Читательницы стали первыми покупательницами и сами рекламировали бренд в соцсетях. В 2019 году Glossier оценили больше чем в 1 миллиард долларов.",
+    lesson: "Кто лучше всех знает клиента, тот и побеждает. Сначала слушай, потом делай.",
+    try: "Спроси 3 человек: какой аромат мечты они бы хотели?" },
+  { id: "spanx", m: "m3", cls: "Охотник за болью", clsIcon: "target", name: "Сара Блейкли", brand: "Spanx · 2000",
+    av: { skin: "#f5cfb0", hair: "long", hc: "#e2c071", outfit: "blouse", oc: "#e23d4f", extra: ["scissors"] },
+    hook: "Продавала факсы по офисам и придумала продукт с помощью ножниц",
+    start: "Сара 7 лет продавала факсы, обходя офисы. Ей отказывали каждый день — так она перестала бояться слова «нет». Бизнес-образования у неё не было.",
+    pain: "Сара хотела надеть белые брюки, но под ними **было видно бельё**. Подходящего в магазинах не было — эту мелкую, но вечную проблему просто никто не решал.",
+    move: "Она **отрезала у колготок «ноги»** — и проблема исчезла. Сама разобралась в патентах по книгам, а закупщице сети Neiman Marcus показала разницу прямо на себе, в примерочной.",
+    big: "1 млрд $", result: "Сара начала с 5 000 $ сбережений. В 2012 году журнал Forbes назвал её самой молодой женщиной-миллиардером, которая заработала всё сама.",
+    lesson: "Самые сильные идеи — решения боли, которую ты чувствуешь сам.",
+    try: "Спроси 1 человека: что бесит его при покупке духов?" },
+  { id: "mosbows", m: "m4", cls: "Создатель стиля", clsIcon: "star", name: "Мозайя Бриджес", brand: "Mo's Bows · начал в 9 лет",
+    av: { skin: "#7a4a2e", hair: "crop", hc: "#1f1612", outfit: "shirt", oc: "#ffffff", extra: ["bowtie"], kid: true },
+    hook: "В 9 лет начал шить бабочки — и дошёл до НБА",
+    start: "Мемфис, США. Мозайе 9 лет, и он обожает наряжаться — даже в школу ходит в рубашке.",
+    pain: "Бабочки в магазинах были **скучными и одинаковыми**. Хотелось ярких, с характером, — а таких никто не продавал.",
+    move: "Бабушка научила его шить, и Мозайя стал делать **свои бабочки** из ярких тканей. Каждая — ручная работа. Такого на рынке не было.",
+    big: "НБА", result: "В 11 лет он выступил в шоу Shark Tank, и его наставником стал инвестор Деймонд Джон. Позже Mo's Bows подписал контракт с НБА на бабочки для всех команд лиги.",
+    lesson: "Твоя суперсила — то, что умеешь только ты. Её не скопирует маркетплейс.",
+    try: "Придумай одну «фишку», которой нет у конкурентов." },
+  { id: "mikaila", m: "m5", cls: "Сила истории", clsIcon: "heart", name: "Микайла Улмер", brand: "Me & the Bees · начала в 4 года",
+    av: { skin: "#6e4128", hair: "puffs", hc: "#1f1612", outfit: "tee", oc: "#f2b93a", extra: ["bee"], kid: true },
+    hook: "После двух укусов пчёл создала бизнес, который спасает пчёл",
+    start: "Микайле 4 года. За одну неделю её дважды ужалили пчёлы, и она стала их бояться.",
+    pain: "Родители предложили узнать о пчёлах больше. Микайла выяснила, что **пчёлы исчезают**, а без них не вырастут многие растения.",
+    move: "Она взяла бабушкин рецепт лимонада, подсластила его **мёдом** и часть прибыли стала отдавать на спасение пчёл. У лимонада появилась история, которую хочется пересказывать.",
+    big: "Whole Foods", result: "В 11 лет Микайла получила инвестиции в шоу Shark Tank, а её лимонад появился на полках сети Whole Foods — для этого она убедила закупщиков.",
+    lesson: "Когда у продукта есть смысл и история, люди не просто покупают — они рассказывают о нём другим.",
+    try: "Придумай историю своего аромата в одно предложение." },
+  { id: "estee", m: "m6", cls: "Король продаж", clsIcon: "mega", name: "Эсте Лаудер", brand: "Estée Lauder · 1946",
+    av: { skin: "#f6d6bd", hair: "bob", hc: "#e0b964", outfit: "blouse", oc: "#2b4a7a", extra: ["pearls"] },
+    hook: "Дочь иммигрантов, которая продавала крем своими руками — в прямом смысле",
+    start: "Нью-Йорк, район Квинс. Эсте — дочь иммигрантов. Её дядя-химик варил кремы для кожи, и она помогала ему.",
+    pain: "Косметику продавали с полки, и никто не давал её **попробовать**. Женщины боялись тратить деньги на то, что может не подойти.",
+    move: "Эсте сама наносила крем женщинам в салонах красоты и **раздавала бесплатные пробники**. Она одной из первых стала дарить подарки к покупке. Её девиз: «Телефон, телеграф, расскажи женщине».",
+    big: "Saks", result: "В 1948 году её кремы взял легендарный нью-йоркский магазин Saks Fifth Avenue. Сегодня Estée Lauder — одна из крупнейших бьюти-компаний мира.",
+    lesson: "Дай попробовать — и продукт продаст себя сам. Но всегда считай, сколько стоят пробники.",
+    try: "Посчитай, во сколько тебе обходится 1 пробник." },
+  { id: "buffett", m: "m6", cls: "Финансист", clsIcon: "coins", name: "Уоррен Баффет", brand: "первый бизнес в 6 лет",
+    av: { skin: "#f2c9aa", hair: "side", hc: "#d9d9d9", outfit: "suit", oc: "#3b4250", glasses: "rect", extra: ["coke"] },
+    hook: "Начал с газировки в 6 лет — стал одним из богатейших людей мира",
+    start: "Омаха, США. Уоррену 6 лет. Он не из семьи миллиардеров — обычный мальчик, который очень любит цифры.",
+    pain: "Он заметил: упаковка из 6 бутылок Coca-Cola **дешевле**, чем 6 бутылок по отдельности. Разница — это и есть прибыль. Взрослые проходили мимо этих центов.",
+    move: "Уоррен покупал упаковку за 25 центов и продавал бутылки по 5 центов. Потом разносил газеты, а в старших классах с другом поставил **игровые автоматы в парикмахерских** — клиенты играли, пока ждали очереди.",
+    big: "в 11 лет", result: "В 11 лет он купил свои первые акции. Всю жизнь он считал, копил и вкладывал — и стал одним из самых богатых и уважаемых инвесторов мира.",
+    lesson: "Маржа = цена − себестоимость. Большие состояния начинаются с умения считать маленькие деньги.",
+    try: "Посчитай маржу с одного своего флакона." },
+  { id: "zappos", m: "m7", cls: "Мастер проверки", clsIcon: "flask", name: "Ник Свинмерн", brand: "Zappos · 1999",
+    av: { skin: "#f0c4a1", hair: "short", hc: "#7a5734", outfit: "polo", oc: "#2b95d6", extra: ["shoe"] },
+    hook: "Не нашёл нужные ботинки — и проверил идею без единой пары на складе",
+    start: "1999 год, Сан-Франциско. Ник обошёл торговый центр в поисках коричневых ботинок нужного размера — и ушёл ни с чем.",
+    pain: "В магазинах не было нужных моделей и размеров, а **обувь в интернете почти никто не продавал**. Все были уверены: обувь онлайн не купят — её же надо мерить.",
+    move: "Вместо склада Ник **сфотографировал обувь в местных магазинах** и выложил на сайт. Пришёл заказ — пошёл в магазин, купил пару и отправил. Позже Zappos ввёл бесплатную доставку и возврат — и страх покупать онлайн исчез.",
+    big: "1,2 млрд $", result: "Спрос подтвердился почти без затрат. В 2009 году Amazon купил Zappos примерно за 1,2 миллиарда долларов.",
+    lesson: "Проверь идею до закупки: сначала заказ, потом товар.",
+    try: "Собери предзаказы, прежде чем закупать флаконы." },
+  { id: "dropbox", m: "m7", cls: "Мастер проверки", clsIcon: "flask", name: "Дрю Хьюстон", brand: "Dropbox · 2007",
+    av: { skin: "#f3caa8", hair: "short", hc: "#8a6a45", outfit: "tee", oc: "#0061fe", extra: ["drive"] },
+    hook: "Студент MIT забыл флешку — и придумал Dropbox прямо в автобусе",
+    start: "Дрю — студент MIT, того самого университета, где придумали методику этой игры.",
+    pain: "Однажды он сел в автобус из Бостона в Нью-Йорк и понял, что **забыл флешку** с файлами. Четыре часа пути без работы. Флешки терялись у всех — но с этим просто мирились.",
+    move: "Прямо в автобусе он начал писать программу, которая хранит файлы в интернете. А чтобы проверить спрос, не тратя годы, записал **короткое видео** о том, как это будет работать.",
+    big: "75 000", result: "За одну ночь список желающих вырос с 5 000 до 75 000 человек. Сегодня Dropbox пользуются сотни миллионов людей.",
+    lesson: "Показать идею можно раньше, чем её сделать. Так ты узнаешь, нужна ли она людям.",
+    try: "Покажи друзьям фото 3 ароматов и посчитай, сколько скажут «хочу»." },
+  { id: "instagram", m: "m7", cls: "Гений поворота", clsIcon: "turn", name: "Кевин Систром", brand: "Instagram · 2010",
+    av: { skin: "#f1c7a4", hair: "short", hc: "#2b2420", outfit: "polo", oc: "#c13584", extra: ["camera"] },
+    hook: "Выкинул почти всё из своего приложения — и продал его за 1 млрд $",
+    start: "Кевин учился в Стэнфорде и увлекался фотографией. Вместе с Майком Кригером он делал приложение Burbn для отметок в разных местах.",
+    pain: "Burbn был сложным, и пользовались им мало. Но ребята заметили: люди **постоянно выкладывают фото**, а остальные функции почти не трогают.",
+    move: "Они **убрали всё лишнее** и оставили только фото. Добавили фильтры, чтобы снимки со слабых камер телефонов выглядели красиво.",
+    big: "1 млрд $", result: "В первый день Instagram скачали 25 000 человек. Через 2 года, когда в компании было всего 13 сотрудников, Facebook купил её за 1 миллиард долларов.",
+    lesson: "Поворот — не провал. Смотри, что людям реально нравится, и делай больше этого.",
+    try: "Спроси клиентов, что им нравится больше всего." },
+  { id: "apple", m: "m8", cls: "Мастер предзаказа", clsIcon: "box", name: "Стив Джобс", brand: "Apple · 1976",
+    av: { skin: "#f0c6a3", hair: "jobs", hc: "#4a4a4a", outfit: "turtle", oc: "#1b1b1b", glasses: "round", extra: ["beard", "computer"] },
+    hook: "Продал свой микроавтобус, чтобы начать компанию в гараже",
+    start: "1976 год. Стиву Джобсу 21, его другу Стиву Возняку 25. Чтобы найти первые деньги, Джобс продал свой микроавтобус, а Возняк — калькулятор.",
+    pain: "Компьютеры были огромными и дорогими, их покупали компании. **Личного компьютера** для обычных людей почти не было.",
+    move: "Владелец магазина Byte Shop заказал **50 компьютеров по 500 $**. Денег на детали не было — ребята взяли детали в долг, собрали компьютеры в гараже у родителей Джобса и расплатились из денег за заказ.",
+    big: "из гаража", result: "Из гаража выросла Apple — компания, которая сделала iPhone и стала одной из самых дорогих в мире.",
+    lesson: "Сначала заказ — потом закупка. Так растут без лишнего риска.",
+    try: "Предложи 5 клиентам предзаказ на новый аромат." },
+  { id: "jomalone", m: "m8", cls: "Создатель стиля", clsIcon: "star", name: "Джо Малон", brand: "Jo Malone London · 1994",
+    av: { skin: "#f6d5bd", hair: "pixie", hc: "#d8b46a", outfit: "turtle", oc: "#1f1f1f", extra: ["bottle"] },
+    hook: "Рано ушла из школы без аттестата — и создала знаменитый бренд ароматов",
+    start: "Лондон. Джо с детства помогала маме-косметологу. У неё дислексия, и школу она закончила рано, без аттестата.",
+    pain: "Джо работала косметологом и видела, что клиенткам хочется **чего-то особенного** — запаха, который запомнится.",
+    move: "Она смешивала масла для ванны **у себя на кухне** и дарила клиенткам. Те возвращались — уже не только за процедурой, а за ароматом.",
+    big: "1994", result: "В 1994 году Джо открыла первый магазин в Лондоне. Через 5 лет её бренд купила компания Estée Lauder — та самая из другой истории.",
+    lesson: "Когда люди возвращаются сами — «собаки едят корм». Это главный сигнал, что пора расти.",
+    try: "Посмотри в журнале продаж: кто купил у тебя второй раз?" },
+  { id: "huda", m: "m8", cls: "Знаток клиента", clsIcon: "user", name: "Худа Каттан", brand: "Huda Beauty · 2013",
+    av: { skin: "#e6b48f", hair: "long", hc: "#2a1d17", outfit: "blouse", oc: "#f05768", extra: ["lashes"] },
+    hook: "Не нашла идеальные ресницы — и сделала свои",
+    start: "Худа выросла в США в семье иммигрантов из Ирака. Работала в финансах, а потом решила стать визажистом и переехала в Дубай.",
+    pain: "Она вела бьюти-блог и **не могла найти накладные ресницы**, которые выглядели бы так, как ей хотелось. Подписчицы жаловались на то же самое.",
+    move: "Худа заняла у сестры **6 000 $** и выпустила свои ресницы. Блог стал её витриной: подписчицы уже доверяли ей.",
+    big: "1 млрд $+", result: "Ресницы раскупили в магазине Sephora в Дубае. Из одного продукта вырос огромный бренд, который в 2017 году Forbes оценил больше чем в 1 миллиард долларов.",
+    lesson: "Начни с одного продукта, который точно нужен, — а потом расширяйся.",
+    try: "Запиши, какой второй продукт ты добавишь, когда первый пойдёт." }
+];
+
+/* ---------- рисованные образы: узнаваемый стиль, а не портрет */
+function avatarSVG(a, size, bg, locked) {
+  const K = "#172233", st = `stroke="${K}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"`;
+  const skin = locked ? "#c3ccd8" : a.skin, hc = locked ? "#9aa5b5" : a.hc, oc = locked ? "#aeb8c6" : a.oc;
+  const hy = a.kid ? 2 : 0;
+  let back = "", front = "", acc = "";
+  switch (a.hair) {
+    case "long": back = `<path d="M34,54 C30,24 46,16 60,16 C76,16 92,24 86,56 L92,100 C78,108 42,108 28,100 Z" fill="${hc}" ${st}/>`;
+      front = `<path d="M38,52 C38,30 50,25 61,25 C73,25 84,32 82,52 C74,40 62,35 50,40 C44,43 40,47 38,52 Z" fill="${hc}" ${st}/>`; break;
+    case "bob": back = `<path d="M34,56 C32,28 46,19 60,19 C74,19 88,28 86,56 C86,68 84,76 80,80 L40,80 C36,76 34,68 34,56 Z" fill="${hc}" ${st}/>`;
+      front = `<path d="M38,50 C40,30 56,24 70,28 C78,32 82,40 82,48 C70,40 54,40 38,50 Z" fill="${hc}" ${st}/>`; break;
+    case "pixie": front = `<path d="M38,56 C33,32 48,22 62,24 C77,24 87,34 82,54 C77,44 66,37 52,44 C46,47 41,51 38,56 Z" fill="${hc}" ${st}/>`; break;
+    case "curly": front = `<path d="M38,52 C33,42 39,29 47,29 C49,22 57,20 61,24 C66,19 75,21 76,28 C84,29 87,42 82,52 C78,43 70,38 60,38 C50,38 42,43 38,52 Z" fill="${hc}" ${st}/>`; break;
+    case "crop": front = `<path d="M39,50 C39,33 49,28 60,28 C71,28 81,33 81,50 C76,41 70,38 60,38 C50,38 44,41 39,50 Z" fill="${hc}" ${st}/>`; break;
+    case "puffs": back = `<circle cx="36" cy="32" r="13" fill="${hc}" ${st}/><circle cx="84" cy="32" r="13" fill="${hc}" ${st}/>`;
+      front = `<path d="M39,50 C39,33 49,28 60,28 C71,28 81,33 81,50 C76,41 70,38 60,38 C50,38 44,41 39,50 Z" fill="${hc}" ${st}/>`; break;
+    case "side": front = `<path d="M39,56 C37,42 41,34 48,31 L50,41 C45,44 41,49 39,56 Z M81,56 C83,42 79,34 72,31 L70,41 C75,44 79,49 81,56 Z" fill="${hc}" ${st}/><path d="M50,32 C55,29 65,29 70,32" fill="none" stroke="${hc}" stroke-width="3"/>`; break;
+    case "jobs": front = `<path d="M40,47 C40,32 50,28 60,28 C70,28 80,32 80,47 C76,41 70,39 60,39 C50,39 44,41 40,47 Z" fill="${hc}" ${st}/>`; break;
+    default: front = `<path d="M38,52 C35,30 48,24 60,24 C74,24 86,30 82,52 C80,42 74,36 64,36 C54,36 44,40 38,52 Z" fill="${hc}" ${st}/>`;
+  }
+  // одежда
+  const body = `<path d="M18,122 C18,96 36,86 60,86 C84,86 102,96 102,122 Z" fill="${oc}" ${st}/>`;
+  let wear = "";
+  switch (a.outfit) {
+    case "hoodie": wear = `<path d="M40,90 C44,82 76,82 80,90 C72,97 48,97 40,90 Z" fill="${oc}" ${st} style="filter:brightness(.9)"/><path d="M54,96 v12 M66,96 v12" ${st} fill="none"/>`; break;
+    case "turtle": wear = `<rect x="49" y="78" width="22" height="13" rx="5" fill="${oc}" ${st}/>`; break;
+    case "suit": wear = `<path d="M50,87 L60,104 L70,87 Z" fill="#fff" ${st}/><path d="M57,92 L60,112 L63,92 L60,89 Z" fill="#c0392b" ${st}/>`; break;
+    case "shirt": wear = `<path d="M48,87 L56,98 L60,90 L64,98 L72,87" fill="#fff" ${st}/>`; break;
+    case "polo": wear = `<path d="M50,87 L56,96 L60,88 L64,96 L70,87" fill="${oc}" ${st}/><circle cx="60" cy="100" r="1.5" fill="${K}"/>`; break;
+    case "blouse": wear = `<path d="M50,87 L60,100 L70,87 Z" fill="${skin}" ${st}/>`; break;
+    default: wear = `<path d="M50,88 C54,93 66,93 70,88" fill="none" ${st}/>`;
+  }
+  const head = `<rect x="52" y="${74 + hy}" width="16" height="14" fill="${skin}" ${st}/>
+    <ellipse cx="38" cy="${58 + hy}" rx="4" ry="6" fill="${skin}" ${st}/><ellipse cx="82" cy="${58 + hy}" rx="4" ry="6" fill="${skin}" ${st}/>
+    <ellipse cx="60" cy="${55 + hy}" rx="${a.kid ? 22 : 21}" ry="${a.kid ? 24 : 25}" fill="${skin}" ${st}/>`;
+  const ex = a.extra || [];
+  let face = locked ? `<text x="60" y="${64 + hy}" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="22" fill="#fff">?</text>` :
+    `<path d="M47,${49 + hy} q4,-3 8,0 M65,${49 + hy} q4,-3 8,0" fill="none" stroke="${K}" stroke-width="2.2" stroke-linecap="round"/>
+     <ellipse cx="51" cy="${57 + hy}" rx="2.6" ry="3.2" fill="${K}"/><ellipse cx="69" cy="${57 + hy}" rx="2.6" ry="3.2" fill="${K}"/>
+     ${ex.includes("lashes") ? `<path d="M47,${54 + hy} l-2,-2 M49,${53 + hy} l-1,-3 M71,${53 + hy} l1,-3 M73,${54 + hy} l2,-2" stroke="${K}" stroke-width="1.8" stroke-linecap="round"/>` : ""}
+     <path d="M53,${67 + hy} Q60,${73 + hy} 67,${67 + hy}" fill="none" stroke="${K}" stroke-width="2.4" stroke-linecap="round"/>
+     <circle cx="45" cy="${64 + hy}" r="3.5" fill="#ff7a8a" opacity=".35"/><circle cx="75" cy="${64 + hy}" r="3.5" fill="#ff7a8a" opacity=".35"/>`;
+  if (!locked && ex.includes("beard")) face += `<path d="M41,${62 + hy} C42,${76 + hy} 50,${81 + hy} 60,${81 + hy} C70,${81 + hy} 78,${76 + hy} 79,${62 + hy} C76,${71 + hy} 70,${74 + hy} 60,${74 + hy} C50,${74 + hy} 44,${71 + hy} 41,${62 + hy} Z" fill="${hc}" opacity=".55"/>`;
+  if (!locked && a.glasses === "round") face += `<g fill="#fff" fill-opacity=".2" stroke="${K}" stroke-width="2.2"><circle cx="51" cy="${57 + hy}" r="7.5"/><circle cx="69" cy="${57 + hy}" r="7.5"/></g><path d="M58.5,${57 + hy} h3" stroke="${K}" stroke-width="2.2"/>`;
+  if (!locked && a.glasses === "rect") face += `<g fill="#fff" fill-opacity=".2" stroke="${K}" stroke-width="2.4"><rect x="43" y="${52 + hy}" width="15" height="11" rx="3"/><rect x="62" y="${52 + hy}" width="15" height="11" rx="3"/></g><path d="M58,${57 + hy} h4" stroke="${K}" stroke-width="2.2"/>`;
+  if (!locked) {
+    if (ex.includes("bowtie")) wear += `<path d="M48,86 L58,91 L48,96 Z M72,86 L62,91 L72,96 Z" fill="#e23d4f" ${st}/><circle cx="60" cy="91" r="3.5" fill="#f2b93a" ${st}/>`;
+    if (ex.includes("pearls")) wear += [44, 49, 54, 60, 66, 71, 76].map((x, i) => `<circle cx="${x}" cy="${89 + Math.sin(i / 6 * Math.PI) * 6}" r="2.6" fill="#fff" stroke="${K}" stroke-width="1.2"/>`).join("");
+    const B = (inner, c) => `<g transform="translate(84 92)"><circle cx="12" cy="12" r="15" fill="${c || "#fff"}" ${st}/>${inner}</g>`;
+    if (ex.includes("laptop")) acc = B(`<rect x="3" y="6" width="18" height="11" rx="2" fill="#cfd6e0" ${st}/><path d="M1,19 h22" ${st}/>`);
+    if (ex.includes("book")) acc = B(`<path d="M4,6 h7 a2,2 0 0 1 2,2 v11 a2,2 0 0 0 -2,-2 h-7 Z M20,6 h-7 a2,2 0 0 0 -2,2 v11 a2,2 0 0 1 2,-2 h7 Z" fill="#f2b93a" ${st}/>`);
+    if (ex.includes("home")) acc = B(`<path d="M4,12 L12,5 L20,12 V20 H4 Z" fill="#ff8c94" ${st}/><rect x="10" y="14" width="4" height="6" fill="#fff" ${st}/>`);
+    if (ex.includes("chat")) acc = B(`<path d="M4,6 h16 v10 h-9 l-5,4 v-4 h-2 Z" fill="#ffd6e0" ${st}/>`);
+    if (ex.includes("scissors")) acc = B(`<circle cx="7" cy="17" r="3" fill="#fff" ${st}/><circle cx="17" cy="17" r="3" fill="#fff" ${st}/><path d="M9,15 L17,5 M15,15 L7,5" ${st}/>`);
+    if (ex.includes("bee")) acc = B(`<ellipse cx="12" cy="13" rx="7" ry="5" fill="#f2b93a" ${st}/><path d="M10,8.5 v9 M14,8.5 v9" stroke="${K}" stroke-width="2"/><ellipse cx="9" cy="6" rx="4" ry="3" fill="#dff1ff" ${st}/><ellipse cx="15" cy="6" rx="4" ry="3" fill="#dff1ff" ${st}/>`);
+    if (ex.includes("coke")) acc = B(`<path d="M10,3 h4 v3 c3,3 3,6 2,9 c1,3 0,5 -1,6 h-6 c-1,-1 -2,-3 -1,-6 c-1,-3 -1,-6 2,-9 Z" fill="#b5332e" ${st}/><path d="M8.5,13 h7" stroke="#fff" stroke-width="2"/>`);
+    if (ex.includes("shoe")) acc = B(`<path d="M3,16 V9 h6 l3,4 h6 a3,3 0 0 1 3,3 v2 H3 Z" fill="#a0612d" ${st}/>`);
+    if (ex.includes("drive")) acc = B(`<rect x="8" y="4" width="8" height="12" rx="2" fill="#0061fe" ${st}/><rect x="9.5" y="16" width="5" height="5" fill="#cfd6e0" ${st}/>`);
+    if (ex.includes("camera")) acc = B(`<rect x="3" y="7" width="18" height="12" rx="3" fill="#f5e6c8" ${st}/><circle cx="12" cy="13" r="4" fill="#5b3a29" ${st}/><rect x="6" y="5" width="4" height="3" fill="${K}"/>`);
+    if (ex.includes("bottle")) acc = B(`<rect x="6" y="9" width="12" height="12" rx="3" fill="#ffd6e0" ${st}/><rect x="9" y="4" width="6" height="5" fill="${K}"/>`);
+    if (ex.includes("lashes")) acc = B(`<path d="M4,14 Q12,6 20,14" fill="none" ${st}/><path d="M6,12 l-2,-4 M9,10 l-1,-4 M12,9.5 v-4 M15,10 l1,-4 M18,12 l2,-4" stroke="${K}" stroke-width="2" stroke-linecap="round"/>`);
+    if (ex.includes("computer")) acc = B(`<rect x="3" y="6" width="18" height="12" rx="2" fill="#e8e8e8" ${st}/><path d="M8,21 h8 M12,18 v3" ${st}/><path d="M10,10 c1,-2 3,-2 4,0 c1,2 -1,4 -2,4 c-1,0 -3,-2 -2,-4 Z" fill="#9aa5b5"/>`);
+  }
+  return `<svg viewBox="0 0 120 120" width="${size}" height="${size}" role="img" aria-label="${locked ? "Закрытая история" : "Рисованный образ"}">
+    <defs><clipPath id="avc-${size}-${a.hair}-${locked ? 1 : 0}"><circle cx="60" cy="60" r="58"/></clipPath></defs>
+    <circle cx="60" cy="60" r="58" fill="${bg}" stroke="${K}" stroke-width="3"/>
+    <g clip-path="url(#avc-${size}-${a.hair}-${locked ? 1 : 0})">${back}${body}${wear}${head}${front}${face}</g>${acc}</svg>`;
+}
+
+/* ================================================================== иллюстрации миссий */
+const INK = "#172233";
+function person(x, y, c, s) {
+  s = s || 1;
+  return `<g transform="translate(${x} ${y}) scale(${s})"><circle cx="0" cy="-24" r="7" fill="#fff" stroke="${INK}" stroke-width="2.5"/><path d="M-9,0 v-7 a9,9 0 0 1 18,0 v7 z" fill="${c}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/></g>`;
+}
+function group(x, y, c, n) { let g = ""; for (let i = 0; i < n; i++) g += person(x + (i - (n - 1) / 2) * 20, y + (i % 2) * 4, c); return g; }
+function bubbleSVG(x, y, w, txt, fill, tc, avatar, ac, border) {
+  return `<g><circle cx="${x + 13}" cy="${y + 14}" r="12" fill="${ac}" stroke="${INK}" stroke-width="2"/><text x="${x + 13}" y="${y + 18.5}" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="Manrope, sans-serif">${avatar}</text>
+  <rect x="${x + 31}" y="${y}" width="${w}" height="26" rx="12" fill="${fill}" stroke="${border || INK}" stroke-width="2"/><text x="${x + 43}" y="${y + 17.5}" font-size="12" font-weight="700" fill="${tc}" font-family="Manrope, sans-serif">${txt}</text></g>`;
+}
+const SCENES = {
+  m1: () => `
+    <ellipse cx="160" cy="158" rx="150" ry="10" fill="#000" opacity=".12"/>
+    ${group(62, 148, "#f2b93a", 3)}${group(258, 148, "#a27ad6", 3)}
+    <g class="pulse"><circle cx="160" cy="124" r="50" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="6 7" opacity=".9"/></g>
+    <circle cx="160" cy="128" r="34" fill="#fff" opacity=".22"/>
+    ${group(160, 150, "#e23d4f", 3)}
+    <path d="M160,104 V40" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M160,40 L204,52 L160,66 Z" fill="#e23d4f" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="206" y="18" width="98" height="30" rx="15" fill="#fff" stroke="${INK}" stroke-width="2.5"/>
+    <text x="255" y="38" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="12" fill="${INK}">ПЛАЦДАРМ!</text>
+    <g transform="translate(18 18)"><rect x="0" y="6" width="22" height="26" rx="8" fill="${INK}"/><rect x="26" y="6" width="22" height="26" rx="8" fill="${INK}"/><rect x="18" y="12" width="12" height="8" fill="${INK}"/><circle cx="11" cy="24" r="6" fill="#bfe3ff"/><circle cx="37" cy="24" r="6" fill="#bfe3ff"/></g>`,
+  m2: () => `
+    <ellipse cx="160" cy="162" rx="150" ry="8" fill="#000" opacity=".12"/>
+    <circle cx="88" cy="96" r="58" fill="#fff" opacity=".25" stroke="#fff" stroke-width="3"/>
+    <path d="M88,96 L88,38 A58,58 0 0 1 138.2,125 Z" fill="#fff" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <g class="pulse"><path d="M98,86 L98,30 A56,56 0 0 1 146.5,114 Z" fill="#f2b93a" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/></g>
+    <text x="124" y="78" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="13" fill="${INK}">TAM</text>
+    <text x="70" y="124" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="12" fill="${INK}">48 000 ₽</text>
+    <rect x="178" y="18" width="126" height="138" rx="18" fill="#fff" stroke="${INK}" stroke-width="3"/>
+    <circle cx="208" cy="50" r="16" fill="#f05768" stroke="${INK}" stroke-width="2.5"/><text x="208" y="55" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Manrope, sans-serif">М</text>
+    <text x="231" y="47" font-size="13" font-weight="800" fill="${INK}" font-family="Manrope, sans-serif">Маша, 8Б</text>
+    <text x="231" y="62" font-size="10" font-weight="700" fill="#4a586c" font-family="Manrope, sans-serif">персона</text>
+    <rect x="190" y="76" width="54" height="20" rx="10" fill="#ffe1e6"/><text x="217" y="90" text-anchor="middle" font-size="10" font-weight="800" fill="${INK}" font-family="Manrope, sans-serif">ваниль</text>
+    <rect x="248" y="76" width="46" height="20" rx="10" fill="#e3f1ff"/><text x="271" y="90" text-anchor="middle" font-size="10" font-weight="800" fill="${INK}" font-family="Manrope, sans-serif">TikTok</text>
+    <rect x="190" y="100" width="76" height="20" rx="10" fill="#e8f7dc"/><text x="228" y="114" text-anchor="middle" font-size="10" font-weight="800" fill="${INK}" font-family="Manrope, sans-serif">400 ₽/нед</text>
+    <path d="M206,140 c-6,-5 -10,-8 -10,-12 a5,5 0 0 1 10,-1 a5,5 0 0 1 10,1 c0,4 -4,7 -10,12 z" fill="#f05768"/>
+    <rect x="222" y="130" width="72" height="10" rx="5" fill="#eef2f8"/>`,
+  m3: () => {
+    const st = [[30, 128, "узнала"], [82, 88, "понюхала"], [134, 124, "купила"], [186, 82, "носит"], [238, 116, "кончились"], [290, 72, "советует"]];
+    const cols = ["#fff", "#f2b93a", "#fff", "#f2b93a", "#fff", "#f2b93a"];
+    let d = `M${st[0][0]},${st[0][1]}`; for (let i = 1; i < st.length; i++) d += ` L${st[i][0]},${st[i][1]}`;
+    return `<path d="${d}" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round"/>
+      ${st.map((s, i) => `<g><circle cx="${s[0]}" cy="${s[1]}" r="17" fill="${cols[i]}" stroke="${INK}" stroke-width="3"/><text x="${s[0]}" y="${s[1] + 6}" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="15" fill="${INK}">${i + 1}</text>
+      <text x="${s[0]}" y="${s[1] + 34}" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="Manrope, sans-serif">${s[2]}</text></g>`).join("")}
+      <g transform="translate(112 12)" class="pulse"><rect x="0" y="12" width="34" height="38" rx="10" fill="#ffd6e0" stroke="${INK}" stroke-width="3"/><rect x="11" y="2" width="12" height="11" rx="3" fill="${INK}"/><path d="M8,32 h18" stroke="${INK}" stroke-width="2.5"/></g>
+      <path d="M152,24 q10,-8 20,0 q10,8 20,0 M152,36 q10,-8 20,0 q10,8 20,0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".85"/>`;
+  },
+  m4: () => `
+    <ellipse cx="160" cy="152" rx="142" ry="16" fill="#2b95d6" stroke="${INK}" stroke-width="3"/>
+    <path d="M40,152 q10,-6 20,0 t20,0 t20,0 M220,152 q10,-6 20,0 t20,0 t20,0" fill="none" stroke="#bfe3ff" stroke-width="3" stroke-linecap="round"/>
+    <path d="M96,148 V70 h16 v12 h14 v-12 h16 v12 h14 v-12 h16 v12 h14 v-12 h16 v78 Z" fill="#fff" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M78,148 V54 h12 v10 h10 v-10 h12 v94 Z M208,148 V54 h12 v10 h10 v-10 h12 v94 Z" fill="#fff" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M146,148 v-26 a14,14 0 0 1 28,0 v26 Z" fill="${INK}"/>
+    <path d="M160,70 V26" stroke="${INK}" stroke-width="3.5" stroke-linecap="round"/><g class="pulse"><path d="M160,26 L190,34 L160,44 Z" fill="#f2b93a" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/></g>
+    <g transform="translate(14 28)"><path d="M28 0 0 10v20c0 18 12 28 28 32 16-4 28-14 28-32V10z" fill="#f2b93a" stroke="${INK}" stroke-width="3"/><text x="28" y="40" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="11" fill="${INK}">ЯДРО</text></g>
+    <g opacity=".9"><path d="M258,128 l22,-60 M272,128 l22,-60 M262,116 h14 M266,104 h14 M270,92 h14 M274,80 h14" stroke="#fff" stroke-width="3" stroke-linecap="round"/><text x="282" y="58" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="Manrope, sans-serif">конкурент</text></g>`,
+  m5: () => `
+    <rect x="22" y="8" width="276" height="156" rx="18" fill="#fff" stroke="${INK}" stroke-width="3"/>
+    <path d="M22,26 a18,18 0 0 1 18,-18 h240 a18,18 0 0 1 18,18 v12 h-276 Z" fill="${INK}"/>
+    <text x="160" y="28" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="Manrope, sans-serif">Чат: покупка духов · 4 участника</text>
+    ${bubbleSVG(32, 46, 122, "хочу этот аромат!", "#ffe1e6", INK, "М", "#f05768")}
+    ${bubbleSVG(32, 76, 152, "а сколько стоит? состав?", "#e8f7dc", INK, "₽", "#5fa62d")}
+    ${bubbleSVG(32, 106, 92, "пахнет топ!", "#efe6fb", INK, "П", "#8a5bbd")}
+    ${bubbleSVG(32, 134, 172, "в школе торговать нельзя", "#fff", "#d4364a", "З", "#d4364a", "#d4364a")}
+    <text x="290" y="63" text-anchor="end" font-size="9" font-weight="800" fill="#4a586c" font-family="Manrope, sans-serif">пользователь</text>
+    <text x="290" y="93" text-anchor="end" font-size="9" font-weight="800" fill="#4a586c" font-family="Manrope, sans-serif">плательщик</text>
+    <text x="290" y="123" text-anchor="end" font-size="9" font-weight="800" fill="#4a586c" font-family="Manrope, sans-serif">советчик</text>
+    <text x="290" y="151" text-anchor="end" font-size="10" font-weight="800" fill="#d4364a" font-family="Manrope, sans-serif">ВЕТО</text>`,
+  m6: () => `
+    <ellipse cx="160" cy="162" rx="120" ry="8" fill="#000" opacity=".12"/>
+    <path d="M160,40 V154 M128,158 h64" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
+    <g transform="rotate(-10 160 44)">
+      <path d="M58,44 H262" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
+      <path d="M70,44 L50,98 M70,44 L90,98 M250,44 L230,98 M250,44 L270,98" stroke="${INK}" stroke-width="2"/>
+      <path d="M44,98 h52 a26,10 0 0 1 -52,0 Z" fill="#fff" stroke="${INK}" stroke-width="3"/>
+      <path d="M224,98 h52 a26,10 0 0 1 -52,0 Z" fill="#fff" stroke="${INK}" stroke-width="3"/>
+      ${[0, 1, 2, 3, 4].map(i => `<ellipse cx="70" cy="${92 - i * 8}" rx="18" ry="6" fill="#f2b93a" stroke="${INK}" stroke-width="2.2"/>`).join("")}
+      <ellipse cx="250" cy="92" rx="18" ry="6" fill="#f2b93a" stroke="${INK}" stroke-width="2.2"/>
+      <text x="70" y="130" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="13" fill="#fff">LTV</text>
+      <text x="250" y="130" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="13" fill="#fff">COCA</text>
+    </g>
+    <circle cx="160" cy="40" r="9" fill="#fff" stroke="${INK}" stroke-width="3"/>
+    <g class="pulse"><circle cx="278" cy="140" r="22" fill="#fff" stroke="${INK}" stroke-width="3"/><text x="278" y="146" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="15" fill="#1f9d55">×3</text></g>`,
+  m7: () => `
+    <ellipse cx="160" cy="162" rx="90" ry="9" fill="#000" opacity=".18"/>
+    <g class="boss-body">
+      <path d="M196,56 q22,-24 40,-10" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
+      <g class="flame"><path d="M238,32 l6,10 l10,-4 l-5,10 l10,6 l-11,2 l2,11 l-8,-7 l-7,8 l0,-11 l-11,-1 l9,-6 l-5,-10 l10,4 Z" fill="#ffd23f" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/></g>
+      <circle cx="160" cy="104" r="56" fill="#1d2433" stroke="${INK}" stroke-width="3"/>
+      <circle cx="140" cy="80" r="12" fill="#fff" opacity=".18"/>
+      <path d="M124,86 l26,10 M196,86 l-26,10" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="138" cy="106" r="11" fill="#fff"/><circle cx="182" cy="106" r="11" fill="#fff"/>
+      <circle cx="141" cy="108" r="5" fill="#e23d4f"/><circle cx="179" cy="108" r="5" fill="#e23d4f"/>
+      <path d="M134,134 l8,-7 l8,7 l8,-7 l8,7 l8,-7 l8,7" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+    </g>
+    <rect x="14" y="20" width="108" height="44" rx="12" fill="#fff" stroke="${INK}" stroke-width="2.5"/>
+    <text x="68" y="38" text-anchor="middle" font-size="11" font-weight="800" fill="${INK}" font-family="Manrope, sans-serif">МИСТЕР</text>
+    <text x="68" y="55" text-anchor="middle" font-size="11" font-weight="800" fill="${INK}" font-family="Manrope, sans-serif">ДОПУЩЕНИЕ</text>`,
+  m8: () => `
+    <ellipse cx="160" cy="162" rx="150" ry="8" fill="#000" opacity=".12"/>
+    <g transform="translate(20 72)">
+      <path d="M10,88 l-4,-28 a26,26 0 0 1 8,-30 l-8,-16 l16,8 a26,26 0 0 1 28,2 l14,-10 l-4,18 a26,26 0 0 1 2,28 l-2,28 Z" fill="#fff" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="26" cy="44" r="3" fill="${INK}"/><circle cx="44" cy="44" r="3" fill="${INK}"/><path d="M31,56 h8 l-4,5 Z" fill="${INK}"/>
+      <path d="M60,88 l6,-18 h44 l6,18 Z" fill="#e23d4f" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M72,70 q6,-10 12,-2 q6,-10 12,-2 q6,-8 10,2" fill="#a0612d" stroke="${INK}" stroke-width="2"/>
+    </g>
+    <g transform="translate(152 40)">
+      ${[[0, 70, 50], [26, 46, 74], [52, 22, 98]].map(b => `<rect x="${b[0]}" y="${b[1]}" width="20" height="${b[2]}" rx="4" fill="#fff" stroke="${INK}" stroke-width="2.5"/>`).join("")}
+      <path d="M-6,60 L30,34 L66,6" fill="none" stroke="#f2b93a" stroke-width="5" stroke-linecap="round"/>
+      <path d="M54,4 L68,4 L66,18" fill="none" stroke="#f2b93a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g class="rocket-idle"><g transform="translate(274 66)">
+      <g class="flame"><path d="M-8,34 Q0,72 8,34 Z" fill="#ef7420"/><path d="M-4,34 Q0,56 4,34 Z" fill="#f2b93a"/></g>
+      <path d="M-14,10 L-28,36 L-12,30 Z M14,10 L28,36 L12,30 Z" fill="#e23d4f" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M0,-42 C18,-28 20,4 14,34 L-14,34 C-20,4 -18,-28 0,-42 Z" fill="#fff" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="0" cy="-6" r="8" fill="#45a8e6" stroke="${INK}" stroke-width="2.5"/>
+    </g></g>`
+};
+function sceneSVG(id) {
+  return `<svg class="scene" viewBox="0 0 320 172" role="img" aria-label="Иллюстрация миссии">${SCENES[id]()}</svg>`;
+}
+
+/* ================================================================== состояние */
+/* Ключ хранилища не меняется между версиями игры — обновления подхватывают старый прогресс.
+   migrate() дополняет старые сохранения новыми полями и ничего не удаляет. */
+const KEY = "startup-quest-v1";
+const STATE_VERSION = 2;
+function fresh() {
+  return { v: STATE_VERSION, xp: 0, a: {}, got: {}, quiz: {}, done: {}, sales: [], swipe: {},
+    streak: { count: 0, best: 0, last: null }, daily: { date: null, quests: [], done: {} },
+    events: { answered: {}, cur: null }, legends: { read: {} } };
+}
+function migrate(raw) {
+  const f = fresh(), s = Object.assign(fresh(), raw || {});
+  ["a", "got", "quiz", "done", "swipe"].forEach(k => { if (!s[k] || typeof s[k] !== "object" || Array.isArray(s[k])) s[k] = f[k]; });
+  if (!Array.isArray(s.sales)) s.sales = [];
+  s.xp = +s.xp || 0;
+  s.streak = Object.assign(f.streak, raw && raw.streak);
+  s.daily = Object.assign(f.daily, raw && raw.daily);
+  s.events = Object.assign(f.events, raw && raw.events); s.events.answered = s.events.answered || {};
+  s.legends = Object.assign(f.legends, raw && raw.legends); s.legends.read = s.legends.read || {};
+  s.v = Math.max(STATE_VERSION, +(raw && raw.v) || 0);
+  return s;
+}
+let S = fresh();
+try {
+  const raw = JSON.parse(localStorage.getItem(KEY));
+  if (raw && typeof raw === "object") {
+    if ((+raw.v || 0) < STATE_VERSION) localStorage.setItem(KEY + "-backup-v" + (raw.v || 0), JSON.stringify(raw));
+    S = migrate(raw);
+  }
+} catch (e) {}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+/* ---------- даты, серия, задания дня */
+const pad = n => String(n).padStart(2, "0");
+const dstr = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+const today = () => dstr(new Date());
+const yesterday = () => { const d = new Date(); d.setDate(d.getDate() - 1); return dstr(d); };
+function hashStr(s) { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { return () => (seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 4294967296; }
+function streakNow() {
+  const st = S.streak;
+  if (st.last === today()) return { n: st.count, hot: true };
+  if (st.last === yesterday()) return { n: st.count, hot: false, warn: true };
+  return { n: 0, hot: false };
+}
+function ensureDaily() {
+  const d = today(); if (S.daily.date === d && S.daily.quests.length) return;
+  const cur = M.find(m => !S.done[m.id]) || M[7];
+  const r = rng(hashStr(d)), pool = DAILY[cur.id].slice(), all = DAILY.all;
+  const pick = [];
+  while (pick.length < 2 && pool.length) pick.push(pool.splice(Math.floor(r() * pool.length), 1)[0]);
+  pick.push(all[Math.floor(r() * all.length)]);
+  S.daily = { date: d, quests: pick, done: {} }; save();
+}
+function touchStreak() {
+  const st = S.streak, t = today(); if (st.last === t) return;
+  st.count = st.last === yesterday() ? st.count + 1 : 1;
+  st.last = t; st.best = Math.max(st.best, st.count); save();
+  const bonus = STREAK_BONUS[st.count];
+  if (bonus && addXP(bonus, "streak." + st.count)) { confetti(innerWidth / 2, innerHeight / 3, 120); toast("Серия " + st.count + " дн. подряд! +" + bonus + " XP"); }
+  else toast("Серия: " + st.count + " дн. подряд!");
+}
+
+/* ---------- резервный код: перенос прогресса между ссылками, файлами и устройствами */
+function exportCode() { return "SQ" + STATE_VERSION + ":" + btoa(unescape(encodeURIComponent(JSON.stringify(S)))); }
+function importCode(code) {
+  code = code.trim().replace(/\s+/g, "");
+  if (/^SQ\d+:/.test(code)) code = code.slice(code.indexOf(":") + 1);
+  return migrate(JSON.parse(decodeURIComponent(escape(atob(code)))));
+}
+function mergeState(a, b) {
+  const m = migrate(JSON.parse(JSON.stringify(a)));
+  m.xp = Math.max(a.xp, b.xp);
+  m.got = Object.assign({}, b.got, a.got); m.done = Object.assign({}, b.done, a.done);
+  m.swipe = Object.assign({}, b.swipe, a.swipe);
+  Object.entries(b.quiz).forEach(([k, v]) => { const c = m.quiz[k]; if (!c || (!c.solved && v.solved)) m.quiz[k] = v; });
+  const empty = v => v == null || v === "" || v === false || (Array.isArray(v) && !v.length);
+  Object.entries(b.a).forEach(([k, v]) => { if (empty(m.a[k]) && !empty(v)) m.a[k] = v; });
+  const key = s => [s.d, s.c, s.p, s.r].join("|"), seen = new Set(m.sales.map(key));
+  b.sales.forEach(s => { if (!seen.has(key(s))) { m.sales.push(s); seen.add(key(s)); } });
+  if ((b.streak.last || "") > (a.streak.last || "")) m.streak = Object.assign({}, b.streak);
+  m.streak.best = Math.max(a.streak.best, b.streak.best, m.streak.count);
+  m.events.answered = Object.assign({}, b.events.answered, a.events.answered);
+  m.legends.read = Object.assign({}, b.legends.read, a.legends.read);
+  return m;
+}
+let soundOn = true;
+try { soundOn = localStorage.getItem("startup-quest-sound") !== "off"; } catch (e) {}
+
+const app = document.getElementById("app");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = n => isFinite(n) ? Math.round(n).toLocaleString("ru-RU") : "—";
+const num = (k, d) => { const v = parseFloat(String(S.a[k] ?? "").replace(",", ".")); return isFinite(v) ? v : d; };
+const val = k => S.a[k] ?? "";
+const reduced = () => !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+/* ================================================================== звук (синтез, без файлов) */
+let actx = null;
+function tone(f, t0, dur, type, vol) {
+  if (!soundOn) return;
+  try {
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    const o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime + t0;
+    o.type = type || "sine"; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol || 0.15, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t + dur + 0.05);
+  } catch (e) {}
+}
+const sfx = {
+  good: () => { tone(660, 0, .12, "triangle"); tone(990, .09, .18, "triangle"); },
+  bad: () => { tone(180, 0, .22, "square", .06); tone(140, .12, .22, "square", .05); },
+  coin: () => { tone(1320, 0, .08, "square", .05); tone(1760, .06, .12, "square", .05); },
+  level: () => { [523, 659, 784, 1047].forEach((f, i) => tone(f, i * .1, .22, "triangle", .14)); },
+  hit: () => { tone(220, 0, .08, "sawtooth", .08); tone(110, .05, .15, "sawtooth", .06); },
+  win: () => { [784, 988, 1175, 1568, 1175, 1568].forEach((f, i) => tone(f, i * .09, .2, "triangle", .12)); }
+};
+
+/* ================================================================== конфетти */
+const cv = document.getElementById("confetti"), cx = cv.getContext("2d");
+let parts = [], raf = 0;
+const PCOL = ["#2b95d6", "#e23d4f", "#f0ad1e", "#5fa62d", "#ef7420", "#8a5bbd"];
+function confetti(x, y, n) {
+  if (reduced()) return;
+  const dpr = window.devicePixelRatio || 1;
+  cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
+  for (let i = 0; i < (n || 80); i++) {
+    const a = Math.random() * Math.PI * 2, sp = 4 + Math.random() * 8;
+    parts.push({ x: x * dpr, y: y * dpr, vx: Math.cos(a) * sp * dpr, vy: (Math.sin(a) * sp - 6) * dpr, g: .35 * dpr,
+      r: (4 + Math.random() * 5) * dpr, c: PCOL[i % 6], rot: Math.random() * 6, vr: (Math.random() - .5) * .4, life: 90 + Math.random() * 40, shape: i % 3 });
+  }
+  if (!raf) raf = requestAnimationFrame(tick);
+}
+function tick() {
+  cx.clearRect(0, 0, cv.width, cv.height);
+  parts.forEach(p => {
+    p.vy += p.g; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life--;
+    cx.save(); cx.translate(p.x, p.y); cx.rotate(p.rot); cx.fillStyle = p.c; cx.globalAlpha = Math.max(0, Math.min(1, p.life / 30));
+    if (p.shape === 0) cx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r);
+    else if (p.shape === 1) { cx.beginPath(); cx.arc(0, 0, p.r * .7, 0, 7); cx.fill(); }
+    else { cx.beginPath(); cx.moveTo(0, -p.r); cx.lineTo(p.r, p.r); cx.lineTo(-p.r, p.r); cx.fill(); }
+    cx.restore();
+  });
+  parts = parts.filter(p => p.life > 0 && p.y < cv.height + 50);
+  raf = parts.length ? requestAnimationFrame(tick) : 0;
+  if (!raf) cx.clearRect(0, 0, cv.width, cv.height);
+}
+
+/* ================================================================== XP, уровни, оверлеи */
+let lastPt = { x: innerWidth / 2, y: innerHeight / 2 };
+document.addEventListener("pointerdown", e => { lastPt = { x: e.clientX, y: e.clientY }; }, true);
+function level() {
+  let i = 0; LEVELS.forEach((l, j) => { if (S.xp >= l[0]) i = j; });
+  const cur = LEVELS[i], nxt = LEVELS[i + 1];
+  return { i, name: cur[1], from: cur[0], to: nxt ? nxt[0] : null };
+}
+let toastT;
+function toast(msg) {
+  const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2600);
+}
+function xpPop(n) {
+  if (reduced()) return;
+  const d = document.createElement("div"); d.className = "xpfloat"; d.textContent = "+" + n + " XP";
+  d.style.left = lastPt.x + "px"; d.style.top = (lastPt.y - 10) + "px";
+  document.body.appendChild(d); setTimeout(() => d.remove(), 1000);
+}
+let pendingLevel = null;
+function addXP(n, key) {
+  if (key) { if (S.got[key]) return false; S.got[key] = 1; }
+  const before = level().i;
+  S.xp += n; save();
+  const after = level();
+  xpPop(n); if (n < 20) sfx.coin();
+  const x = document.getElementById("xpline"); if (x) x.outerHTML = xpCard();
+  if (after.i > before) pendingLevel = after;
+  setTimeout(flushLevel, 700);
+  return true;
+}
+function flushLevel() {
+  if (!pendingLevel || document.querySelector(".overlay, .storyview")) return;
+  const L = pendingLevel; pendingLevel = null;
+  sfx.level(); confetti(innerWidth / 2, innerHeight / 3, 120);
+  showModal(`<div class="hex bigx" style="background:var(--c6)"><span style="font-family:var(--font-display);font-weight:800;position:relative;z-index:1">${L.i + 1}</span></div>
+    <div class="label muted">Новый уровень</div><h2 style="font-size:24px">${esc(L.name)}</h2>
+    <p class="muted">${L.to ? "До следующего уровня: " + fmt(L.to - S.xp) + " XP" : "Это высший уровень. Ты настоящий профи!"}</p>`, "Круто, дальше!");
+}
+function showModal(inner, btn, onClose, btn2) {
+  const o = document.createElement("div"); o.className = "overlay"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true");
+  o.innerHTML = `<div class="modal">${inner}<div class="row" style="justify-content:center">${btn2 ? `<button class="btn ghost" data-m2="1">${esc(btn2[0])}</button>` : ""}<button class="btn" data-m1="1">${esc(btn)}</button></div></div>`;
+  document.body.appendChild(o);
+  const close = cb => { o.remove(); if (cb) cb(); setTimeout(flushLevel, 300); };
+  o.querySelector("[data-m1]").addEventListener("click", () => close(onClose));
+  if (btn2) o.querySelector("[data-m2]").addEventListener("click", () => close(btn2[1]));
+  o.querySelector("[data-m1]").focus();
+}
+const unlocked = i => i === 0 || !!S.done[M[i - 1].id];
+
+/* ================================================================== прогресс миссии */
+function taskFilled(m, t) {
+  const has = pre => Object.keys(S.a).some(k => k.startsWith(pre) && S.a[k] !== "" && S.a[k] !== false && !(Array.isArray(S.a[k]) && !S.a[k].length));
+  switch (t.type) {
+    case "tam": return has("tam."); case "ten": return has("ten."); case "value": return has("val.");
+    case "unit": return has("u."); case "compete": return has("cmp."); case "segscore": return S.a.beach != null;
+    case "risks": return RISKS.every((r, i) => S.a["risk." + i]); case "sales": return S.sales.length > 0;
+    case "swipe": return Object.keys(S.swipe || {}).length >= DEALS.length;
+    case "pick": { const sel = S.a[m.id + "." + t.key] || []; return sel.length > 0 && !(t.pivot && sel.includes(3)); }
+    default: return has(m.id + "." + t.key);
+  }
+}
+function missionProgress(m) {
+  const q = m.quiz.filter((x, qi) => (S.quiz[m.id + ".q" + qi] || {}).solved).length;
+  const t = m.tasks.filter(x => taskFilled(m, x)).length;
+  return Math.round((q + t) / (m.quiz.length + m.tasks.length) * 100);
+}
+function bossHP() {
+  const flipped = RISKS.filter((r, i) => S.a["risk." + i]).length;
+  const pv = S.a["m7.pivot"] || [];
+  const good = pv.length && !pv.includes(3);
+  return Math.max(0, 100 - flipped * 20 - (good ? 20 : 0));
+}
+
+/* ================================================================== главная */
+function xpCard() {
+  const L = level();
+  const pct = L.to ? Math.min(100, (S.xp - L.from) / (L.to - L.from) * 100) : 100;
+  return `<div class="xpcard" id="xpline">
+    <div class="lvl-badge" aria-hidden="true">${L.i + 1}</div>
+    <div style="min-width:0"><div class="label muted">Уровень ${L.i + 1}</div><b>${esc(L.name)}</b></div>
+    <div class="xpnum">${fmt(S.xp)} XP</div>
+    <div class="xpbar" role="progressbar" aria-valuenow="${Math.round(pct)}" aria-valuemin="0" aria-valuemax="100" aria-label="Прогресс до следующего уровня"><i style="width:${pct}%"></i></div>
+  </div>`;
+}
+function bottleChar(x, y, s) {
+  return `<g transform="translate(${x} ${y}) scale(${s || 1})">
+    <ellipse cx="0" cy="2" rx="14" ry="4" fill="#000" opacity=".2"/>
+    <rect x="-15" y="-38" width="30" height="38" rx="10" fill="#ff8fb0" stroke="#172233" stroke-width="3"/>
+    <rect x="-7" y="-50" width="14" height="13" rx="3" fill="#f2b93a" stroke="#172233" stroke-width="3"/>
+    <circle cx="-6" cy="-22" r="3.2" fill="#172233"/><circle cx="6" cy="-22" r="3.2" fill="#172233"/>
+    <circle cx="-5" cy="-23" r="1" fill="#fff"/><circle cx="7" cy="-23" r="1" fill="#fff"/>
+    <path d="M-6,-13 q6,6 12,0" fill="none" stroke="#172233" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="-11" cy="-15" r="2.5" fill="#ff5c86" opacity=".7"/><circle cx="11" cy="-15" r="2.5" fill="#ff5c86" opacity=".7"/>
+  </g>`;
+}
+
+function mapSVG() {
+  const W = 340, step = 112, top = 84, H = top + step * 7 + 120;
+  const pts = M.map((m, i) => [i % 2 ? 252 : 88, top + i * step]);
+  const seg = i => { const [x0, y0] = pts[i], [x1, y1] = pts[i + 1]; return `M${x0},${y0} C${x0},${y0 + step * .62} ${x1},${y1 - step * .62} ${x1},${y1}`; };
+  const finY = H - 46;
+  const tail = `M${pts[7][0]},${pts[7][1]} C${pts[7][0]},${pts[7][1] + 60} 170,${finY - 50} 170,${finY}`;
+  const all = [0, 1, 2, 3, 4, 5, 6].map(seg).join(" ") + " " + tail;
+  let roads = "";
+  for (let i = 0; i < 7; i++) roads += `<path d="${seg(i)}" fill="none" stroke="${S.done[M[i].id] ? `var(${M[i].color})` : "var(--locked)"}" stroke-width="30" stroke-linecap="round"/>`;
+  roads += `<path d="${tail}" fill="none" stroke="${S.done.m8 ? "var(--c6)" : "var(--locked)"}" stroke-width="30" stroke-linecap="round"/>`;
+  const stars = [[24, 40, "--c3"], [318, 120, "--c1"], [22, 270, "--c2"], [320, 390, "--c4"], [28, 530, "--c6"], [314, 650, "--c5"], [26, 770, "--c3"], [316, 870, "--c2"]]
+    .map((s, i) => `<path class="twinkle" style="animation-delay:${i * .3}s" d="M${s[0]},${s[1] - 8} l2.5,5.5 5.5,2.5 -5.5,2.5 -2.5,5.5 -2.5,-5.5 -5.5,-2.5 5.5,-2.5 Z" fill="var(${s[2]})"/>`).join("");
+  const cur = M.findIndex(m => !S.done[m.id]);
+  const nodes = M.map((m, i) => {
+    const [x, y] = pts[i], open = unlocked(i), done = !!S.done[m.id];
+    const col = open ? `var(${m.color})` : "var(--locked)";
+    const prog = open ? missionProgress(m) : 0, C = 2 * Math.PI * 38;
+    const lx = i % 2 ? x - 52 : x + 52, anchor = i % 2 ? "end" : "start";
+    const ix = i % 2 ? x - 34 : x + 34;
+    return `<g class="node ${open ? "" : "locked"}" data-go="${m.id}" tabindex="${open ? 0 : -1}" role="button" aria-label="Миссия ${i + 1}: ${esc(m.title)}${open ? ", прогресс " + prog + "%" : " (закрыта)"}">
+      <circle cx="${x}" cy="${y}" r="38" fill="var(--surface)" stroke="var(--road-edge)" stroke-width="3"/>
+      ${open && prog ? `<circle class="ring" cx="${x}" cy="${y}" r="38" fill="none" stroke="${col}" stroke-width="6" stroke-dasharray="${(C * prog / 100).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 ${x} ${y})" stroke-linecap="round"/>` : ""}
+      <circle cx="${x}" cy="${y}" r="28" fill="${col}" stroke="var(--road-edge)" stroke-width="3"/>
+      ${done ? `<path d="M${x - 11},${y} l7,8 l15,-17" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`
+             : open ? `<text x="${x}" y="${y + 8}" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="22" fill="${m.dark ? "#1b2333" : "#fff"}">${i + 1}</text>`
+             : `<path d="M${x - 8},${y - 2} v-5 a8,8 0 0 1 16,0 v5 M${x - 11},${y - 2} h22 v14 h-22 Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>`}
+      <g transform="translate(${ix - 15} ${y - 66})"><rect width="30" height="30" rx="9" fill="var(--surface)" stroke="var(--road-edge)" stroke-width="2.5"/>
+        <g transform="translate(3 3)" fill="none" stroke="${col}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${IC[m.icon]}</g></g>
+      <text x="${lx}" y="${y - 2}" text-anchor="${anchor}" font-family="Unbounded, sans-serif" font-weight="800" font-size="14" fill="var(--ink)">${esc(m.short)}</text>
+      <text x="${lx}" y="${y + 17}" text-anchor="${anchor}" font-family="Manrope, sans-serif" font-weight="700" font-size="12" fill="var(--ink-soft)">${done ? "пройдено" : open ? prog + "% · шаги " + m.steps : "закрыто"}</text>
+    </g>`;
+  }).join("");
+  const tok = cur >= 0 ? `<g class="token">${bottleChar(pts[cur][0] + (cur % 2 ? 40 : -40), pts[cur][1] + 30, .9)}</g>` : "";
+  const allDone = cur < 0;
+  const finish = `<g data-go="report" class="node" role="button" tabindex="0" aria-label="Демо-день">
+    <rect x="96" y="${finY - 20}" width="148" height="40" rx="20" fill="${allDone ? "var(--ink)" : "var(--surface)"}" stroke="var(--road-edge)" stroke-width="3"/>
+    <text x="170" y="${finY + 6}" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="13" fill="${allDone ? "var(--bg)" : "var(--ink)"}">ДЕМО-ДЕНЬ</text></g>
+    <g class="rocket-idle"><g transform="translate(286 ${finY - 34})">
+      <g class="flame"><path d="M-7,28 Q0,60 7,28 Z" fill="#ef7420"/><path d="M-3,28 Q0,46 3,28 Z" fill="#f2b93a"/></g>
+      <path d="M-12,8 L-24,30 L-10,25 Z M12,8 L24,30 L10,25 Z" fill="var(--c2)" stroke="var(--road-edge)" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M0,-36 C15,-24 17,4 12,28 L-12,28 C-17,4 -15,-24 0,-36 Z" fill="#fff" stroke="var(--road-edge)" stroke-width="3" stroke-linejoin="round"/>
+      <circle cx="0" cy="-6" r="7" fill="var(--c1)" stroke="var(--road-edge)" stroke-width="2.5"/></g></g>`;
+  const start = `<g><rect x="${pts[0][0] - 36}" y="${pts[0][1] - 84}" width="72" height="26" rx="13" fill="var(--c2)" stroke="var(--road-edge)" stroke-width="2.5"/>
+    <text x="${pts[0][0]}" y="${pts[0][1] - 66}" text-anchor="middle" font-family="Unbounded, sans-serif" font-weight="800" font-size="11" fill="#fff">СТАРТ</text></g>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="group" aria-label="Карта миссий">
+    ${stars}
+    <path d="${all}" fill="none" stroke="var(--road-edge)" stroke-width="40" stroke-linecap="round"/>
+    ${roads}
+    <path class="roadflow" d="${all}" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="3" stroke-dasharray="10 18" stroke-linecap="round"/>
+    ${start}${nodes}${finish}${tok}</svg>`;
+}
+
+/* ---------- серия и задания дня */
+function fireSVG(hot) {
+  return `<svg viewBox="0 0 24 24" width="38" height="38" aria-hidden="true"><path d="${IC.fire.match(/d="([^"]+)"/)[1]}" fill="${hot ? "var(--c5)" : "var(--locked)"}" stroke="var(--road-edge)" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M12 22c-1.9 0-3-1.3-3-3 0-2 1.6-3 2.4-4.6.8 1.2 1.6 1.8 2.6 2.1.6.9 1 1.6 1 2.5 0 1.7-1.1 3-3 3z" fill="${hot ? "var(--c3)" : "var(--surface-2)"}"/></svg>`;
+}
+function streakBox() {
+  const st = streakNow();
+  return `<div class="streak ${st.hot ? "" : "cold"}" id="streakbox" aria-label="Серия: ${st.n} дн. подряд"><span class="fire">${fireSVG(st.hot)}</span><b>${st.n}</b><small>${st.n === 1 ? "день" : "дн."} подряд</small></div>`;
+}
+function dailyHTML() {
+  ensureDaily();
+  const dn = S.daily.quests.filter((q, i) => S.daily.done[i]).length, st = streakNow();
+  const note = st.hot ? "Серия на сегодня сохранена" : st.warn ? "Сделай задание, чтобы не потерять серию!" : "Сделай задание — начни серию";
+  return `<section class="panel"><div class="row" style="justify-content:space-between"><div class="label muted">${ico("cal")} Задания на сегодня</div>
+      <span style="font-size:13px;font-weight:800;color:var(--${st.hot ? "good" : "c5"})">${note}</span></div>
+    ${S.daily.quests.map((q, i) => `<div class="quest ${S.daily.done[i] ? "done" : ""}"><div class="qi" style="background:var(${["--c1", "--c2", "--c6"][i]})">${ico(q[0], 2.2)}</div>
+      <div style="min-width:0"><div class="qt">${esc(q[1])}</div><div class="xp">+15 XP</div></div>
+      ${S.daily.done[i] ? `<span class="pill good">Готово</span>` : `<button class="btn small" data-daily="${i}">Сделал!</button>`}</div>`).join("")}
+    <div class="chestbar"><span style="font-size:24px;display:inline-flex;color:var(--${dn === 3 ? "c4" : "ink-soft"})">${ico("gift")}</span><div class="bar"><i style="width:${dn / 3 * 100}%"></i></div><span>${dn === 3 ? "Сундук дня открыт!" : dn + "/3 · сундук +25 XP"}</span></div></section>`;
+}
+
+/* ---------- карточки событий */
+function pickEvent(random) {
+  const left = EVENTS.filter(e => S.events.answered[e.id] == null);
+  if (!left.length) return null;
+  const i = random ? Math.floor(Math.random() * left.length) : hashStr(today()) % left.length;
+  return left[i].id;
+}
+function eventHTML(drawn) {
+  let e = EVENTS.find(x => x.id === S.events.cur);
+  if (!e) { S.events.cur = pickEvent(false); save(); e = EVENTS.find(x => x.id === S.events.cur); }
+  const total = Object.keys(S.events.answered).length;
+  if (!e) return `<div class="event"><div class="eh"><span>${ico("dice")} Карточки событий</span><span>${total}/${EVENTS.length}</span></div><div class="eb"><p>Ты прошёл все карточки событий! Новые появятся в следующих обновлениях игры.</p></div></div>`;
+  const ans = S.events.answered[e.id], grades = ["bad", "ok", "best"], gname = ["Неудачно", "Так себе", "Отличный ход"];
+  return `<div class="event ${drawn ? "drawn" : ""}"><div class="eh"><span>${ico("dice")} Карточка события</span><span>${total}/${EVENTS.length}</span></div>
+    <div class="eb"><span class="label muted">${esc(e.step)}</span><p class="situ">${esc(e.s)}</p><p class="muted" style="font-weight:700">Что сделаешь?</p>
+    <div class="opts">${e.o.map((o, i) => {
+      const cls = ans == null ? "" : i === ans ? (o[1] === 2 ? "right" : "wrong") : "";
+      return `<button class="opt ${cls}" data-event="${e.id}|${i}" ${ans != null ? "disabled" : ""}>${esc(o[0])}</button>`;
+    }).join("")}</div>
+    ${ans != null ? `<div class="outcome ${grades[e.o[ans][1]]}"><b>${gname[e.o[ans][1]]}.</b> ${esc(e.o[ans][2])}</div>
+      ${e.o[ans][1] < 2 ? `<p class="hint"><b>Лучший ход:</b> ${esc(e.o.find(o => o[1] === 2)[0])}</p>` : ""}
+      <p class="next">${esc(e.lesson)}</p>
+      ${pickEvent(true) ? `<button class="btn small" data-act="drawevent" style="align-self:flex-start">${ico("dice")} Вытянуть следующую карточку</button>` : ""}` : ""}
+    </div></div>`;
+}
+
+/* ---------- легенды бизнеса: карточка в миссии и просмотр в формате «сторис» */
+function rich(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<mark>$1</mark>"); }
+const legendMission = l => M.find(m => m.id === l.m);
+function legendHTML(l) {
+  const read = !!S.legends.read[l.id];
+  return `<div class="legend" data-lid="${l.id}" style="--lc:var(${legendMission(l).color})">
+    <div class="lh">${avatarSVG(l.av, 72, "var(--lc)")}<div style="min-width:0"><span class="chip">${ico(l.clsIcon)} ${esc(l.cls)}</span><b class="lname">${esc(l.name)}</b><div class="muted" style="font-size:13px">${esc(l.brand)}</div></div></div>
+    <div class="lb"><p class="hook">«${esc(l.hook)}»</p><button class="btn small" data-story="${l.id}" style="align-self:flex-start">${read ? "Смотреть ещё раз ▶" : "Смотреть историю ▶ · +10 XP"}</button></div></div>`;
+}
+function openStory(id) {
+  const l = LEGENDS.find(x => x.id === id), lm = legendMission(l);
+  const part = (icon, title, text) => `<div class="sv-ico">${ico(icon, 2)}</div><div class="sv-k">${esc(title)}</div><p>${rich(text)}</p>`;
+  const slides = [
+    `<div class="sv-cover">${avatarSVG(l.av, 168, "rgba(255,255,255,.28)")}<span class="chip light">${ico(l.clsIcon)} ${esc(l.cls)}</span><h2>${esc(l.name)}</h2><div class="sv-brand">${esc(l.brand)}</div><p class="sv-hook">«${esc(l.hook)}»</p><small class="sv-note">Рисованный образ · нажимай справа, чтобы листать</small></div>`,
+    part("user", "Кем был в начале", l.start),
+    part("search", "Что все пропускали", l.pain),
+    part("bolt", "Гениальный ход", l.move),
+    `<div class="sv-ico">${ico("star", 2)}</div><div class="sv-k">Результат</div><div class="sv-big">${esc(l.big)}</div><p>${rich(l.result)}</p>`,
+    `<div class="sv-ico">${ico("flag", 2)}</div><div class="sv-k">Твой ход</div><p class="sv-lesson">${rich(l.lesson)}</p><p class="sv-try"><b>Попробуй сегодня:</b> ${esc(l.try)}</p><p class="sv-xp" id="svxp"></p><button class="btn" data-svclose="1">Готово</button>`
+  ];
+  const o = document.createElement("div");
+  o.className = "storyview" + (lm.dark ? " dk" : ""); o.style.setProperty("--lc", `var(${lm.color})`);
+  o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "История: " + l.name);
+  o.innerHTML = `<div class="sv-card"><div class="sv-bars">${slides.map(() => "<i><b></b></i>").join("")}</div>
+    <div class="sv-top"><span class="sv-mini">${avatarSVG(l.av, 34, "rgba(255,255,255,.3)")}<b>${esc(l.name)}</b></span><button class="sv-x" aria-label="Закрыть">×</button></div>
+    <button class="sv-prev" aria-label="Назад"></button><button class="sv-next" aria-label="Дальше"></button>
+    <div class="sv-body" aria-live="polite"></div></div>`;
+  document.body.appendChild(o);
+  const body = o.querySelector(".sv-body"), bars = o.querySelectorAll(".sv-bars i");
+  let i = 0, sx = null, skipClick = false;
+  const close = () => {
+    o.remove(); document.removeEventListener("keydown", onKey);
+    document.querySelectorAll(`.legend[data-lid="${l.id}"]`).forEach(el => { el.outerHTML = legendHTML(l); });
+    if (!location.hash || location.hash === "#") renderHome();
+    setTimeout(flushLevel, 300);
+  };
+  const show = n => {
+    if (n >= slides.length) return close();
+    i = Math.max(0, n);
+    body.innerHTML = `<div class="sv-slide">${slides[i]}</div>`;
+    bars.forEach((b, k) => { b.className = k < i ? "done" : k === i ? "cur" : ""; });
+    sfx.coin();
+    if (i === slides.length - 1) {
+      const fresh = !S.legends.read[l.id];
+      if (fresh) { S.legends.read[l.id] = 1; save(); addXP(10, "legend." + l.id); confetti(innerWidth / 2, innerHeight / 2, 90); }
+      const x = body.querySelector("#svxp"); if (x) x.textContent = fresh ? "+10 XP · история добавлена в Зал славы" : "Эта история уже в твоём Зале славы";
+      const b = body.querySelector("[data-svclose]"); if (b) { b.addEventListener("click", close); b.focus(); }
+    }
+  };
+  const onKey = e => { if (e.key === "Escape") close(); else if (e.key === "ArrowRight") show(i + 1); else if (e.key === "ArrowLeft") show(i - 1); };
+  document.addEventListener("keydown", onKey);
+  o.querySelector(".sv-x").addEventListener("click", close);
+  o.querySelector(".sv-next").addEventListener("click", () => { if (!skipClick) show(i + 1); });
+  o.querySelector(".sv-prev").addEventListener("click", () => { if (!skipClick) show(i - 1); });
+  o.addEventListener("click", e => { if (e.target === o) close(); });
+  const card = o.querySelector(".sv-card");
+  card.addEventListener("pointerdown", e => { sx = e.clientX; skipClick = false; });
+  card.addEventListener("pointerup", e => {
+    if (sx == null) return; const dx = e.clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) { skipClick = true; show(dx < 0 ? i + 1 : i - 1); setTimeout(() => { skipClick = false; }, 300); }
+  });
+  show(0);
+  o.querySelector(".sv-x").focus();
+}
+
+function soundBtn() {
+  return `<button class="btn ghost sound" data-act="sound" aria-label="${soundOn ? "Выключить звук" : "Включить звук"}" aria-pressed="${soundOn}">${ico(soundOn ? "speaker" : "mute")}</button>`;
+}
+
+function renderHome() {
+  app.style.removeProperty("--mc");
+  const doneCount = M.filter(m => S.done[m.id]).length;
+  const nextI = M.findIndex(m => !S.done[m.id]);
+  app.innerHTML = `
+  <header class="hero">
+    <div class="row" style="justify-content:space-between;flex-wrap:nowrap"><div class="label muted">По методике MIT «Disciplined Entrepreneurship»</div>${soundBtn()}</div>
+    <h1><span class="w1">Стартап-</span><span class="w2">квест</span></h1>
+    <div class="rainbow" aria-hidden="true">${["--c1", "--c2", "--c3", "--c4", "--c5", "--c6"].map(c => `<i style="background:var(${c})"></i>`).join("")}</div>
+    <p class="muted">8 миссий, чтобы запустить свой маленький бизнес с ароматами так, как это делают стартаперы из MIT. Проходи дорогу, побеждай босса и собирай значки.</p>
+  </header>
+  <div class="toprow">${xpCard()}${streakBox()}</div>
+  <div style="margin-top:14px" id="dailybox">${dailyHTML()}</div>
+  <div class="map">${mapSVG()}</div>
+  <div class="stack">
+    <div class="row">
+      ${nextI >= 0 ? `<button class="btn" data-go="${M[nextI].id}">${doneCount ? "Продолжить" : "Погнали"}: миссия ${nextI + 1}</button>` : `<button class="btn" data-go="report">Демо-день</button>`}
+      ${nextI >= 0 ? `<button class="btn ghost" data-go="report">Отчёт</button>` : ""}
+    </div>
+    <div id="eventbox">${eventHTML(false)}</div>
+    <div class="panel"><div class="row" style="justify-content:space-between"><div class="label muted">${ico("crown")} Зал славы: ${LEGENDS.filter(l => S.legends.read[l.id]).length} из ${LEGENDS.length}</div><span class="muted" style="font-size:13px">реальные истории успеха</span></div>
+      <div class="hall">${LEGENDS.map(l => { const lm = legendMission(l), mi = M.indexOf(lm), open = unlocked(mi), read = !!S.legends.read[l.id];
+        return `<button class="hallcard ${open ? (read ? "" : "unread") : "locked"}" ${open ? `data-story="${l.id}"` : `data-hall="${l.id}"`} style="--lc:var(${lm.color})">${avatarSVG(l.av, 60, open ? "var(--lc)" : "var(--surface)", !open)}<span>${open ? esc(l.name) : "Миссия " + (mi + 1)}</span>${open ? `<small>${esc(l.cls)}</small>` : ""}</button>`; }).join("")}</div>
+    </div>
+    <div class="panel"><div class="label muted">Коллекция значков: ${doneCount} из 8</div>
+      <div class="stickers">${M.map(m => `<div class="sticker ${S.done[m.id] ? "" : "off"}"><div class="hex" style="background:var(${m.color})">${ico(m.icon, 2.4)}</div>${esc(m.badge)}</div>`).join("")}</div>
+    </div>
+    <details class="panel"><summary>Как играть</summary>
+      <ul>
+        <li>Иди по дороге: миссии открываются по очереди. Кольцо вокруг кружка показывает, сколько уже сделано.</li>
+        <li>XP: +10 за верный ответ с первой попытки, +5 за каждое заполненное поле, +50 за пройденную миссию. Копи XP и повышай уровень.</li>
+        <li>Миссия 6 — мини-игра со свайпами, миссия 7 — битва с боссом.</li>
+        <li>Возвращаться в прошлые миссии можно и нужно: путь последовательный, но не линейный.</li>
+        <li>Каждый день — 3 задания в реальной жизни. Делай хотя бы одно в день, чтобы не потерять серию. За 3, 7, 14 и 30 дней подряд — бонусы.</li>
+        <li>Карточки событий — ситуации, как в настольной игре. Выбери, как поступишь, и узнай, что из этого вышло.</li>
+        <li>В «Зале славы» — реальные истории предпринимателей в формате сторис: кем был, что заметил, какой гениальный ход сделал и что получилось. Новые истории открываются вместе с миссиями.</li>
+        <li>Ответы сохраняются на этом устройстве, а обновления игры их не стирают. Отчёт для родителей можно скопировать и отправить в мессенджер.</li>
+      </ul>
+    </details>
+    <details class="panel"><summary>${ico("save")} Сохранение и перенос прогресса</summary>
+      <p class="hint">Прогресс хранится в браузере. Обновления игры по той же ссылке его не стирают. Если открываешь игру по другой ссылке, из другого файла или на другом телефоне — скопируй код сохранения здесь и вставь его там. Прогресс объединится: ничего не потеряется.</p>
+      <div class="row"><button class="btn small" data-act="backupcopy">Скопировать код сохранения</button><span class="muted" id="backupmsg"></span></div>
+      <textarea id="importbox" placeholder="Вставь сюда код сохранения" aria-label="Код сохранения"></textarea>
+      <div class="row"><button class="btn ghost small" data-act="backuprestore">Восстановить и объединить</button><span class="muted" id="restoremsg"></span></div>
+    </details>
+    <details class="panel"><summary>Для родителей: роль инвестора</summary>
+      <ul>
+        <li>Дайте небольшой стартовый капитал (например, 2–3 тыс. ₽) как «инвестицию» и договоритесь, что из прибыли он вернётся.</li>
+        <li>Раз в неделю — «совет директоров» на 15 минут: что сделано, что узнал, какие цифры.</li>
+        <li>После миссии 8 — «демо-день»: ребёнок показывает отчёт и рассказывает, что поменял по ходу.</li>
+        <li>Обратите внимание на миссию 7: там ребёнок сам находит риски реплик с логотипами и выбирает законный вариант бизнеса.</li>
+      </ul>
+    </details>
+    <div class="row"><button class="btn ghost small" data-act="reset">Начать игру заново</button><span class="muted" id="resetnote"></span></div>
+  </div>`;
+}
+
+/* ================================================================== миссия */
+function renderMission(id) {
+  const idx = M.findIndex(m => m.id === id), m = M[idx];
+  if (idx < 0 || !unlocked(idx)) { location.hash = ""; return renderHome(); }
+  app.style.setProperty("--mc", `var(${m.color})`);
+  const prog = missionProgress(m);
+  app.innerHTML = `
+  <div class="topbar"><button class="btn ghost" data-go="home">← Карта</button>${xpCard()}${soundBtn()}</div>
+  <div class="stack">
+    <header class="mhead ${m.dark ? "dark-text" : ""}">
+      ${sceneSVG(m.id)}
+      <div class="mtitle"><div class="mnum">${idx + 1}</div>
+        <div><div class="label">Миссия ${idx + 1} из 8 · шаги MIT ${m.steps}</div><h1>${esc(m.title)}</h1></div></div>
+      ${m.boss ? `<div class="boss" id="boss"></div>` : ""}
+      <div class="mprog"><span>Прогресс</span><div class="bar"><i id="mbar" style="width:${prog}%"></i></div><span id="mpct">${prog}%</span></div>
+    </header>
+    <section class="section"><div class="label">${ico("chat")} Коуч говорит</div>
+      <div class="coach"><svg width="56" height="64" viewBox="-28 -58 56 64" aria-hidden="true"><g class="token">${bottleChar(0, 0, 1.05)}</g></svg><p class="bubble">${esc(m.coach)}</p></div></section>
+    <section class="section why"><div class="label">${ico("target")} Зачем это нужно</div><ul>${m.why.map((w, i) => `<li><b>${i + 1}</b><span>${esc(w)}</span></li>`).join("")}</ul></section>
+    <section class="section"><div class="label">${ico("bolt")} Словарик: сложные слова по-простому</div>
+      <div class="dict">${m.dict.map(d => `<div class="term"><div class="ti">${ico(d[2] || "star", 2.2)}</div><div><b>${esc(d[0])}</b>${esc(d[1])}</div></div>`).join("")}</div></section>
+    <section class="section"><div class="label">${ico("crown")} Легенды бизнеса · +10 XP за историю</div>
+      ${LEGENDS.filter(l => l.m === m.id).map(l => legendHTML(l)).join("")}</section>
+    <section class="section"><div class="label">${ico("star")} Проверь себя · +10 XP за верный ответ</div>
+      ${m.quiz.map((q, qi) => quizHTML(m.id + ".q" + qi, q)).join("")}</section>
+    <section class="section"><div class="label">${ico("flag")} Миссия в реальной жизни · +5 XP за поле</div>
+      ${m.tasks.map((t, ti) => `<div class="task" data-ti="${ti}">${taskHTML(m, t)}</div>`).join("")}</section>
+    <section class="section"><div class="label">${ico("route")} Как это повлияет дальше</div><p class="next">${esc(m.next)}</p></section>
+    <div class="done-bar" id="donebar">${doneBar(m, idx)}</div>
+  </div>`;
+  updateOutputs(); updateBoss(false);
+  if (id === "m6") bindDeck();
+  window.scrollTo(0, 0);
+}
+function refreshProgress(m) {
+  const p = missionProgress(m), b = document.getElementById("mbar"), t = document.getElementById("mpct");
+  if (b) b.style.width = p + "%"; if (t) t.textContent = p + "%";
+  document.querySelectorAll(".task[data-ti]").forEach(el => {
+    const d = el.querySelector(".done-dot"); if (d) { const on = taskFilled(m, m.tasks[+el.dataset.ti]); d.classList.toggle("on", on); d.textContent = on ? "✓" : ""; }
+  });
+}
+let bossWasDead = false;
+function updateBoss(fx) {
+  const el = document.getElementById("boss"); if (!el) return;
+  const hp = bossHP();
+  el.innerHTML = `<div class="row" style="justify-content:space-between"><span>${hp > 0 ? "Здоровье босса" : "Босс повержен!"}</span><span>${hp}%</span></div><div class="hp"><i style="width:${hp}%"></i></div>`;
+  const body = document.querySelector(".mhead .scene .boss-body"); if (body) body.style.opacity = hp === 0 ? ".2" : "1";
+  if (fx && hp === 0 && !bossWasDead) {
+    sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 160);
+    addXP(20, "boss"); toast("Мистер Допущение повержен!");
+  }
+  bossWasDead = hp === 0;
+}
+
+function quizHTML(qid, q) {
+  const st = S.quiz[qid] || { picked: [], solved: false };
+  return `<div class="q" data-q="${qid}"><p class="qt">${esc(q.q)}</p><div class="opts">
+    ${q.o.map((o, i) => {
+      const cls = st.picked.includes(i) ? (i === q.c ? "right" : "wrong") : "";
+      return `<button class="opt ${cls}" data-qopt="${qid}|${i}" ${st.solved ? "disabled" : ""}>${esc(o)}</button>`;
+    }).join("")}</div>
+    ${st.picked.length ? `<p class="explain">${st.solved ? "<b>Верно!</b> " : "<b>Не совсем.</b> Попробуй ещё. "}${esc(q.e)}</p>` : ""}</div>`;
+}
+
+function inp(key, ph, multi) {
+  return multi
+    ? `<textarea id="f-${key}" data-k="${key}" placeholder="${esc(ph)}">${esc(val(key))}</textarea>`
+    : `<input type="text" id="f-${key}" data-k="${key}" placeholder="${esc(ph)}" value="${esc(val(key))}">`;
+}
+function numInp(key, label, def) {
+  return `<label class="f">${esc(label)}<input type="number" inputmode="decimal" id="f-${key}" data-k="${key}" data-num="1" value="${esc(S.a[key] ?? def)}"></label>`;
+}
+
+function taskHTML(m, t) {
+  const p = m.id + ".", on = taskFilled(m, t);
+  const head = `<h3><span class="done-dot ${on ? "on" : ""}">${on ? "✓" : ""}</span>${t.icon ? `<span style="color:var(--mc);display:inline-flex">${ico(t.icon)}</span>` : ""}<span>${esc(t.title)}</span></h3>${t.hint ? `<p class="hint">${esc(t.hint)}</p>` : ""}`;
+  switch (t.type) {
+    case "text": return head + inp(p + t.key, t.ph, true);
+    case "list": return head + `<div class="grid2">${Array.from({ length: t.n }, (_, i) => `<label class="f">${i + 1}${inp(p + t.key + "." + i, t.ph[i])}</label>`).join("")}</div>`;
+    case "fields": return head + `<div class="grid2">${t.fields.map((f, i) => `<label class="f">${esc(f[0])}${inp(p + t.key + "." + i, f[1])}</label>`).join("")}</div>`;
+    case "grid": return head + Array.from({ length: t.rows }, (_, r) => `<div class="grid2">${t.cols.map((c, ci) => `<label class="f">${r + 1}. ${esc(c[0])}${inp(p + t.key + "." + r + "." + ci, r === 0 ? c[1] : "")}</label>`).join("")}</div>`).join("");
+    case "checks": return head + `<div class="checks">${t.items.map((it, i) => { const k = p + t.key + "." + i;
+      return `<label><input type="checkbox" id="f-${k}" data-k="${k}" ${S.a[k] ? "checked" : ""}>${esc(it)}</label>`; }).join("")}</div>`;
+    case "pick": return head + pickHTML(p + t.key, t);
+    case "segscore": return head + segHTML();
+    case "tam": return head + `<p class="hint">Цифры для примера — замени своими.</p><div class="grid2">
+      ${numInp("tam.people", "Сколько людей на плацдарме", 60)}${numInp("tam.freq", "Сколько флаконов в год покупает один", 2)}${numInp("tam.check", "Средняя цена одного флакона, ₽", 400)}</div>
+      <div class="out" data-out="tam"></div>`;
+    case "ten": return head + `<div class="tablewrap"><table><thead><tr><th>#</th><th>Имя / класс</th><th>Реакция</th></tr></thead><tbody>
+      ${Array.from({ length: 10 }, (_, i) => `<tr><td>${i + 1}</td><td>${inp("ten." + i + ".n", i === 0 ? "Аня, 8А" : "")}</td><td><select id="f-ten.${i}.r" data-k="ten.${i}.r" aria-label="Реакция ${i + 1}">
+        ${["", "Куплю!", "Может быть", "Не интересно"].map(o => `<option ${val("ten." + i + ".r") === o ? "selected" : ""}>${o}</option>`).join("")}</select></td></tr>`).join("")}
+      </tbody></table></div><div class="out" data-out="ten"></div>`;
+    case "value": return head + `<p class="hint">Цифры для примера — замени своими.</p><div class="grid2">
+      <label class="f">Аромат, на который похож твой${inp("val.brand", "известный дорогой аромат")}</label>
+      ${numInp("val.op", "Цена оригинала, ₽", 12000)}${numInp("val.oml", "Объём оригинала, мл", 100)}${numInp("val.mp", "Твоя цена, ₽", 450)}${numInp("val.mml", "Твой объём, мл", 5)}</div>
+      <div class="out" data-out="value"></div>`;
+    case "compete": return head + competeHTML();
+    case "unit": return head + `<p class="hint">Цифры для примера — замени своими.</p><div class="grid2">
+      ${numInp("u.bp", "Цена большого флакона у поставщика, ₽", 6000)}${numInp("u.bml", "Объём большого флакона, мл", 100)}
+      ${numInp("u.pack", "Пустой мини-флакон + наклейка, ₽", 35)}${numInp("u.mml", "Объём твоего мини-флакона, мл", 5)}
+      ${numInp("u.price", "Твоя цена, ₽", 450)}${numInp("u.rep", "Сколько раз клиент купит за год", 3)}
+      ${numInp("u.acq", "Траты на привлечение в месяц (пробники, скидки), ₽", 400)}${numInp("u.newc", "Новых клиентов в месяц", 4)}</div>
+      <div class="out" data-out="unit"></div>`;
+    case "risks": return head + `<div class="cards">${RISKS.map((r, i) => { const open = !!S.a["risk." + i];
+      return `<button class="flip ${open ? "open" : ""}" data-risk="${i}" aria-expanded="${open}" aria-label="${esc(r[0])}${open ? ": " + esc(r[3]) : ""}"><div class="in">
+        <div class="face front"><span class="q-mark">?</span><b>${esc(r[0])}</b><span class="muted">Нажми, чтобы проверить</span></div>
+        <div class="face back"><span class="tag" style="color:var(--${r[1]})">${esc(r[2])}</span><b>${esc(r[0])}</b><span style="font-size:14px">${esc(r[3])}</span></div></div></button>`; }).join("")}</div>`;
+    case "sales": return head + salesHTML();
+    case "swipe": return head + swipeHTML();
+  }
+  return "";
+}
+
+function pickHTML(k, t) {
+  const sel = S.a[k] || [];
+  return `<div class="cards">${t.options.map((o, i) => {
+    const on = sel.includes(i), bad = t.pivot && o[2];
+    return `<button class="card ${on ? "on" : ""} ${on && bad ? "badpick" : ""}" data-pick="${k}|${i}|${t.max}" aria-pressed="${on}"><span class="ci">${ico(o[4] || "star")}</span><b>${esc(o[0])}</b><span class="muted">${esc(o[1])}</span>
+      ${on && t.pivot ? `<span class="verdict ${bad ? "bad" : "good"}">${esc(o[3])}</span>` : ""}</button>`;
+  }).join("")}</div>`;
+}
+
+const SEGC = ["Есть деньги", "Легко до них дотянуться", "Общаются между собой", "Мало конкурентов"];
+function segNames() { return Array.from({ length: 6 }, (_, i) => (val("m1.segs." + i) || "").trim()).map((s, i) => s || M[0].tasks[0].ph[i]); }
+function segHTML() {
+  const names = segNames();
+  return `<div class="tablewrap"><table><thead><tr><th>Группа</th>${SEGC.map(c => `<th>${esc(c)}</th>`).join("")}<th>Сумма</th><th>Плацдарм</th></tr></thead><tbody>
+    ${names.map((n, i) => `<tr><td>${esc(n)}</td>${SEGC.map((c, ci) => { const k = "seg." + i + "." + ci;
+      return `<td><select id="f-${k}" data-k="${k}" aria-label="${esc(n)}: ${esc(c)}">${["", 1, 2, 3, 4, 5].map(v => `<option ${String(val(k)) === String(v) ? "selected" : ""}>${v}</option>`).join("")}</select></td>`; }).join("")}
+      <td data-out="segsum${i}">0</td><td><input type="radio" name="beach" id="f-beach${i}" data-beach="${i}" ${String(S.a.beach) === String(i) ? "checked" : ""} aria-label="Выбрать плацдарм: ${esc(n)}"></td></tr>`).join("")}
+  </tbody></table></div><div class="out" data-out="seg"></div>`;
+}
+
+const COMP = ["Ты", "Маркетплейс", "Магазин парфюмерии", "Ничего не покупать"];
+const COMPDEF = [[7, 9], [9, 1], [2, 6], [10, 0]];
+function competeHTML() {
+  return `<div class="grid2"><label class="f">Ось 1 (важно для Маши)${inp("cmp.ax", "Доступная цена")}</label><label class="f">Ось 2 (важно для Маши)${inp("cmp.ay", "Можно понюхать до покупки")}</label></div>
+  <div>${COMP.map((n, i) => `<div class="slider-row"><b>${esc(n)}</b>
+    <div class="sl"><span>Ось 1</span><input type="range" min="0" max="10" id="f-cmp.${i}.x" data-k="cmp.${i}.x" data-num="1" value="${num("cmp." + i + ".x", COMPDEF[i][0])}" aria-label="${esc(n)}: ось 1"><span data-out="cx${i}"></span></div>
+    <div class="sl"><span>Ось 2</span><input type="range" min="0" max="10" id="f-cmp.${i}.y" data-k="cmp.${i}.y" data-num="1" value="${num("cmp." + i + ".y", COMPDEF[i][1])}" aria-label="${esc(n)}: ось 2"><span data-out="cy${i}"></span></div></div>`).join("")}</div>
+  <div class="plot" data-out="plot"></div>`;
+}
+
+function unitCost() { return num("u.bp", 6000) / Math.max(1, num("u.bml", 100)) * num("u.mml", 5) + num("u.pack", 35); }
+
+function salesHTML() {
+  const rows = S.sales.map((s, i) => `<tr><td>${esc(s.d)}</td><td>${esc(s.c)}</td><td>${esc(s.p)}</td><td style="font-variant-numeric:tabular-nums">${fmt(s.r)} ₽</td>
+    <td><button class="btn ghost small" data-delsale="${i}" aria-label="Удалить продажу">×</button></td></tr>`).join("");
+  return `<div class="grid2">
+    <label class="f">Клиент (имя)<input type="text" id="sale-c" placeholder="Маша 8Б"></label>
+    <label class="f">Аромат<input type="text" id="sale-p" placeholder="Ванильный"></label>
+    <label class="f">Цена, ₽<input type="number" inputmode="decimal" id="sale-r" placeholder="450"></label></div>
+    <div class="row"><button class="btn" data-act="addsale">Записать продажу</button><span class="muted" id="salemsg"></span></div>
+    ${S.sales.length ? `<div class="tablewrap"><table><thead><tr><th>Дата</th><th>Клиент</th><th>Аромат</th><th>Цена</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>` : `<p class="hint">Пока продаж нет. Запиши первую — и увидишь статистику.</p>`}
+    <div class="out" data-out="sales"></div>`;
+}
+function salesStats() {
+  const by = {};
+  S.sales.forEach(s => { const k = s.c.trim().toLowerCase(); by[k] = (by[k] || 0) + 1; });
+  const clients = Object.keys(by).length, repeat = Object.values(by).filter(n => n > 1).length;
+  const rev = S.sales.reduce((a, s) => a + s.r, 0), cost = unitCost() * S.sales.length;
+  return { n: S.sales.length, clients, repeat, rate: clients ? repeat / clients : 0, rev, profit: rev - cost };
+}
+
+/* ---------- мини-игра со свайпами */
+function swipeHTML() {
+  const idx = DEALS.findIndex((d, i) => S.swipe[i] == null);
+  const score = Object.keys(S.swipe).filter(i => S.swipe[i]).length;
+  if (idx < 0) return `<div class="out"><span class="big">${score} из ${DEALS.length}</span><span>${score >= 5 ? "Отличное чутьё на деньги! Ты видишь, где сделка выгодна, а где съедает прибыль." : "Неплохо. Главное правило: дели траты на число клиентов и сравнивай с прибылью от одного клиента. Нужно хотя бы в 3 раза больше."}</span>
+    <button class="btn ghost small" data-act="swipereset" style="align-self:flex-start">Сыграть ещё раз</button></div><p class="hint" id="swipemsg" aria-live="polite"></p>`;
+  const d = DEALS[idx], nxt = DEALS[idx + 1];
+  return `<div class="deck" id="deck">
+    ${nxt ? `<div class="deal back" aria-hidden="true"><div class="d-text">${esc(nxt.t)}</div></div>` : ""}
+    <div class="deal" id="deal" data-di="${idx}"><span class="stamp yes">ВЫГОДНО</span><span class="stamp no">В МИНУС</span>
+      <div class="d-step">Сделка ${idx + 1} из ${DEALS.length} · верно: ${score}</div>
+      <div class="d-text">${esc(d.t)}</div>
+      <div class="d-nums"><span>COCA = ${fmt(d.coca)} ₽</span><span>LTV = ${fmt(d.ltv)} ₽</span></div>
+    </div></div>
+    <div class="swipe-btns"><button class="btn ghost no" data-swipe="0">← В минус</button><button class="btn ghost yes" data-swipe="1">Выгодно →</button></div>
+    <p class="hint" id="swipemsg" aria-live="polite">Подсказка: выгодно, если LTV больше или равен 3 × COCA.</p>`;
+}
+function answerSwipe(yes) {
+  const card = document.getElementById("deal"); if (!card || card.dataset.busy) return;
+  card.dataset.busy = "1";
+  const i = +card.dataset.di, d = DEALS[i], good = d.ltv >= d.coca * 3, ok = yes === good;
+  S.swipe[i] = ok; save();
+  card.style.transition = "transform .35s, opacity .35s";
+  card.style.transform = `translateX(${yes ? 420 : -420}px) rotate(${yes ? 24 : -24}deg)`; card.style.opacity = "0";
+  const st = card.querySelector(yes ? ".stamp.yes" : ".stamp.no"); if (st) st.style.opacity = 1;
+  if (ok) { sfx.good(); addXP(5, "swipe." + i); } else sfx.bad();
+  const note = `<b style="color:var(--${ok ? "good" : "bad"})">${ok ? "Верно!" : "Мимо."}</b> ${good ? `LTV ${fmt(d.ltv)} ₽ ≥ 3 × COCA = ${fmt(d.coca * 3)} ₽ — выгодно.` : `LTV ${fmt(d.ltv)} ₽ меньше, чем 3 × COCA = ${fmt(d.coca * 3)} ₽ — в минус или слишком тонко.`}`;
+  const task = card.closest(".task");
+  setTimeout(() => {
+    const m = M[5];
+    if (task) { task.innerHTML = taskHTML(m, m.tasks[0]); const nm = task.querySelector("#swipemsg"); if (nm) nm.innerHTML = note; bindDeck(); }
+    if (Object.keys(S.swipe).length === DEALS.length && Object.values(S.swipe).filter(Boolean).length >= 5) confetti(innerWidth / 2, innerHeight / 2, 100);
+    refreshProgress(m); refreshDone(m);
+  }, 380);
+}
+function bindDeck() {
+  const card = document.getElementById("deal"); if (!card) return;
+  let sx = null, dx = 0;
+  const yesS = card.querySelector(".stamp.yes"), noS = card.querySelector(".stamp.no");
+  card.addEventListener("pointerdown", e => { sx = e.clientX; dx = 0; try { card.setPointerCapture(e.pointerId); } catch (err) {} card.style.transition = "none"; });
+  card.addEventListener("pointermove", e => {
+    if (sx == null) return; dx = e.clientX - sx;
+    card.style.transform = `translateX(${dx}px) rotate(${dx / 14}deg)`;
+    yesS.style.opacity = Math.max(0, Math.min(1, dx / 90)); noS.style.opacity = Math.max(0, Math.min(1, -dx / 90));
+  });
+  const end = () => {
+    if (sx == null) return; sx = null;
+    if (Math.abs(dx) > 90) answerSwipe(dx > 0);
+    else { card.style.transition = "transform .25s"; card.style.transform = ""; yesS.style.opacity = 0; noS.style.opacity = 0; }
+  };
+  card.addEventListener("pointerup", end); card.addEventListener("pointercancel", end);
+}
+
+function doneBar(m, idx) {
+  const solved = m.quiz.every((q, qi) => (S.quiz[m.id + ".q" + qi] || {}).solved);
+  let ok = solved, why = solved ? "" : "Ответь верно на все вопросы теста, чтобы пройти миссию.";
+  if (m.boss && bossHP() > 0) { ok = false; why = (why ? why + " " : "") + "Победи босса: переверни все карточки и выбери безопасный вариант бизнеса."; }
+  if (S.done[m.id]) return `<p class="muted">Миссия пройдена. Значок «${esc(m.badge)}» в коллекции. Можно вернуться и улучшить ответы.</p>
+    <button class="btn" data-go="${idx < 7 ? M[idx + 1].id : "report"}">${idx < 7 ? "Дальше: миссия " + (idx + 2) : "К демо-дню"}</button>`;
+  return `<button class="btn" data-act="finish" data-m="${m.id}" ${ok ? "" : "disabled"}>Завершить миссию · +50 XP</button>${why ? `<p class="muted">${why}</p>` : ""}`;
+}
+
+/* ================================================================== расчёты */
+function setOut(name, html) { document.querySelectorAll(`[data-out="${name}"]`).forEach(el => { el.innerHTML = html; }); }
+function pill(ratio) {
+  if (ratio >= 3) return `<span class="pill good">Отлично</span>`;
+  if (ratio >= 1) return `<span class="pill warn">Тонко</span>`;
+  return `<span class="pill bad">В минус</span>`;
+}
+function gauge(ratio) {
+  const v = Math.max(0, Math.min(5, ratio)), a = Math.PI * (1 - v / 5);
+  const nx = 150 + Math.cos(a) * 92, ny = 130 - Math.sin(a) * 92;
+  const arc = (from, to, col) => { const a0 = Math.PI * (1 - from / 5), a1 = Math.PI * (1 - to / 5);
+    return `<path d="M${(150 + Math.cos(a0) * 110).toFixed(1)},${(130 - Math.sin(a0) * 110).toFixed(1)} A110,110 0 0 1 ${(150 + Math.cos(a1) * 110).toFixed(1)},${(130 - Math.sin(a1) * 110).toFixed(1)}" fill="none" stroke="${col}" stroke-width="22"/>`; };
+  return `<div class="meter"><svg viewBox="0 0 300 150" role="img" aria-label="Шкала LTV к COCA">
+    ${arc(0, 1, "var(--bad)")}${arc(1, 3, "var(--warn)")}${arc(3, 5, "var(--good)")}
+    <text x="40" y="148" text-anchor="middle" font-size="11" font-weight="800" fill="var(--ink-soft)">0</text>
+    <text x="150" y="12" text-anchor="middle" font-size="11" font-weight="800" fill="var(--ink-soft)">×2,5</text>
+    <text x="260" y="148" text-anchor="middle" font-size="11" font-weight="800" fill="var(--ink-soft)">×5+</text>
+    <line x1="150" y1="130" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="150" cy="130" r="10" fill="var(--ink)"/></svg></div>`;
+}
+function updateOutputs() {
+  if (document.querySelector('[data-out="tam"]')) {
+    const t = num("tam.people", 60) * num("tam.freq", 2) * num("tam.check", 400);
+    setOut("tam", `<span class="label muted">Твой пирог в год</span><span class="big">${fmt(t)} ₽</span>
+      <div class="kpis">${[0.1, 0.25, 0.5].map(s => `<div class="kpi"><small>Если возьмёшь ${s * 100}%</small><span>${fmt(t * s)} ₽</span></div>`).join("")}</div>
+      <span>${t < 15000 ? "Пирог небольшой — для первого опыта это нормально. Главное — научиться, а расти будешь на следующих рынках." : "Неплохой пирог! Даже 20–30% от него — хорошие деньги для старта."}</span>`);
+  }
+  if (document.querySelector('[data-out="ten"]')) {
+    let yes = 0, maybe = 0;
+    for (let i = 0; i < 10; i++) { const r = val("ten." + i + ".r"); if (r === "Куплю!") yes++; if (r === "Может быть") maybe++; }
+    const dots = Array.from({ length: 10 }, (_, i) => `<span style="width:22px;height:22px;border-radius:50%;display:inline-block;border:2px solid var(--ink);background:${i < yes ? "var(--good)" : i < yes + maybe ? "var(--warn)" : "var(--surface)"}"></span>`).join("");
+    setOut("ten", `<div class="row" style="gap:6px" aria-hidden="true">${dots}</div><span class="big">${yes} из 10</span><span>${yes >= 5 ? "Отлично: половина готова купить. Можно идти дальше." : yes >= 3 ? "Неплохо, но мало. Поговори ещё или подумай, что изменить." : "Пока мало «куплю». Это сигнал вернуться к выбору плацдарма или товара."}${maybe ? " Ещё «может быть»: " + maybe + "." : ""}</span>`);
+  }
+  if (document.querySelector('[data-out="value"]')) {
+    const op = num("val.op", 12000), oml = num("val.oml", 100), mp = num("val.mp", 450), mml = num("val.mml", 5);
+    const opm = op / Math.max(1, oml), mpm = mp / Math.max(1, mml), save = 100 - mp / Math.max(1, op) * 100;
+    const brand = (val("val.brand") || "дорогой аромат").trim();
+    const h2 = Math.max(4, Math.min(100, mp / Math.max(1, op) * 100));
+    setOut("value", `<div class="row" style="align-items:flex-end;gap:18px">
+        <div style="text-align:center"><div style="width:56px;height:100px;background:var(--c2);border:2px solid var(--ink);border-radius:8px 8px 0 0"></div><small><b>${fmt(op)} ₽</b><br>оригинал</small></div>
+        <div style="text-align:center"><div style="width:56px;height:${h2}px;background:var(--c4);border:2px solid var(--ink);border-radius:8px 8px 0 0"></div><small><b>${fmt(mp)} ₽</b><br>у тебя</small></div>
+        <div class="kpis" style="flex:1;min-width:180px"><div class="kpi"><small>Оригинал за 1 мл</small><span>${fmt(opm)} ₽</span></div><div class="kpi"><small>У тебя за 1 мл</small><span>${fmt(mpm)} ₽</span></div><div class="kpi"><small>Цена ниже на</small><span>${fmt(save)}%</span></div></div></div>
+      <span><b>Твоя фраза для рекламы:</b> «Аромат как ${esc(brand)} — попробуй за ${fmt(mp)} ₽ вместо ${fmt(op)} ₽»</span>`);
+  }
+  if (document.querySelector('[data-out="seg"]')) {
+    const names = segNames(); let best = -1, bestSum = -1;
+    names.forEach((n, i) => { let s = 0; for (let c = 0; c < 4; c++) s += num("seg." + i + "." + c, 0); setOut("segsum" + i, String(s)); if (s > bestSum) { bestSum = s; best = i; } });
+    const chosen = S.a.beach != null ? names[S.a.beach] : null;
+    setOut("seg", bestSum > 0 ? `<span>Больше всего баллов у группы <b>${esc(names[best])}</b> (${bestSum} из 20).</span>${chosen ? `<span>${ico("flag")} Твой плацдарм: <b>${esc(chosen)}</b></span>` : `<span class="muted">Отметь свой плацдарм в последней колонке.</span>`}` : `<span class="muted">Поставь оценки — и увидишь лучшую группу.</span>`);
+  }
+  if (document.querySelector('[data-out="plot"]')) {
+    const ax = val("cmp.ax") || "Доступная цена", ay = val("cmp.ay") || "Можно понюхать до покупки";
+    const cols = ["var(--c2)", "var(--c1)", "var(--c6)", "var(--ink-soft)"];
+    let dots = "";
+    COMP.forEach((n, i) => {
+      const x = num("cmp." + i + ".x", COMPDEF[i][0]), y = num("cmp." + i + ".y", COMPDEF[i][1]);
+      setOut("cx" + i, String(x)); setOut("cy" + i, String(y));
+      const px = 40 + x * 30, py = 320 - y * 28;
+      dots += `<circle cx="${px}" cy="${py}" r="${i ? 9 : 13}" fill="${cols[i]}" stroke="var(--ink)" stroke-width="2.5"/>${i ? "" : `<path d="M${px - 5},${py} l3,4 l7,-8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>`}<text x="${px + (x > 7 ? -16 : 16)}" y="${py + 4}" text-anchor="${x > 7 ? "end" : "start"}" font-size="12" font-weight="${i ? 700 : 800}" fill="var(--ink)">${esc(n)}</text>`;
+    });
+    setOut("plot", `<svg viewBox="0 0 360 360" role="img" aria-label="Карта конкурентов">
+      <rect x="40" y="40" width="300" height="280" rx="10" fill="var(--surface-2)" stroke="var(--ink)" stroke-width="2"/>
+      <rect x="190" y="40" width="150" height="140" fill="var(--mc)" opacity=".16"/>
+      <text x="332" y="58" text-anchor="end" font-size="11" font-weight="800" fill="var(--ink-soft)">ЛУЧШЕЕ МЕСТО</text>
+      <text x="190" y="345" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-soft)">${esc(ax)} →</text>
+      <text x="16" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-soft)" transform="rotate(-90 16 180)">${esc(ay)} →</text>
+      ${dots}</svg>`);
+  }
+  if (document.querySelector('[data-out="unit"]')) {
+    const cost = unitCost(), price = num("u.price", 450), margin = price - cost;
+    const ltv = margin * num("u.rep", 3), coca = num("u.acq", 400) / Math.max(1, num("u.newc", 4)), ratio = coca > 0 ? ltv / coca : (ltv > 0 ? 99 : 0);
+    const tip = margin <= 0 ? "Ты продаёшь дешевле, чем тебе это стоит! Подними цену или найди поставщика дешевле."
+      : ratio >= 3 ? "Каждый клиент приносит больше чем втрое против затрат на его привлечение. Так и держать."
+      : ratio >= 1 ? "Ты в плюсе, но запас маленький. Попробуй поднять цену, раздавать пробники меньше или продавать наборы."
+      : "Привлечь клиента стоит дороже, чем он приносит. Меняй цену, модель или трать меньше на пробники.";
+    setOut("unit", `<div class="kpis"><div class="kpi"><small>Себестоимость флакона</small><span>${fmt(cost)} ₽</span></div>
+      <div class="kpi"><small>Маржа с продажи</small><span>${fmt(margin)} ₽</span></div>
+      <div class="kpi"><small>LTV — ценность клиента</small><span>${fmt(ltv)} ₽</span></div>
+      <div class="kpi"><small>COCA — цена клиента</small><span>${fmt(coca)} ₽</span></div></div>
+      ${gauge(ratio >= 99 ? 5 : ratio)}
+      <div class="row" style="justify-content:center"><span>LTV ÷ COCA = <b style="font-variant-numeric:tabular-nums">${ratio >= 99 ? "∞" : ratio.toFixed(1).replace(".", ",")}</b></span>${pill(ratio)}</div><span>${tip}</span>`);
+  }
+  if (document.querySelector('[data-out="sales"]')) {
+    const s = salesStats();
+    setOut("sales", s.n ? `<div class="kpis"><div class="kpi"><small>Продаж</small><span>${s.n}</span></div><div class="kpi"><small>Выручка</small><span>${fmt(s.rev)} ₽</span></div>
+      <div class="kpi"><small>Прибыль (по калькулятору)</small><span>${fmt(s.profit)} ₽</span></div><div class="kpi"><small>Купили повторно</small><span>${fmt(s.rate * 100)}%</span></div></div>
+      <div class="row" style="gap:10px;align-items:center;flex-wrap:nowrap"><span style="font-size:34px;display:inline-flex;color:var(--${s.rate >= .3 ? "good" : "ink-soft"})">${ico("dog", 2)}</span>
+      <span>${s.rate >= .3 ? "<b>Собаки едят корм!</b> Клиенты возвращаются сами — продукт работает." : s.n >= 5 ? "Повторных пока мало. Спроси клиентов, что улучшить, и напомни о себе, когда духи закончатся." : "Собери хотя бы 5–10 продаж, чтобы увидеть картину."}</span></div>` : "");
+  }
+}
+
+/* ================================================================== отчёт */
+function reportText() {
+  const L = level(), names = segNames(), s = salesStats();
+  const line = (t, v) => v ? `${t}: ${v}\n` : "";
+  const pickNames = (k, mi, ti) => (S.a[k] || []).map(i => M[mi].tasks[ti].options[i][0]).join(", ");
+  const cost = unitCost(), margin = num("u.price", 450) - cost, ltv = margin * num("u.rep", 3), coca = num("u.acq", 400) / Math.max(1, num("u.newc", 4));
+  let t = `СТАРТАП-КВЕСТ · ОТЧЁТ ДЛЯ ДЕМО-ДНЯ\n`;
+  t += `Уровень: ${L.name} · ${fmt(S.xp)} XP · миссий пройдено: ${M.filter(m => S.done[m.id]).length} из 8\n`;
+  t += `Значки: ${M.filter(m => S.done[m.id]).map(m => m.badge).join(", ") || "пока нет"}\n`;
+  const evAns = Object.entries(S.events.answered), evBest = evAns.filter(([id, oi]) => { const e = EVENTS.find(x => x.id === id); return e && e.o[oi] && e.o[oi][1] === 2; }).length;
+  t += `Серия: ${streakNow().n} дн. подряд (рекорд ${S.streak.best}) · карточки событий: ${evAns.length} из ${EVENTS.length}, лучших решений ${evBest} · истории в «Зале славы»: ${Object.keys(S.legends.read).length} из ${LEGENDS.length}\n\n`;
+  t += `1. КЛИЕНТ\n` + line("Плацдарм", S.a.beach != null ? names[S.a.beach] : "") + line("Персона", [0, 1, 2].map(i => val("m2.persona." + i)).filter(Boolean).join(", "));
+  t += line("Объём рынка (TAM)", fmt(num("tam.people", 60) * num("tam.freq", 2) * num("tam.check", 400)) + " ₽ в год");
+  let yes = 0; for (let i = 0; i < 10; i++) if (val("ten." + i + ".r") === "Куплю!") yes++;
+  t += `Сказали «куплю»: ${yes} из 10\n\n`;
+  t += `2. ЦЕННОСТЬ\n` + line("Продукт", val("m3.spec")) + line("Суперсила", pickNames("m4.core", 3, 0)) + line("Ядро одной фразой", val("m4.coreline")) + "\n";
+  t += `3. ПРОДАЖИ\n` + line("Право вето", val("m5.dmu.3")) + line("Каналы", pickNames("m5.chan", 4, 3)) + "\n";
+  t += `4. ДЕНЬГИ\n` + line("Модель", pickNames("m6.model", 5, 1));
+  if (Object.keys(S.swipe).length) t += `Мини-игра «сделки»: ${Object.values(S.swipe).filter(Boolean).length} из ${DEALS.length}\n`;
+  t += `Себестоимость ${fmt(cost)} ₽ · цена ${fmt(num("u.price", 450))} ₽ · маржа ${fmt(margin)} ₽\nLTV ${fmt(ltv)} ₽ · COCA ${fmt(coca)} ₽ · LTV/COCA = ${coca > 0 ? (ltv / coca).toFixed(1).replace(".", ",") : "—"}\n\n`;
+  t += `5. ПРОВЕРКА\n` + line("Выбранный вариант бизнеса", pickNames("m7.pivot", 6, 1) + ((S.a["m7.pivot"] || []).includes(3) ? " (опасный вариант — нужно пересмотреть)" : "")) + line("Минимальный продукт", val("m7.mvbp"));
+  t += `Босс «Мистер Допущение»: ${bossHP() === 0 ? "повержен" : "ещё жив (" + bossHP() + "%)"}\n`;
+  for (let r = 0; r < 3; r++) { const a = val("m7.exp." + r + ".0"); if (a) t += `Эксперимент: ${a} → ${val("m7.exp." + r + ".1")} → успех, если ${val("m7.exp." + r + ".2")}\n`; }
+  t += `\n6. РЕЗУЛЬТАТЫ\nПродаж: ${s.n} · выручка ${fmt(s.rev)} ₽ · прибыль ≈ ${fmt(s.profit)} ₽ · повторных ${fmt(s.rate * 100)}%\n`;
+  t += line("Следующие рынки", [0, 1, 2].map(i => val("m8.nextm." + i)).filter(Boolean).join(", "));
+  t += line("План", [0, 1, 2].map(i => val("m8.plan." + i)).filter(Boolean).join(" → "));
+  return t;
+}
+function renderReport() {
+  app.style.setProperty("--mc", "var(--c6)");
+  const L = level(), doneCount = M.filter(m => S.done[m.id]).length;
+  app.innerHTML = `<div class="topbar"><button class="btn ghost" data-go="home">← Карта</button>${soundBtn()}</div>
+  <div class="stack">
+    <header class="mhead"><svg class="scene" viewBox="0 0 320 124" aria-hidden="true">
+      <rect x="96" y="14" width="128" height="74" rx="10" fill="#fff" stroke="${INK}" stroke-width="3"/>
+      <path d="M112,74 l22,-18 18,10 26,-26 30,14" fill="none" stroke="#5fa62d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M160,88 v18" stroke="${INK}" stroke-width="4"/><path d="M140,108 h40" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+      ${person(52, 118, "#f2b93a")}${person(76, 118, "#45a8e6")}${person(248, 118, "#e23d4f")}${person(272, 118, "#79c046")}
+      <g class="token">${bottleChar(196, 118, .8)}</g></svg>
+      <div class="mtitle"><div class="mnum">${doneCount}/8</div><div><div class="label">Финал</div><h1>Демо-день</h1></div></div></header>
+    <div class="panel"><p>Покажи этот отчёт своему инвестору — родителям. Расскажи, что ты узнал и что поменял по ходу. Отчёт собирается из твоих ответов во всех миссиях.</p>
+      <div class="kpis"><div class="kpi"><small>Уровень</small><span>${esc(L.name)}</span></div><div class="kpi"><small>Опыт</small><span>${fmt(S.xp)} XP</span></div><div class="kpi"><small>Значки</small><span>${doneCount} из 8</span></div></div></div>
+    <div class="row"><button class="btn" data-act="copy">Скопировать отчёт</button><span class="muted" id="copymsg"></span></div>
+    <pre class="report" id="reporttext">${esc(reportText())}</pre></div>`;
+  window.scrollTo(0, 0);
+  if (doneCount === 8 && !S.got.finale) { S.got.finale = 1; save(); setTimeout(() => { sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 200); }, 300); }
+}
+
+/* ================================================================== события */
+function route() {
+  const h = location.hash.replace("#", "");
+  if (h === "report") return renderReport();
+  if (M.some(m => m.id === h)) return renderMission(h);
+  renderHome();
+}
+window.addEventListener("hashchange", route);
+function go(target) {
+  if (target === "home") { if (location.hash && location.hash !== "#") location.hash = ""; else route(); }
+  else if (location.hash === "#" + target) route();
+  else location.hash = target;
+}
+function shakeHead() { const b = document.querySelector(".mhead"); if (b) { b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); } }
+
+app.addEventListener("click", e => {
+  const el = e.target.closest("[data-go],[data-qopt],[data-pick],[data-risk],[data-act],[data-delsale],[data-beach],[data-swipe],[data-daily],[data-event],[data-story],[data-hall]");
+  if (!el) return;
+  if (el.dataset.daily != null) {
+    const i = +el.dataset.daily; if (S.daily.done[i]) return;
+    S.daily.done[i] = true; save(); sfx.good();
+    const r = el.getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 40);
+    addXP(15, "daily." + S.daily.date + "." + i); touchStreak();
+    if (S.daily.quests.every((q, k) => S.daily.done[k]) && addXP(25, "chest." + S.daily.date)) { sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 140); toast("Сундук дня открыт! +25 XP"); }
+    document.getElementById("dailybox").innerHTML = dailyHTML();
+    const sb = document.getElementById("streakbox"); if (sb) sb.outerHTML = streakBox();
+    return;
+  }
+  if (el.dataset.event) {
+    const [id, oi] = el.dataset.event.split("|"), ev = EVENTS.find(x => x.id === id), g = ev.o[+oi][1];
+    if (S.events.answered[id] != null) return;
+    S.events.answered[id] = +oi; save();
+    if (g === 2) { sfx.good(); const r = el.getBoundingClientRect(); confetti(r.left + r.width / 2, r.top, 50); addXP(15, "event." + id); }
+    else if (g === 1) { sfx.coin(); addXP(5, "event." + id); }
+    else sfx.bad();
+    document.getElementById("eventbox").innerHTML = eventHTML(false);
+    return;
+  }
+  if (el.dataset.story) { openStory(el.dataset.story); return; }
+  if (el.dataset.hall) {
+    const l = LEGENDS.find(x => x.id === el.dataset.hall), mi = M.indexOf(legendMission(l));
+    sfx.bad(); toast("Откроется в миссии " + (mi + 1)); return;
+  }
+  if (el.dataset.go) {
+    const i = M.findIndex(m => m.id === el.dataset.go);
+    if (i >= 0 && !unlocked(i)) { sfx.bad(); toast("Сначала пройди миссию " + i); return; }
+    return go(el.dataset.go);
+  }
+  if (el.dataset.swipe != null) { answerSwipe(el.dataset.swipe === "1"); return; }
+  if (el.dataset.qopt) {
+    const [qid, oi] = el.dataset.qopt.split("|"), i = +oi;
+    const [mid, qk] = qid.split(".q"), m = M.find(x => x.id === mid), q = m.quiz[+qk];
+    const st = S.quiz[qid] || { picked: [], solved: false };
+    if (st.solved || st.picked.includes(i)) return;
+    const first = st.picked.length === 0;
+    st.picked.push(i); if (i === q.c) st.solved = true;
+    S.quiz[qid] = st; save();
+    const r = el.getBoundingClientRect();
+    if (st.solved) { sfx.good(); confetti(r.left + r.width / 2, r.top + r.height / 2, 40); if (first) addXP(10, "quiz." + qid); }
+    else sfx.bad();
+    el.closest(".q").outerHTML = quizHTML(qid, q);
+    if (!st.solved) { const nb = document.querySelector(`[data-qopt="${qid}|${i}"]`); if (nb) nb.classList.add("shake"); }
+    refreshDone(m); refreshProgress(m);
+    return;
+  }
+  if (el.dataset.pick) {
+    const [k, oi, max] = el.dataset.pick.split("|"), i = +oi;
+    let sel = (S.a[k] || []).slice();
+    if (sel.includes(i)) sel = sel.filter(x => x !== i);
+    else { sel.push(i); if (sel.length > +max) sel.shift(); }
+    S.a[k] = sel; save();
+    const m = M.find(x => k.startsWith(x.id + ".")), t = m.tasks.find(x => m.id + "." + x.key === k);
+    const bad = t.pivot && sel.includes(3);
+    if (sel.length && !bad) addXP(5, "f." + k);
+    if (bad) { sfx.bad(); toast("Опасный вариант! Босс лечится — выбери другой"); shakeHead(); }
+    else if (t.pivot && sel.length) sfx.hit();
+    el.closest(".cards").outerHTML = pickHTML(k, t);
+    refreshDone(m); refreshProgress(m); if (t.pivot) updateBoss(true);
+    return;
+  }
+  if (el.dataset.risk) {
+    const i = +el.dataset.risk; if (S.a["risk." + i]) return;
+    S.a["risk." + i] = true; save(); sfx.hit(); addXP(5, "f.risk." + i);
+    el.classList.add("open"); el.setAttribute("aria-expanded", "true");
+    shakeHead();
+    refreshDone(M[6]); refreshProgress(M[6]); updateBoss(true);
+    return;
+  }
+  if (el.dataset.beach != null && el.type === "radio") {
+    S.a.beach = +el.dataset.beach; save(); addXP(5, "f.beach"); updateOutputs(); refreshProgress(M[0]); return;
+  }
+  if (el.dataset.delsale != null) {
+    S.sales.splice(+el.dataset.delsale, 1); save();
+    el.closest(".task").innerHTML = taskHTML(M[7], M[7].tasks[0]); updateOutputs(); refreshProgress(M[7]); return;
+  }
+  const act = el.dataset.act;
+  if (act === "finish") {
+    const m = M.find(x => x.id === el.dataset.m), idx = M.indexOf(m);
+    S.done[m.id] = 1; save(); sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 160);
+    addXP(50, "done." + m.id);
+    refreshDone(m);
+    showModal(`<div class="hex bigx" style="background:var(${m.color})">${ico(m.icon, 2.2)}</div>
+      <div class="label muted">Новый значок</div><h2 style="font-size:24px">${esc(m.badge)}</h2>
+      <p class="muted">Миссия ${idx + 1} пройдена! +50 XP. ${idx < 7 ? "Открыта миссия " + (idx + 2) + "." : "Впереди демо-день!"}</p>`,
+      idx < 7 ? "Следующая миссия" : "К демо-дню", () => go(idx < 7 ? M[idx + 1].id : "report"), ["На карту", () => go("home")]);
+  } else if (act === "addsale") {
+    const c = document.getElementById("sale-c").value.trim(), p = document.getElementById("sale-p").value.trim();
+    const r = parseFloat(document.getElementById("sale-r").value.replace(",", "."));
+    const msg = document.getElementById("salemsg");
+    if (!c || !isFinite(r) || r <= 0) { sfx.bad(); msg.textContent = "Укажи имя клиента и цену больше нуля."; return; }
+    const repeatBuy = S.sales.some(s => s.c.trim().toLowerCase() === c.toLowerCase());
+    S.sales.push({ d: new Date().toLocaleDateString("ru-RU"), c, p, r }); save();
+    addXP(5, "sale." + S.sales.length);
+    if (repeatBuy) { const rr = el.getBoundingClientRect(); confetti(rr.left + rr.width / 2, rr.top, 60); toast("Повторная покупка! Собаки едят корм"); }
+    el.closest(".task").innerHTML = taskHTML(M[7], M[7].tasks[0]); updateOutputs(); refreshProgress(M[7]);
+  } else if (act === "drawevent") {
+    S.events.cur = pickEvent(true); save(); sfx.hit();
+    document.getElementById("eventbox").innerHTML = eventHTML(true);
+  } else if (act === "backupcopy") {
+    const code = exportCode(), msg = document.getElementById("backupmsg"), box = document.getElementById("importbox");
+    const fallback = () => { box.value = code; box.select(); msg.textContent = "Код в поле ниже — скопируй его вручную."; };
+    try { navigator.clipboard.writeText(code).then(() => { msg.textContent = "Код скопирован! Сохрани его в заметках или отправь себе."; sfx.good(); }, fallback); } catch (err) { fallback(); }
+  } else if (act === "backuprestore") {
+    const msg = document.getElementById("restoremsg"), code = document.getElementById("importbox").value;
+    if (!code.trim()) { msg.textContent = "Сначала вставь код сохранения."; return; }
+    try {
+      const before = S.xp; S = mergeState(S, importCode(code)); save();
+      renderHome(); sfx.win(); confetti(innerWidth / 2, innerHeight / 3, 120);
+      toast(S.xp > before ? "Прогресс объединён! Теперь у тебя " + fmt(S.xp) + " XP" : "Прогресс объединён!");
+    } catch (err) { sfx.bad(); msg.textContent = "Код не подошёл. Проверь, что он скопирован целиком."; }
+  } else if (act === "swipereset") {
+    S.swipe = {}; save(); el.closest(".task").innerHTML = taskHTML(M[5], M[5].tasks[0]); bindDeck(); refreshProgress(M[5]);
+  } else if (act === "copy") {
+    const txt = reportText(), msg = document.getElementById("copymsg");
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("reporttext")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); msg.textContent = "Текст выделен — скопируй его вручную."; };
+    try { navigator.clipboard.writeText(txt).then(() => { msg.textContent = "Скопировано! Отправь в мессенджер."; sfx.good(); }, fallback); } catch (err) { fallback(); }
+  } else if (act === "sound") {
+    soundOn = !soundOn; try { localStorage.setItem("startup-quest-sound", soundOn ? "on" : "off"); } catch (err) {}
+    el.outerHTML = soundBtn(); if (soundOn) sfx.good();
+  } else if (act === "reset") {
+    const note = document.getElementById("resetnote");
+    if (el.dataset.armed) { S = fresh(); save(); renderHome(); toast("Игра начата заново"); }
+    else { el.dataset.armed = "1"; el.textContent = "Точно стереть всё?"; note.textContent = "Нажми ещё раз для подтверждения."; }
+  }
+});
+
+app.addEventListener("keydown", e => {
+  const n = e.target.closest && e.target.closest(".node[data-go]");
+  if (n && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); n.dispatchEvent(new MouseEvent("click", { bubbles: true })); }
+});
+
+function onField(e) {
+  const el = e.target; const k = el.dataset && el.dataset.k; if (!k) return;
+  const v = el.type === "checkbox" ? el.checked : el.value;
+  S.a[k] = v; save();
+  if (v !== "" && v !== false) addXP(5, "f." + k);
+  updateOutputs();
+  const id = location.hash.replace("#", ""), m = M.find(x => x.id === id); if (m) refreshProgress(m);
+}
+app.addEventListener("input", onField);
+app.addEventListener("change", e => { if (e.target.type === "checkbox" || e.target.tagName === "SELECT") onField(e); });
+
+function refreshDone(m) { const bar = document.getElementById("donebar"); if (bar) bar.innerHTML = doneBar(m, M.indexOf(m)); }
+
+route();
+})();
+</script>
+
+</body>
+</html>
